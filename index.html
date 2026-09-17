@@ -1,11 +1,214 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mercedes Benz | España - Sitio web oficial</title>
+    <title>Mercedes-Benz | España - Sitio web oficial</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom-css.css">
 </head>
+
 <body>
-    
+    <header>
+        <nav class="navbar navbar-expand-lg bg-black nav-padding-responsive" data-bs-theme="dark">
+            <div class="container-fluid p-0">
+
+                <!-- Bloque izquierdo:hamburguesa en movil + menú en escritorio -->
+                <div class="nav-left d-flex align-items-center">
+                    <button class="navbar-toggler border-0 p-0 shadow-none" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#menuMercedes" aria-label="Abrir menú">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40"
+                                fill="#ffffff">
+                                <path d="M19 11H5v2h14zm0-4H5v2h14zm0 8H5v2h14z" />
+                            </svg>
+                        </span>
+                    </button>
+
+                    <ul class="navbar-nav gap-4 d-none d-lg-flex"> <!-- Ocultar en movil, display flex en large-->
+                        <li class="nav-item"><a class="nav-link text-white" href="#">Modelos</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="#">Comprar</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="#">Servicios</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="#">Marca</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-center">
+                    <a class="navbar-brand m-0 p-0" href="#">
+                        <img src="images/logo-140years.gif" alt="Mercedes-Benz" class="logo-mercedes">
+                    </a>
+                </div>
+
+                <div class="nav-right d-flex justify-content-end align-items-center gap-5 gap-lg-5">
+                    <a href="#" class="nav-link text-white d-none d-xl-inline-block text-nowrap">Proveedor...</a>
+
+                    <!-- Buscar -->
+                    <a href="#" class="nav-icono d-none d-lg-flex" aria-label="Buscar">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none"
+                            stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+                            <circle cx="10.5" cy="10.5" r="6.75"></circle>
+                            <path d="M15.6 15.6 21 21"></path>
+                        </svg>
+                    </a>
+
+                    <!-- Favoritos -->
+                    <a href="#" class="nav-icono" aria-label="Favoritos">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28"
+                            fill="currentColor" aria-hidden="true">
+                            <path
+                                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z">
+                            </path>
+                        </svg>
+                    </a>
+
+                    <!-- Iniciar sesión -->
+                    <a href="#" class="nav-link text-white d-flex align-items-center gap-2 p-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32"
+                            aria-hidden="true">
+                            <circle cx="16" cy="16" r="16" fill="#5c5c5c"></circle>
+                            <circle cx="16" cy="12.5" r="4" fill="#fff"></circle>
+                            <path d="M16 18c-4.4 0-8 2.6-8 5.8V26h16v-2.2c0-3.2-3.6-5.8-8-5.8z" fill="#fff"></path>
+                        </svg>
+                        <span class="d-none d-md-inline text-nowrap">Iniciar sesi...</span>
+                    </a>
+                </div>
+
+            </div>
+        </nav>
+
+        <!-- MENÚ MÓVIL: panel blanco que se abre POR ENCIMA del navbar
+        offcanvas (Bootstrap): Oculta este panel por defecto fuera de la pantalla (visibility: hidden) y prepara las animaciones de entrada y salida con JavaScript.
+        offcanvas-start: Le indica la dirección de entrada: entra deslizándose desde la izquierda (start).
+        -->
+        <div class="offcanvas offcanvas-start menu-mercedes" tabindex="-1" id="menuMercedes"
+            aria-labelledby="menuMercedesLabel">
+            <div class="offcanvas-header">
+                <h2 class="offcanvas-title fs-3 fw-normal text-dark times-new-roman" id="menuMercedesLabel">Menú</h2>
+                <!-- data-bs-dismiss="offcanvas": El disparador de cierre nativo. Al hacer clic en la "X", Bootstrap ejecuta la animación inversa y esconde el menú -->
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+            </div>
+
+            <div class="offcanvas-body d-flex flex-column">
+                <!-- Buscador -->
+                <form class="menu-buscador position-relative mb-4" role="search" onsubmit="return false;">
+                    <input type="search" class="form-control" placeholder="¿Cómo podemos ayudar?" aria-label="Buscar">
+                    <svg class="menu-buscador-icono" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22"
+                        height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                        aria-hidden="true">
+                        <circle cx="10.5" cy="10.5" r="6.75"></circle>
+                        <path d="M15.6 15.6 21 21"></path>
+                    </svg>
+                </form>
+
+                <!--
+                SECCIÓN DE ENLACES
+                - list-unstyled: Elimina los puntos/viñetas por defecto del <ul> y el sangrado/padding izquierdo del navegador.
+                 -->
+                <ul class="list-unstyled mb-0">
+
+                    <!-- Enlace: Modelos -->
+                    <li>
+                        <a class="d-flex justify-content-between align-items-center py-3 text-dark text-decoration-none link-opacity-75-hover"
+                            href="#">
+                            <span>Modelos</span>
+                            <!-- 
+                                flex-shrink-0: En cajas flexibles (flex), si el texto del enlace crece demasiado, 
+                                el navegador intentará encoger los elementos secundarios para que quepan. 
+                                Esta clase le prohíbe al SVG encogerse o deformarse (mantiene sus 18x18px exactos).
+            q               -->
+                            <svg class="flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18"
+                                height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                <path d="m9 5 7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </li>
+
+                    <!-- Enlace: Comprar -->
+                    <li>
+                        <a class="d-flex justify-content-between align-items-center py-3 text-dark text-decoration-none link-opacity-75-hover"
+                            href="#">
+                            <span>Comprar</span>
+                            <svg class="flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18"
+                                height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                <path d="m9 5 7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </li>
+
+                    <!-- Enlace: Servicios -->
+                    <li>
+                        <a class="d-flex justify-content-between align-items-center py-3 text-dark text-decoration-none link-opacity-75-hover"
+                            href="#">
+                            <span>Servicios</span>
+                            <svg class="flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18"
+                                height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                <path d="m9 5 7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </li>
+
+                    <!-- Enlace: Marca -->
+                    <li>
+                        <a class="d-flex justify-content-between align-items-center py-3 text-dark text-decoration-none link-opacity-75-hover"
+                            href="#">
+                            <span>Marca</span>
+                            <svg class="flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18"
+                                height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                <path d="m9 5 7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </li>
+
+                </ul>
+
+                <!-- Pie del menú -->
+                <div class="mt-auto pt-3 border-top border-secondary-subtle">
+                    <a href="#" class="small text-secondary text-decoration-none link-dark link-underline-hover">
+                        Proveedor/Protección de datos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero position-relative bg-black text-white d-flex flex-column min-vh-100">
+        <div class="hero-media position-relative">
+            <!-- La sombra cubre solo la imagen, no el texto -->
+            <div class="position-relative overflow-hidden">
+                <picture>
+                    <source media="(min-width: 992px)" srcset="images/hero.jpg">
+                    <img src="images/heromobile.jpg" alt="Modelos Mercedes-Benz en un atardecer"
+                        class="hero-img w-100 d-block object-fit-cover">
+                </picture>
+
+                <!-- Sombra: abajo en móvil, esquina inferior izquierda en escritorio -->
+                <div class="hero-sombra position-absolute top-0 start-0 w-100 h-100"></div>
+            </div>
+
+            <!-- En móvil fluye debajo de la imagen; en lg+ se superpone a la izquierda -->
+            <div class="hero-contenido d-flex align-items-center pt-4 pb-5">
+                <div class="hero-caja w-100 text-center text-lg-start">
+                    <div class="row">
+                        <div class="col-12 col-lg-8 col-xl-6">
+                            <h1 class="hero-titulo mb-3 mb-lg-4">Días con estrella<br>de Mercedes-Benz.</h1>
+                            <p class="hero-sub mb-3 mb-lg-4">Hasta el 30 de septiembre. Welcome Home.</p>
+                            <a href="#"
+                                class="hero-btn btn btn-primary rounded-pill fw-semibold d-grid d-lg-inline-block">
+                                Descúbrelos
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Al final del body, igual que en la opción anterior -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+
 </body>
+
 </html>

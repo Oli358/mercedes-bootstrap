@@ -1,0 +1,238 @@
+/* =========================================================
+   1. NAVBAR: padding responsive
+   ========================================================= */
+.nav-padding-responsive {
+  padding: 1.5rem 1.6rem;
+}
+
+@media (min-width: 992px) {
+  .nav-padding-responsive {
+    padding: 1.4rem 6.75rem;
+  }
+}
+
+.navbar>.container-fluid {
+  position: relative;
+}
+
+/* Se extrae del flujo con position absolute para que el ancho del bloque izquierdo o derecho nunca lo desplace. */
+.nav-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.logo-mercedes {
+  height: 42px;
+  width: auto;
+  display: block;
+}
+
+/* Bloques laterales equilibrados */
+.nav-left,
+.nav-right {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* =========================================================
+   3. ENLACES Y SEPARACIÓN
+   ========================================================= */
+.nav-link {
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+  padding: 0.5rem 0.25rem;
+  transition: opacity 0.2s ease;
+}
+
+.nav-link:hover {
+  opacity: 0.7;
+}
+
+/* Separación del menú principal (escritorio) */
+.menu-principal {
+  column-gap: 1.25rem;
+}
+
+@media (min-width: 1200px) {
+  .menu-principal {
+    column-gap: 2rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .menu-principal {
+    column-gap: 2.75rem;
+  }
+}
+
+/* Iconos de la derecha */
+.nav-icono {
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  transition: opacity 0.2s ease;
+}
+
+.nav-icono:hover {
+  color: #fff;
+  opacity: 0.7;
+}
+
+.navbar-toggler {
+  padding: 0.25rem;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+/* =========================================================
+   4. MENÚ MÓVIL: offcanvas blanco a pantalla completa
+   ========================================================= */
+.menu-mercedes {
+  --bs-offcanvas-width: 100%;
+  --bs-offcanvas-bg: #fff;
+  --bs-offcanvas-color: #1a1a1a;
+  --bs-offcanvas-padding-x: 0;
+  --bs-offcanvas-padding-y: 0;
+}
+
+.menu-mercedes .offcanvas-header {
+  padding: 1.5rem 1.75rem 0.5rem;
+}
+
+.menu-mercedes .offcanvas-body {
+  padding: 0 1.75rem 1.5rem;
+}
+
+.times-new-roman {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* Buscador */
+.menu-buscador input {
+  border: 1px solid #b7b7b7;
+  border-radius: 0.35rem;
+  padding: 0.85rem 3.25rem 0.85rem 1rem;
+  font-size: 1rem;
+  color: #1a1a1a;
+}
+
+.menu-buscador input::placeholder {
+  color: #8a8a8a;
+}
+
+.menu-buscador input:focus {
+  border-color: #1a1a1a;
+  box-shadow: none;
+}
+
+.menu-buscador-icono {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #1a1a1a;
+  pointer-events: none;
+}
+
+/* =========================================================
+   5. HERO
+   ========================================================= */
+
+/* Móvil: la imagen heromobile.jpg (1:1) se muestra a su proporción natural.
+   Escritorio: la imagen mantiene su proporción (sin ampliarse) y el espacio
+   que sobra bajo ella queda negro, nunca blanco. */
+@media (min-width: 992px) {
+  .hero-img {
+    height: auto;
+    max-height: calc(100vh - 4.9375rem);
+    object-position: center;
+    transform: scale(1.07);
+  }
+
+  .hero-contenido {
+    position: absolute;
+    inset: 0;
+  }
+}
+
+/* Sombra inferior en móvil: funde la imagen con el fondo negro */
+.hero-sombra {
+  background: linear-gradient(to top,
+      rgba(0, 0, 0, 0.8) 0%,
+      rgba(0, 0, 0, 0.45) 16%,
+      rgba(0, 0, 0, 0.15) 34%,
+      rgba(0, 0, 0, 0) 55%);
+  pointer-events: none;
+}
+
+/* Escritorio: sombra más intensa desde la esquina inferior izquierda,
+   oscurecimiento de la parte izquierda que se funde con el header
+   y borde inferior fundido con el fondo negro */
+@media (min-width: 992px) {
+  .hero-sombra {
+    background:
+      linear-gradient(to top,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0.6) 4%,
+        rgba(0, 0, 0, 0) 10%),
+      linear-gradient(to right,
+        rgba(0, 0, 0, 0.95) 0%,
+        rgba(0, 0, 0, 0.55) 10%,
+        rgba(0, 0, 0, 0.22) 22%,
+        rgba(0, 0, 0, 0) 38%),
+      radial-gradient(120% 130% at 0% 100%,
+        rgba(0, 0, 0, 0.98) 0%,
+        rgba(0, 0, 0, 0.55) 14%,
+        rgba(0, 0, 0, 0.15) 32%,
+        rgba(0, 0, 0, 0) 52%);
+  }
+}
+
+/* Mismo padding lateral que el navbar para alinear los textos */
+.hero-caja {
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+}
+
+@media (min-width: 992px) {
+  .hero-caja {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero-caja {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .hero-caja {
+    padding-left: 6.5rem;
+    padding-right: 6.5rem;
+  }
+}
+
+/* Tamaños tipográficos fluidos que no cubren las utilidades de Bootstrap */
+.hero-titulo {
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 400;
+  font-size: clamp(1.95rem, 3.5vw, 3.9rem);
+  line-height: 1.08;
+}
+
+.hero-sub {
+  font-size: clamp(0.95rem, 1.1vw, 1.25rem);
+}
+
+/* Punto medio entre los paddings de Bootstrap (px-4 / px-5, py-2 / py-3) */
+.hero-btn {
+  padding: 0.75rem 2.5rem;
+}
