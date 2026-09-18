@@ -211,6 +211,21 @@
     </section>
 
 
+    <!-- SELECTOR FLOTANTE DE MARCA -->
+    <div class="selector-marca-wrapper">
+        <div class="selector-marca" role="tablist" aria-label="Marcas">
+            <a href="#mercedes-benz" class="selector-marca-item activo" role="tab" aria-selected="true">
+                Mercedes-Benz
+            </a>
+            <a href="#amg" class="selector-marca-item" role="tab" aria-selected="false">
+                <img src="images/logo-amg.svg" alt="AMG">
+            </a>
+            <a href="#maybach" class="selector-marca-item" role="tab" aria-selected="false">
+                <img src="images/logo-maybach.svg" alt="Maybach">
+            </a>
+        </div>
+    </div>
+
     <!-- RECOMENDACIONES -->
     <section class="container-xl py-5">
         <!-- Título principal -->
@@ -383,6 +398,29 @@
 
         </div>
     </section>
+
+    <!-- Anclaje del selector flotante: al superar su línea, se fija arriba; al volver sube a su sitio -->
+    <script>
+        (function () {
+            const pildora = document.querySelector('.selector-marca');
+            const hueco = document.querySelector('.selector-marca-wrapper');
+            let base = 0;
+
+            const medir = () => { base = hueco.offsetTop; };
+
+            const actualizar = () => {
+                const anclado = window.scrollY > base - 20;
+                pildora.classList.toggle('selector-marca-dock', anclado);
+                // Reserva el hueco que deja la píldora al volverse fixed para que el contenido no salte
+                hueco.style.minHeight = anclado ? pildora.offsetHeight + 'px' : '';
+            };
+
+            window.addEventListener('scroll', actualizar, { passive: true });
+            window.addEventListener('resize', () => { medir(); actualizar(); });
+            medir();
+            actualizar();
+        })();
+    </script>
 
     <!-- Script de Bootstrap -->
     <script src="js/bootstrap.bundle.min.js"></script>
