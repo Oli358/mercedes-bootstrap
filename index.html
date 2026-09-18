@@ -7,6 +7,11 @@
     <title>Mercedes-Benz | España - Sitio web oficial</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/custom-css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Instrument+Serif:ital@0;1&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -206,9 +211,98 @@
     </section>
 
 
-    <!-- Al final del body, igual que en la opción anterior -->
-    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- RECOMENDACIONES -->
+    <section class="container-xl py-5">
+        <!-- Título principal -->
+        <h2 class="title-recomendaciones fw-normal mb-4">Nuestras recomendaciones.</h2>
 
+        <!-- Fila superior -->
+        <div class="row g-4 align-items-start">
+
+            <!-- Tarjeta 1 -->
+            <div class="col-12 col-lg-8">
+                <div class="card card-recommendation text-white rounded-4 overflow-hidden">
+                    <img src="images/GLA-electrico.avif" class="card-img" alt="Nuevo GLA eléctrico">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end p-4">
+                        <h3 class="h4 mb-1">Nuevo GLA eléctrico.</h3>
+                        <p class="mb-3 text-light">Comodidad para el día a día.</p>
+                        <div class="d-flex align-items-center gap-3">
+                            <a href="#" class="btn btn-primary rounded-pill px-4">Descubrir más</a>
+                            <a href="#" class="link-mercedes fw-semibold ps-1">Configúralo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tarjeta 2: Ofertas -->
+            <div class="col-12 col-lg-4">
+                <div class="card card-recommendation card-ofertas text-white rounded-4 overflow-hidden">
+                    <img src="images/mejores-ofertas.avif" class="card-img" alt="Mejores ofertas">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end p-4">
+                        <h3 class="h4 fw-bold mb-1">Tenemos las mejores ofertas para ti.</h3>
+                        <p class="mb-3 text-light">Encuentra la tuya en la amplia gama de Mercedes-Benz.</p>
+                        <div>
+                            <a href="#" class="btn btn-primary rounded-pill px-4">Ver ofertas</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Fila inferior: 3 tarjetas iguales (4 columnas cada una) -->
+        <div class="row g-4 align-items-start mt-2">
+
+            <!-- Tarjeta 3: Clase C Eléctrico -->
+            <div class="col-12 col-lg-4">
+                <div class="card card-recommendation text-white rounded-4 overflow-hidden">
+                    <img src="images/clase-c-electrico.avif" class="card-img" alt="Nuevo Clase C Eléctrico">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end p-4">
+                        <span class="text-uppercase small mb-1 opacity-75">Nuevo</span>
+                        <h3 class="h4 fw-bold mb-1">Clase C Eléctrico.</h3>
+                        <p class="mb-3 text-light">Renace una estrella.</p>
+                        <div class="d-flex align-items-center gap-3">
+                            <a href="#" class="btn btn-primary rounded-pill px-4">Descúbrelo</a>
+                            <a href="#" class="link-mercedes fw-semibold ps-1">Configúralo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 4: CLA Shooting Brake -->
+            <div class="col-12 col-lg-4">
+                <div class="card card-recommendation text-white rounded-4 overflow-hidden">
+                    <img src="images/CLA-shooting.avif" class="card-img" alt="Nuevo CLA Shooting Brake">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end p-4">
+                        <span class="text-uppercase small mb-1 opacity-75">Nuevo</span>
+                        <h3 class="h4 fw-bold mb-1">CLA Shooting Brake.</h3>
+                        <p class="mb-3 text-light">Híbrido o eléctrico.</p>
+                        <div class="d-flex align-items-center gap-3">
+                            <a href="#" class="btn btn-primary rounded-pill px-4">Descúbrelo</a>
+                            <a href="#" class="link-mercedes fw-semibold ps-1">Pruébalo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 5: Prueba de vehículo -->
+            <div class="col-12 col-lg-4">
+                <div class="card card-recommendation text-white rounded-4 overflow-hidden">
+                    <img src="images/prueba-vehiculo.jpg" class="card-img" alt="Prueba de vehículo">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end p-4">
+                        <h3 class="h4 fw-bold mb-1">Siente la emoción de poner a prueba un Mercedes-Benz.</h3>
+                        <p class="mb-3 text-light">Prueba de vehículo.</p>
+                        <div>
+                            <a href="#" class="btn btn-primary rounded-pill px-4">Solicita una prueba</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Script de Bootstrap -->
+    <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

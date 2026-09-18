@@ -235,4 +235,121 @@
 /* Punto medio entre los paddings de Bootstrap (px-4 / px-5, py-2 / py-3) */
 .hero-btn {
   padding: 0.75rem 2.5rem;
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: 'Instrument Serif', serif;
+  font-weight: 200;
+  letter-spacing: 0.5px;
+}
+
+/* Ajuste específico para que las tarjetas no fuercen negrita excesiva */
+.card-recommendation h3 {
+  font-family: 'Instrument Serif', serif;
+  font-weight: 400;
+  font-size: 1.75rem;
+}
+
+/* Altura base para móvil y sin bordes */
+.card-recommendation {
+  height: 420px;
+  position: relative;
+  border: none;
+}
+
+/* La imagen ocupa siempre todo el contenedor sin deformarse */
+.card-recommendation .card-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Degradado inferior para que se lea el texto y los botones */
+.card-recommendation .card-img-overlay {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.5) 65%,
+    #000000 82%,
+    #000000 100%
+  );
+}
+
+/* Altura en ordenador (a partir de 992px) */
+@media (min-width: 992px) {
+  .card-recommendation {
+    height: 480px;
+  }
+}
+
+/* Zoom suave y rápido en la imagen */
+.card-recommendation .card-img {
+  transition: transform 0.35s ease-out;
+  will-change: transform;
+}
+
+.card-recommendation:hover .card-img {
+  transform: scale(1.04);
+}
+
+/* Botón azul: se oscurece solo un pelín */
+.card-recommendation .btn-primary {
+  background-color: #0073e6;
+  border-color: #0073e6;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.card-recommendation .btn-primary:hover {
+  background-color: #005fbd;
+  border-color: #005fbd;
+}
+
+/* Enlace "Configúralo": línea visible tenue que se tonifica y engorda hacia la derecha */
+.link-mercedes {
+  position: relative;
+  text-decoration: none !important;
+  color: #ffffff;
+  display: inline-block;
+  padding-bottom: 3px;
+}
+
+/* 1. Línea base ya visible (fina y translúcida) */
+.link-mercedes::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.45);
+}
+
+/* 2. Capa que recorre de izquierda a derecha tonificando y engordando la línea */
+.link-mercedes::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #ffffff;
+  transition: width 0.3s ease;
+}
+
+.link-mercedes:hover::after {
+  width: 100%;
+}
+
+/* Título en móvil: visible y proporcionado */
+.title-recomendaciones {
+  font-size: 2.2rem; /* ~35px */
+}
+
+/* Título en ordenador: imponente y grande como en Mercedes */
+@media (min-width: 992px) {
+  .title-recomendaciones {
+    font-size: 3.5rem;
+    letter-spacing: 1px;
+  }
 }
