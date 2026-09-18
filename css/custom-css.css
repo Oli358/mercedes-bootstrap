@@ -235,6 +235,7 @@
 /* Punto medio entre los paddings de Bootstrap (px-4 / px-5, py-2 / py-3) */
 .hero-btn {
   padding: 0.75rem 2.5rem;
+}
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
