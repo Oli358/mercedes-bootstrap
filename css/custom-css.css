@@ -222,8 +222,9 @@
 
 /* Tamaños tipográficos fluidos que no cubren las utilidades de Bootstrap */
 .hero-titulo {
-  font-family: "Times New Roman", Times, serif;
-  font-weight: 400;
+  font-family: 'Instrument Serif', serif;
+  font-weight: 200;
+  letter-spacing: 0.5px;
   font-size: clamp(1.95rem, 3.5vw, 3.9rem);
   line-height: 1.08;
 }
@@ -352,5 +353,83 @@ h1, h2, h3, h4, h5, h6,
   .title-recomendaciones {
     font-size: 3.5rem;
     letter-spacing: 1px;
+  }
+}
+
+/* =========================================================
+   6. GAMA MERCEDES-BENZ
+   ========================================================= */
+
+/* Título de la sección */
+.title-gama {
+  font-size: 2.3rem;
+}
+
+@media (min-width: 992px) {
+  .title-gama {
+    font-size: 3rem;
+    letter-spacing: 0.5px;
+  }
+}
+
+/* Botones de la sección */
+.btn-gama {
+  --bs-btn-color: #000;
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding: 0.55rem 1.75rem;
+}
+
+/* Separación vertical entre filas: deja aire para los coches que sobresalen */
+.row-gama {
+  --bs-gutter-y: 4rem;
+  margin-top: 3rem;
+}
+
+/* Nombre de la gama dentro de la tarjeta */
+.card-gama-nombre {
+  font-size: 1.75rem;
+}
+
+@media (min-width: 1200px) {
+  .card-gama-nombre {
+    font-size: 2.1rem;
+  }
+}
+
+/* Tarjeta: gradiente plateado (arriba izquierda) a blanco (abajo derecha) */
+.card-gama {
+  position: relative;
+  min-height: 100px;
+  background: linear-gradient(135deg, #dee3e7 0%, #f1f4f6 50%, #ffffff 100%);
+}
+
+@media (min-width: 1200px) {
+  .card-gama {
+    min-height: 110px;
+  }
+}
+
+/* Coche: situado a la derecha, sobresale por arriba de la tarjeta.
+   multiply funde el fondo blanco del JPG con el gradiente de la tarjeta */
+.card-gama-img {
+  position: absolute;
+  right: 1rem;
+  bottom: 30%;
+  height: 122%;
+  width: auto;
+  mix-blend-mode: multiply;
+}
+
+/* En móvil y tablet el coche es mucho más grande y se extiende hacia la izquierda */
+@media (max-width: 991.98px) {
+  .row-gama {
+    margin-top: 4rem;
+  }
+
+  .card-gama-img {
+    right: 0.5rem;
+    bottom: 18%;
+    height: 165%;
   }
 }
