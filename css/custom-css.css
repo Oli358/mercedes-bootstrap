@@ -535,3 +535,9 @@ h1, h2, h3, h4, h5, h6,
     height: 165%;
   }
 }
+
+/* Frames 2-6 de la animación: apilados en la misma posición, ocultos por JS */
+.card-gama-frame {
+  opacity: 0;
+  will-change: opacity;
+}
