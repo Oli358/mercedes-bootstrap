@@ -453,7 +453,7 @@ h1, h2, h3, h4, h5, h6,
 /* Título en ordenador: imponente y grande como en Mercedes */
 @media (min-width: 992px) {
   .title-recomendaciones {
-    font-size: 3.5rem;
+    font-size: 3rem;
     letter-spacing: 1px;
   }
 }
@@ -714,4 +714,96 @@ a.footer-doc-item:hover {
     width: auto;
     max-width: calc(100% - 12rem);
   }
+}
+/* =========================================================
+   8. NUESTRAS OFERTAS DESTACADAS
+   ========================================================= */
+
+/* Tarjeta: borde y esquinas suaves, rellena toda la columna */
+.card-oferta {
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+/* Cuarta tarjeta: sin imagen, mismo blanco que el resto */
+.card-oferta-alt {
+  background-color: #fff;
+}
+
+/* Imagen: ocupa el ancho y cubre recortando si la foto es m?s alta */
+.card-oferta-img {
+  display: block;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+/* Cuerpo: flexible para que la nota y el bot?n queden al fondo */
+.card-oferta-body {
+  padding: 1.4rem 1.5rem 1.5rem;
+}
+
+/* T?tulo: sans-serif en negrita (anula la serif global de h3) */
+.card-oferta-titulo {
+  font-family: Roboto, sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 0;
+}
+
+/* Precio y aportaci?n inicial */
+.card-oferta-precio {
+  font-family: Roboto, sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+/* Listas de equipamiento */
+.oferta-lista {
+  padding-left: 1.35rem;
+}
+
+.oferta-lista li {
+  font-family: Roboto, sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 0.35rem;
+}
+
+/* Nota legal: se pega al bot?n con el margen autom?tico superior */
+.oferta-nota {
+  font-family: Roboto, sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+/* P?rrafo de la cuarta tarjeta */
+.card-oferta-parrafo {
+  font-family: Roboto, sans-serif;
+  font-size: 1rem;
+}
+
+/* Referencia peque?a en azul (a, b, c, d) */
+.oferta-ref {
+  color: #0d6efd;
+  font-weight: 700;
+  margin-left: 0.15rem;
+}
+
+/* Bot?n de las tarjetas: ancho completo y azul */
+.card-oferta .btn-oferta {
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 0.6rem;
+  background-color: #2e6ef2;
+  color: #fff;
+  font-weight: 700;
+  padding: 0.75rem 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.card-oferta .btn-oferta:hover {
+  background-color: #1d5ae0;
+  color: #fff;
 }
