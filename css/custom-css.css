@@ -807,3 +807,63 @@ a.footer-doc-item:hover {
   background-color: #1d5ae0;
   color: #fff;
 }
+
+/* =========================================================
+   9. BANNERS PROMOCIONALES (CAE / Welcome Home)
+   ========================================================= */
+
+/* En escritorio: imagen y texto cada uno a la mitad, centrados;
+   en m?vil: apilados */
+.banner-promo .promo-img {
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .banner-promo .promo-img {
+    width: 50%;
+    height: auto;
+    border-radius: 0.5rem;
+  }
+}
+
+/* El texto respeta el hueco que sobra */
+.promo-texto {
+  padding: 1.5rem 1.5rem 0;
+}
+
+@media (min-width: 992px) {
+  .promo-texto {
+    flex: 1 1 50%;
+    padding: 0 2.5rem 2.5rem;
+  }
+}
+
+/* T?tulo grande serif y p?rrafo normal */
+.promo-titulo {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 200;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+
+.promo-parrafo {
+  font-family: Roboto, sans-serif;
+  margin-bottom: 2.5rem;
+}
+
+/* Bot?n azul en p?ldora, igual que el resto de la web */
+.btn-promo {
+  display: inline-block;
+  background-color: #2e6ef2;
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  border-radius: 999px;
+  padding: 0.85rem 1.75rem;
+  transition: background-color 0.2s ease;
+}
+
+.btn-promo:hover {
+  background-color: #1d5ae0;
+  color: #fff;
+}
