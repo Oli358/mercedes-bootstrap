@@ -541,3 +541,177 @@ h1, h2, h3, h4, h5, h6,
   opacity: 0;
   will-change: opacity;
 }
+
+/* =========================================================
+   7. FOOTER
+   ========================================================= */
+
+/* Volver arriba */
+.footer-volver-arriba {
+  color: #e6e6e6;
+  font-size: 0.9rem;
+  transition: opacity 0.2s ease;
+}
+
+.footer-volver-arriba:hover {
+  color: #fff;
+  opacity: 0.7;
+}
+
+/* Newsletter: marco visible solo en escritorio (en móvil no se dibuja) */
+.footer-newsletter {
+  border: none;
+}
+
+@media (min-width: 992px) {
+  .footer-newsletter {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+  }
+}
+
+.footer-newsletter-titulo {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.footer-newsletter-sub {
+  color: #b7b7b7;
+  font-size: 1.05rem;
+}
+
+/* Botón Suscribirme: ancho completo en móvil, contenido y a la derecha en PC */
+.footer-btn-suscribirme {
+  width: 100%;
+  padding: 0.75rem 2.5rem;
+  font-size: 1rem;
+  letter-spacing: 0.3px;
+}
+
+@media (min-width: 768px) {
+  .footer-btn-suscribirme {
+    width: auto;
+  }
+}
+
+/* Títulos de columna: sans bold como en Mercedes (no la serif global) */
+.footer-titulo {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0;
+  line-height: 1.3;
+  margin-bottom: 1.4rem;
+}
+
+@media (min-width: 1200px) {
+  .footer-titulo {
+    font-size: 1.2rem;
+  }
+}
+
+/* Enlaces de las columnas */
+.footer-enlaces li {
+  margin-bottom: 0.95rem;
+}
+
+.footer-enlaces li:last-child {
+  margin-bottom: 0;
+}
+
+.footer-enlaces a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  transition: opacity 0.2s ease;
+}
+
+.footer-enlaces a:hover {
+  color: #fff;
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+/* Subfooter: móvil = columna con redes arriba y documentos debajo a la izquierda.
+   --bs-border-color redefinido porque el gris por defecto de BS no se ve sobre negro */
+.footer-sub {
+  --bs-border-color: rgba(255, 255, 255, 0.15);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.75rem;
+  padding: 2rem 0 3rem;
+}
+
+.footer-redes {
+  order: -1;
+  gap: 1.75rem;
+}
+
+.footer-red {
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+}
+
+/* Iconos de redes un poco más grandes (sobrescriben el width/height del SVG) */
+.footer-red svg {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.footer-red:hover {
+  color: #fff;
+  opacity: 0.7;
+}
+
+/* Documentos apilados en una sola columna a la izquierda */
+.footer-docs {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
+}
+
+.footer-doc-item {
+  color: #ffffff;
+  font-size: 0.95rem;
+  text-decoration: none;
+  line-height: 1.4;
+}
+
+a.footer-doc-item:hover {
+  color: #fff;
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+/* Escritorio: documentos fluyendo en varias filas + redes a la derecha */
+@media (min-width: 768px) {
+  .footer-sub {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 2.5rem 0 4rem;
+  }
+
+  .footer-redes {
+    order: 0;
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+
+  .footer-docs {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 1.75rem;
+    row-gap: 1.35rem;
+    width: auto;
+    max-width: calc(100% - 12rem);
+  }
+}
