@@ -867,3 +867,77 @@ a.footer-doc-item:hover {
   background-color: #1d5ae0;
   color: #fff;
 }
+
+/* =========================================================
+   10. SERVICIO POSVENTA Y ACCESORIOS
+   ========================================================= */
+
+/* Título de la tarjeta: sans-serif en negrita (anula la serif global de h3) */
+.card-servicio-titulo {
+  font-family: Roboto, sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 0;
+}
+
+/* Párrafo descriptivo */
+.card-servicio-parrafo {
+  font-family: Roboto, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+/* Botón "Más información": píldora con borde gris y fondo transparente */
+.btn-mas-info {
+  display: inline-block;
+  border: 1px solid #b7b7b7;
+  border-radius: 999px;
+  background-color: transparent;
+  color: #1a1a1a;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.55rem 1.75rem;
+  transition: background-color 0.2s ease;
+}
+
+/* En hover solo tiñe el fondo de un gris claro */
+.btn-mas-info:hover {
+  background-color: #f2f2f2;
+  color: #1a1a1a;
+}
+
+/* Flecha circular superpuesta en el borde derecho de la segunda imagen (decorativa) */
+.servicio-flecha {
+  right: 1rem;
+  width: 3.25rem;
+  height: 3.25rem;
+  border: none;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  transition: background-color 0.2s ease;
+}
+
+.servicio-flecha:hover {
+  background-color: #f2f2f2;
+  color: #1a1a1a;
+}
+
+/* Puntos del carrousel: el activo es más grande y negro */
+.servicio-punto {
+  display: block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: #d1d1d1;
+}
+
+.servicio-punto-activo {
+  width: 0.65rem;
+  height: 0.65rem;
+  background-color: #1a1a1a;
+}
