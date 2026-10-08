@@ -565,6 +565,155 @@
 
     </section>
 
+    <!-- ACCESOS RÁPIDOS: seis tarjetas-enlace con icono, título y descripción -->
+    <section class="container-xl py-5" id="accesos-rapidos">
+
+        <!--
+        Grid responsive de Bootstrap:
+        - row-cols-1: una tarjeta por fila en móvil.
+        - row-cols-md-2: dos por fila a partir de 768px.
+        - row-cols-lg-3: tres por fila a partir de 992px.
+        - g-4: separación uniforme entre tarjetas.
+        -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 row-accesos">
+
+            <!-- Tarjeta 1: encuentra las mejores ofertas -->
+            <!--
+            Cada tarjeta es un enlace <a> que ocupa toda su celda:
+            - h-100: misma altura para todas las tarjetas de la fila.
+            - d-flex flex-column + align/justify-center: contenido centrado en ambos ejes.
+            - text-decoration-none y text-dark: se comporta como tarjeta, no como enlace.
+            - rounded-4 y shadow-sm: esquinas suaves y sombra sutil.
+            -->
+            <div class="col">
+                <a href="#"
+                    class="card-atajo h-100 d-flex flex-column align-items-center justify-content-center text-center text-decoration-none text-dark rounded-4 shadow-sm p-4">
+                    <svg class="atajo-icono mb-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <circle cx="18" cy="19" r="1.75"></circle>
+                        <circle cx="10" cy="19" r="1.75"></circle>
+                        <path
+                            d="m6.25 6-.56-1.92A1.508 1.508 0 0 0 4.25 3H2v1h2.25a.5.5 0 0 1 .48.36l3.08 10.56A1.508 1.508 0 0 0 9.25 16h10.169l.258-1H9.25a.5.5 0 0 1-.48-.36l-.249-.852 10.7.026a1 1 0 0 0 .972-.752L22 6z">
+                        </path>
+                    </svg>
+                    <h3 class="atajo-titulo fw-bold mb-1">Encuentra las mejores ofertas.</h3>
+                    <p class="atajo-texto text-secondary mb-0">Visita el localizador de stock nuevo.</p>
+                </a>
+            </div>
+
+            <!-- Tarjeta 2: configurador -->
+            <div class="col">
+                <a href="#"
+                    class="card-atajo h-100 d-flex flex-column align-items-center justify-content-center text-center text-decoration-none text-dark rounded-4 shadow-sm p-4">
+                    <svg class="atajo-icono mb-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70.2 52.7">
+                        <path
+                            d="M35.969 46.073c-.216-.216-.504-.288-.72-.504H19.621c-.452.254-.868.832-.868.832l-2 2.9h21.44l-1.936-2.867-.288-.361z">
+                        </path>
+                        <path
+                            d="M54.023 31.222l-1.97-.422-.287-2.775-.023-.03-.088-.133L49.453 27l-2.5 1.8s-1.7-1-3-2.4-2.4-2.8-2.4-2.8l1.7-2.7-.9-2-3.2-.3s-.4-2.2-.5-3c-.068-.609-.044-1.437-.021-1.915l-1.654-.097c-4.754-.144-8.068-.216-9.94-.216-1.944 0-5.114.072-9.58.216l-3.313.216c-.836 0-1.894.231-4.559 3.86A115.793 115.793 0 0 0 7.055 21.6c-.038 0-.091.005-.133.007-.043.067-.081.124-.124.193-2.255.188-3.433.411-3.983 1.279-.245.78-.333 1.876-.261 2.022 0 .1 1 .2 2 .3l-.139.217h.005a9.637 9.637 0 0 1-.366.568c-.267.422-.489.779-.656 1.051-.017.035-.044.076-.058.11-.016.016-.03.042-.046.06-.131.213-.205.337-.227.373-.03.07-.067.133-.087.215l-1.297 1.728c-.667.924-1.106 1.656-1.361 2.215a3.401 3.401 0 0 0-.169.462c-.4 1.2.1 11.6.2 14.8v4.4c0 .6.6 1.1 1.2 1.1h4.812c.576 0 1.008-.504 1.008-1.081v-3.385h.18V48.2h6.399l2.426-3.568c.36-.504.649-.793.865-.865a.995.995 0 0 1 .178-.059c.204-.154.422-.279.633-.309.7-.1 18.5-.1 19.1 0 .7.1 1.5 1.2 1.5 1.2l2.5 3.6h6.4v3.4c0 .6.5 1.1 1.2 1.1h4.432c.649 0 1.081-.504 1.081-1.081V48.16c0-.217.072-.793.072-2.305.288-3.818.432-7.42.432-10.805 0-1.009-.072-1.873-.145-2.52-.082-.319-.287-.764-.603-1.308zM12.27 37.573l-6.771-1.225c-1.009-.216-1.441-.36-1.441-3.313 0-1.378.311-2.248 1.448-2.505.016-.009.03-.022.047-.03.9-.4 1.8 0 1.8 0l4.1 2.5 1 4.5-.206-.039.023.112zM42.053 34.1h-.336c.005.029.015.059.015.087h-12.1c.254.273.431.561.521 1.013h11.7c-.1.4-.2.7-.4 1l-.249.018-.049.131-11.128.704c-.2.466-.489.758-.874 1.047l11.8-.8c-.3.4-.6.7-.9.9-.171.086-.538.177-1.036.272-.934.211-2.738.484-5.426.759-3.529.36-5.618.576-6.267.576-.648 0-2.737-.144-6.267-.504-3.529-.36-5.546-.72-6.051-1.008a4.898 4.898 0 0 1-.865-.865l.417.026c-.034-.055-.078-.096-.107-.155l11.296.779a5.618 5.618 0 0 1-.801-1.01l-11.381-.72-.36-1.081h11.598c.142-.427.356-.782.639-1.068h-12.19v-.012h-.189v-.144c.072-.36.216-.576.432-.72a.525.525 0 0 1 .174-.104c.196-.165.384-.221.384-.221l13.5-.8 13.6.8s.7.1.9.9v.2zm9 1.1c-.15.526-.865.826-1.211.943l-.546.205-6.771 1.225.936-4.466 2.452-1.462 2.041-1.244s.9-.4 1.8 0 1.3 1.6 1.3 1.6.299 2.499-.001 3.199z">
+                        </path>
+                        <path
+                            d="M70.153 16.1v-3.8l-4.4-.8-1-2.5 2.6-3.7-2.7-2.7-3.7 2.6-2.5-1-.7-4.2h-3.7l-.8 4.4-2.5 1-3.7-2.6-2.7 2.7 2.7 3.7-1 2.5-4.4.8v3.8l4.4.8 1 2.5-2.6 3.4 2.7 2.7 3.7-2.6 2.5 1 .8 4.4h3.8l.8-4.4 2.5-1 3.7 2.6 2.7-2.7-2.6-3.7.7-2.4 4.4-.8zm-14 3.7c-3 0-5.4-2.4-5.4-5.4s2.4-5.4 5.4-5.4 5.4 2.4 5.4 5.4-2.4 5.4-5.4 5.4z">
+                        </path>
+                    </svg>
+                    <h3 class="atajo-titulo fw-bold mb-1">Configurador.</h3>
+                    <p class="atajo-texto text-secondary mb-0">Configura tu vehículo.</p>
+                </a>
+            </div>
+
+            <!-- Tarjeta 3: prueba un Mercedes-Benz -->
+            <div class="col">
+                <a href="#"
+                    class="card-atajo h-100 d-flex flex-column align-items-center justify-content-center text-center text-decoration-none text-dark rounded-4 shadow-sm p-4">
+                    <svg class="atajo-icono mb-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 73.2 73.1">
+                        <path
+                            d="M54.031 58.827c-5.235-3.23-11.028-4.901-17.377-4.901-6.349 0-12.142 1.671-17.377 5.013 5.124 3.899 10.916 5.904 17.377 5.904 6.572-.001 12.364-2.006 17.377-6.016zm4.455-4.456c4.01-4.901 6.349-11.028 6.349-17.711-.78-.78-1.782-1.114-3.23-1.114-3.453-.446-8.911 9.468-8.689 12.81 0 2.116.78 3.119 2.896 4.456 2.118 1.225 3.009 1.671 2.674 1.559zm-38.207-6.015c.111-2.228-5.57-13.367-8.689-12.81-1.448 0-2.451.334-3.23 1.114 0 6.572 2.339 12.81 6.349 17.711-.334.111.557-.334 2.673-1.56 2.117-1.336 2.897-2.339 2.897-4.455zm16.375-18.38c-3.008 0-5.235 2.228-5.235 5.236s2.228 5.235 5.235 5.235c3.008 0 5.235-2.228 5.235-5.235s-2.228-5.236-5.235-5.236zm-27.292-.557c8.354-4.567 17.489-6.906 27.291-6.906 9.691 0 18.825 2.228 27.18 6.795-1.671-6.127-5.013-11.139-10.025-15.038-5.013-3.899-10.694-5.904-17.154-5.904-12.922 0-24.395 9.023-27.292 21.053zm27.292 43.777C15.378 73.642-.329 54.817.005 36.548-.329 19.06 14.598-.545 36.654.012 58.932-.545 73.413 19.728 73.19 36.548c.557 22.279-19.716 36.983-36.536 36.648z">
+                        </path>
+                    </svg>
+                    <h3 class="atajo-titulo fw-bold mb-1">Prueba un Mercedes-Benz.</h3>
+                    <p class="atajo-texto text-secondary mb-0">Solicita tu prueba de conducción.</p>
+                </a>
+            </div>
+
+            <!-- Tarjeta 4: localizador de concesionarios -->
+            <div class="col">
+                <a href="#"
+                    class="card-atajo h-100 d-flex flex-column align-items-center justify-content-center text-center text-decoration-none text-dark rounded-4 shadow-sm p-4">
+                    <svg class="atajo-icono mb-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M20 16h-6l-1 8h-2l-1-8H4V0h16z"></path>
+                        <path fill="#fff"
+                            d="M17 8c0-2.69-2.31-5-5-5S7 5.31 7 8s2.31 5 5 5 5-2.31 5-5zM8.25 9.97c-.34-.568-.492-1.25-.492-1.97 0-1.099.379-2.083 1.174-2.917.796-.833 1.78-1.287 2.879-1.325l-.53 3.826L8.25 9.97zM16.243 8c0 .72-.152 1.363-.455 1.932l-2.992-2.349-.569-3.826c1.099.038 2.046.493 2.841 1.326.796.834 1.175 1.819 1.175 2.917zm-.682 2.349c-.758 1.174-2.083 1.894-3.561 1.894-1.478 0-2.765-.72-3.522-1.894L12 8.909l3.56 1.44z">
+                        </path>
+                    </svg>
+                    <h3 class="atajo-titulo fw-bold mb-1">Localizador de concesionarios.</h3>
+                    <p class="atajo-texto text-secondary mb-0">Encuentra un taller Mercedes-Benz.</p>
+                </a>
+            </div>
+
+            <!-- Tarjeta 5: calcula tu cuota -->
+            <div class="col">
+                <a href="#"
+                    class="card-atajo h-100 d-flex flex-column align-items-center justify-content-center text-center text-decoration-none text-dark rounded-4 shadow-sm p-4">
+                    <svg class="atajo-icono mb-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50.6 73">
+                        <path
+                            d="M0 0h50.6v73H0V0zm42.5 20.6V8.2H8.1v12.5l34.4-.1zM15.9 39.5v-7.7H8.1v7.7h7.8zm13.3 0v-7.7h-7.6v7.7h7.6zm13.3 0v-7.7h-7.6v7.7h7.6zm-26.6 12v-7.6H8.1v7.6h7.8zm13.3 0v-7.6h-7.6v7.6h7.6zm13.3 0v-7.6h-7.6v7.6h7.6zM15.9 63.3v-7.4H8.1v7.4h7.8zm13.3 0v-7.4h-7.6v7.4h7.6zm13.3 0v-7.4h-7.6v7.4h7.6z">
+                        </path>
+                    </svg>
+                    <h3 class="atajo-titulo fw-bold mb-1">Calcula tu cuota.</h3>
+                    <p class="atajo-texto text-secondary mb-0">Elige la financiación ideal para tu Mercedes-Benz.</p>
+                </a>
+            </div>
+
+            <!-- Tarjeta 6: furgonetas -->
+            <div class="col">
+                <a href="#"
+                    class="card-atajo h-100 d-flex flex-column align-items-center justify-content-center text-center text-decoration-none text-dark rounded-4 shadow-sm p-4">
+                    <svg class="atajo-icono mb-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 86.4 32.8">
+                        <path
+                            d="M72.875 23.625a3.013 3.013 0 1 1 0 6.026 3.013 3.013 0 0 1 0-6.026zm6.163 3.013c0 3.351-2.703 6.162-6.162 6.162-3.351 0-6.162-2.703-6.162-6.162 0-3.351 2.703-6.162 6.162-6.162 3.35 0 6.162 2.703 6.162 6.162zm-2.055 0a4.106 4.106 0 0 0-4.108-4.108 4.106 4.106 0 0 0-4.108 4.108 4.106 4.106 0 0 0 4.108 4.108 4.106 4.106 0 0 0 4.108-4.108zm-66.306 0a3.013 3.013 0 1 0 6.026 0 3.013 3.013 0 0 0-6.026 0zm9.175 0c0 3.351-2.703 6.162-6.162 6.162-3.351 0-6.162-2.703-6.162-6.162 0-3.351 2.703-6.162 6.162-6.162 3.351 0 6.162 2.703 6.162 6.162zm-2.054 0a4.106 4.106 0 0 0-4.108-4.108 4.106 4.106 0 0 0-4.108 4.108 4.106 4.106 0 0 0 4.108 4.108 4.106 4.106 0 0 0 4.108-4.108zM86.4 24.814l-.463 2.207-5.534 1.063a7.634 7.634 0 0 0-1.697-6.419c-.05-.061-.103-.12-.155-.179l-.002-.002a7.55 7.55 0 0 0-11.326-.025 7.635 7.635 0 0 0-2.014 5.178c0 .715.1 1.407.283 2.064-2.678.022-37.721.672-44.645.678a7.666 7.666 0 1 0-14.315.008L.483 28.102 0 22.797l1.092-1.274-.303-2.124s1.062-3.521 1.358-3.891c2.647-1.633 14.44-4.846 14.44-4.846 9.417-6.854 9.43-6.518 15.024-9.161C36.526-.38 80.697-.38 81.971 1.198c3.732 5.188 3.519 21.418 3.519 21.418l.91 2.198zM8.282 15.121l-4.945 1.957-1.148 3.374 5.456-3.397.637-1.934zm72.658-4.555s-.456-4.296-4.013-7.208c-1.213-.719-7.205-1.223-13.072-1.348l.887 7.881-1.731.08-.933-7.837c-8.383-.077-17.887.155-18.878.155l.245 8.531c-1.198.092-2.809.146-4.007.238l.243-8.708s-4.576.141-7.524 1.062c-2.913 1.335-9.101 4.482-14.046 8.911-7.473 1.896-8.216 2.141-8.216 2.141 14.405-1.83 58.272-3.939 71.045-3.898z">
+                        </path>
+                    </svg>
+                    <h3 class="atajo-titulo fw-bold mb-1">Furgonetas.</h3>
+                    <p class="atajo-texto text-secondary mb-0">Descubre las furgonetas de Mercedes-Benz.</p>
+                </a>
+            </div>
+
+        </div>
+
+        <!-- TEXTO LEGAL: condiciones de las ofertas de renting y datos de consumos/emisiones -->
+        <div class="legal-renting mt-5 pt-5" id="texto-legal">
+            <p>[a] Ejemplo de Renting particulares con Mercedes-Benz Renting. S.A.U., para un Clase A 250e con AMG
+                Line Advanced Plus, Paquete Night y cargador e instalación gratuita, por 295 €, aportación inicial de
+                12.467 € impuestos incluidos, a 48 cuotas, 15000 kms/año. Válido para pedidos generados con entrega a
+                cliente final hasta el 30/09/2026. Ofertas financieras y solicitudes aprobadas hasta el 15/10/2026 y
+                contratos activados hasta el 30/11/2026.</p>
+            <p>[b] Ejemplo de Renting particulares con Mercedes-Benz Renting. S.A.U., para un GLC 400 4MATIC eléctrico
+                con AMG Line, paquetes Night y Confort y cargador e instalación gratuita, por 595 €, aportación inicial
+                de 22.786 € impuestos incluidos, a 48 cuotas, 15000 kms/año. Válido para pedidos generados con entrega
+                a cliente final hasta el 30/09/2026. Ofertas financieras y solicitudes aprobadas hasta el 15/10/2026 y
+                contratos activados hasta el 30/11/2026. Bonificación por CAE aplicada en la cuota.</p>
+            <p>[c] Ejemplo de Renting particulares con Mercedes-Benz Renting. S.A.U., para un GLB 250+ eléctrico con
+                AMG Line, paquete Night, llanta 20 y cargador e instalación gratuita, por 395 €, aportación inicial de
+                17.639 € impuestos incluidos, a 48 cuotas, 15000 kms/año. Válido para pedidos generados con entrega a
+                cliente final hasta el 30/09/2026. Ofertas financieras y solicitudes aprobadas hasta el 15/10/2026 y
+                contratos activados hasta el 30/11/2026. Bonificación por CAE aplicada en la cuota.</p>
+            <p>[d] Oferta sujeta a la contratación del Seguro Mercedes-Benz C.S., no incluido en la cuota, con
+                posibilidad de contratar el mantenimiento y con un año adicional de garantía.</p>
+            <p>[e] Los CAE son un mecanismo que incentiva las inversiones en eficiencia energética, permitiendo obtener
+                una compensación económica por la reducción de consumo energético asociada a determinadas actuaciones,
+                como el cambio de un vehículo de combustión por uno eléctrico.</p>
+            <p>Clase A 250 e con tecnología híbrida EQ &gt; Consumo 2,7 l/100 km / Emisiones 61 g/km.</p>
+            <p>Mercedes-Benz GLC 400 MATIC eléctrico consumo eléctrico en kWh/100 km (ciclo mixto): 18,9-15,1
+                emisiones de C02 en g/km (ciclo mixto):0.</p>
+            <p>Mercedes-Benz GLB 250+ con tecnología EQ | Consumo 18,3-15,8 kWh/100 km - Emisiones 0 g/kmGLB 200 con
+                tecnología híbrida | Consumo 6,4-5,8 l/100 km - Emisiones 146-131 g/km</p>
+            <p>Los valores de consumo de energía y autonomía eléctrica se han obtenido a partir del procedimiento de
+                medición prescrito en el Reglamento (UE) 715/2017 en su versión actual vigente. Los valores de
+                emisiones de CO₂ indicados han sido obtenidos de acuerdo con el procedimiento de ensayo "WLTP CO₂"
+                según lo dispuesto en el art. 2 No. 3 Reglamento de aplicación (UE) 2017/1153. Los valores de consumo
+                de combustible se calcularon sobre la base de esos valores.</p>
+        </div>
+    </section>
+
     <!-- FOOTER -->
     <footer class="footer bg-black text-white">
 

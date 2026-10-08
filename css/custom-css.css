@@ -941,3 +941,63 @@ a.footer-doc-item:hover {
   height: 0.65rem;
   background-color: #1a1a1a;
 }
+
+/* =========================================================
+   11. ACCESOS RÁPIDOS Y TEXTO LEGAL
+   ========================================================= */
+
+/* Tarjeta-enlace: fondo gris claro y transición suave para el hover.
+   El resto (flex, centrado, padding, esquinas y sombra) lo aportan las
+   utilidades Bootstrap escritas en el HTML. */
+.card-atajo {
+  background-color: #f7f7f7;
+  font-family: Roboto, sans-serif;
+  transition: background-color 0.2s ease;
+}
+
+/* Al pasar el ratón el fondo se oscurece levemente, indicando que es clicable */
+.card-atajo:hover {
+  background-color: #ececec;
+}
+
+/* Un poco más de aire entre la fila de arriba y la de abajo de tarjetas */
+.row-accesos {
+  --bs-gutter-y: 2rem;
+}
+
+/* Icono: misma altura para todos; el ancho se ajusta solo según su viewBox */
+.atajo-icono {
+  height: 1.75rem;
+  width: auto;
+  fill: #1a1a1a;
+}
+
+/* Título: Roboto en negrita (anula la serif global de los h3), algo más contenido */
+.atajo-titulo {
+  font-family: Roboto, sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0;
+}
+
+/* Descripción: también en Roboto, un punto por debajo del título */
+.atajo-texto {
+  font-family: Roboto, sans-serif;
+  font-size: 0.9rem;
+}
+
+/* Bloque legal: letra muy pequeña, líneas juntas y gris oscuro */
+.legal-renting {
+  font-family: Roboto, sans-serif;
+  font-size: 0.68rem;
+  line-height: 1.35;
+  color: #333;
+}
+
+/* Separación mínima entre párrafos legales (el último no necesita margen) */
+.legal-renting p {
+  margin-bottom: 0.4rem;
+}
+
+.legal-renting p:last-child {
+  margin-bottom: 0;
+}
