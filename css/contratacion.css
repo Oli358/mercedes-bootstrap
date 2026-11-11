@@ -1,7 +1,10 @@
 /* =========================================================
    CONFIGURADOR DE CONTRATACIÓN
-   Estilos base de layout. La tarea T3 completa el sistema
-   visual (tipografía, componentes, estados y responsive).
+   Sistema visual común (T3)
+   ---------------------------------------------------------
+   Tokens, tipografía, layout, componentes, estados,
+   responsive y accesibilidad. Las tareas T4-T12 reutilizan
+   estas clases sin inventar estilos nuevos.
    ========================================================= */
 
 :root {
@@ -15,17 +18,83 @@
     --config-amg: #c8102e;
     --config-maybach: #b49b6b;
     --config-error: #b42318;
+    --config-error-soft: #fff4f2;
+    --config-success: #1f6b3a;
     --config-focus: #0b0b0b;
     --config-radius: 1.25rem;
     --config-radius-sm: 0.75rem;
+    --config-radius-pill: 999px;
     --config-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
     --config-shadow-sm: 0 6px 18px rgba(0, 0, 0, 0.06);
+    --config-header-h: 75px;
 }
 
+/* ---------------------------------------------------------
+   Base
+   --------------------------------------------------------- */
 body.config-page {
     font-family: 'Roboto', system-ui, -apple-system, "Segoe UI", sans-serif;
     background-color: var(--config-bg);
     color: var(--config-ink);
+    -webkit-font-smoothing: antialiased;
+}
+
+.config-page ::selection {
+    background-color: var(--config-ink);
+    color: var(--config-surface);
+}
+
+.config-page :focus-visible {
+    outline: 2px solid var(--config-ink);
+    outline-offset: 3px;
+}
+
+.config-header :focus-visible,
+.config-showroom :focus-visible,
+.config-footer :focus-visible {
+    outline-color: var(--config-surface);
+}
+
+.config-page a {
+    text-underline-offset: 0.18em;
+}
+
+/* ---------------------------------------------------------
+   Tipografía
+   --------------------------------------------------------- */
+.config-step h2 {
+    max-width: 12ch;
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(2.6rem, 4vw, 4.1rem);
+    font-weight: 300;
+    line-height: 0.98;
+    letter-spacing: -0.01em;
+}
+
+.config-eyebrow {
+    color: var(--config-muted);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.config-lead {
+    max-width: 38rem;
+    color: var(--config-muted);
+    font-size: 1.05rem;
+    line-height: 1.65;
+}
+
+.config-vehiculo-precio {
+    font-size: 1.65rem;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+}
+
+.config-vehiculo-precio strong {
+    font-weight: 500;
 }
 
 /* ---------------------------------------------------------
@@ -33,16 +102,17 @@ body.config-page {
    --------------------------------------------------------- */
 .config-header {
     z-index: 1030;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .config-header-inner {
-    min-height: 64px;
+    min-height: 72px;
 }
 
 .config-brand-logo {
     display: block;
     width: auto;
-    height: 32px;
+    height: 36px;
 }
 
 .config-brand-text {
@@ -54,17 +124,19 @@ body.config-page {
 
 .config-header-title {
     color: rgba(255, 255, 255, 0.65);
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
 }
 
 .config-step-label {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.72rem;
     letter-spacing: 0.12em;
 }
 
 .config-exit {
+    padding-bottom: 0.1rem;
     border-bottom: 1px solid transparent;
     transition: border-color 0.2s ease;
 }
@@ -75,37 +147,71 @@ body.config-page {
 
 .config-progress {
     height: 3px;
-    background-color: #2a2a2a;
+    background-color: #242424;
     border-radius: 0;
 }
 
 .config-progress-bar {
+    background-color: var(--config-surface);
     transition: width 0.3s ease;
 }
 
 /* ---------------------------------------------------------
-   Layout principal
+   Layout general
    --------------------------------------------------------- */
 .config-layout {
     background-color: var(--config-bg);
 }
 
+.config-content {
+    background-color: var(--config-bg);
+}
+
 .config-main {
     width: 100%;
-    max-width: 820px;
+    max-width: 780px;
     margin-inline: auto;
+}
+
+.config-step:not([hidden]) {
+    animation: configFade 0.24s ease-out;
+}
+
+@keyframes configFade {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.config-step h2[tabindex="-1"] {
+    scroll-margin-top: 90px;
 }
 
 /* ---------------------------------------------------------
    Stepper
    --------------------------------------------------------- */
 .config-stepper {
-    scroll-margin-top: 80px;
+    scroll-margin-top: 88px;
+}
+
+.config-stepper ol {
+    align-items: center;
+    row-gap: 0.45rem;
 }
 
 .config-stepper-item {
-    font-size: 0.78rem;
-    letter-spacing: 0.08em;
+    display: inline-flex;
+    align-items: center;
+    color: var(--config-muted);
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
 }
 
@@ -118,11 +224,18 @@ body.config-page {
     margin-right: 0.35rem;
     border: 1px solid var(--config-line-strong);
     border-radius: 50%;
-    font-size: 0.72rem;
+    background-color: transparent;
+    font-size: 0.68rem;
     line-height: 1;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
-.config-stepper-item.is-active .config-stepper-num {
+.config-stepper-item.is-active {
+    color: var(--config-ink);
+}
+
+.config-stepper-item.is-active .config-stepper-num,
+.config-stepper-item.is-complete .config-stepper-num {
     color: var(--config-surface);
     background-color: var(--config-ink);
     border-color: var(--config-ink);
@@ -132,62 +245,664 @@ body.config-page {
     color: var(--config-ink);
 }
 
-.config-stepper-item.is-complete .config-stepper-num {
+.config-stepper-item .config-stepper-num {
+    flex-shrink: 0;
+}
+
+/* ---------------------------------------------------------
+   Botones
+   --------------------------------------------------------- */
+.btn-config {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 48px;
+    padding: 0.75rem 1.6rem;
+    border: 1px solid var(--config-ink);
+    border-radius: var(--config-radius-pill);
+    background-color: var(--config-ink);
     color: var(--config-surface);
+    font-size: 0.76rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+}
+
+.btn-config:hover {
+    background-color: #2a2a2a;
+    border-color: #2a2a2a;
+    color: var(--config-surface);
+}
+
+.btn-config:active {
+    transform: translateY(1px);
+}
+
+.btn-config:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--config-surface), 0 0 0 5px var(--config-ink);
+}
+
+.btn-config:disabled,
+.btn-config.disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-config-outline {
+    background-color: transparent;
+    color: var(--config-ink);
+}
+
+.btn-config-outline:hover {
+    background-color: var(--config-ink);
+    border-color: var(--config-ink);
+    color: var(--config-surface);
+}
+
+.btn-config-ghost {
+    min-height: auto;
+    padding: 0.25rem 0;
+    border: 0;
+    background-color: transparent;
+    color: var(--config-ink);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+}
+
+.btn-config-ghost:hover {
+    background-color: transparent;
+    color: var(--config-ink);
+    text-decoration: underline;
+}
+
+/* ---------------------------------------------------------
+   Tarjetas de vehículo
+   --------------------------------------------------------- */
+.card-vehiculo {
+    cursor: pointer;
+    border: 1px solid var(--config-line);
+    border-radius: var(--config-radius);
+    background-color: var(--config-surface);
+    box-shadow: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.card-vehiculo:hover {
+    border-color: var(--config-line-strong);
+    box-shadow: var(--config-shadow-sm);
+    transform: translateY(-2px);
+}
+
+.card-vehiculo:has(input:checked),
+.card-vehiculo.is-seleccionado {
+    border-color: var(--config-ink);
+    box-shadow: inset 0 0 0 1px var(--config-ink), var(--config-shadow-sm);
+}
+
+.card-vehiculo:focus-within {
+    outline: 2px solid var(--config-ink);
+    outline-offset: 2px;
+}
+
+.config-vehiculo-media {
+    min-height: 210px;
+    overflow: hidden;
+    background-color: var(--config-surface-alt);
+}
+
+.config-vehiculo-media img {
+    width: 100%;
+    height: 100%;
+    min-height: 210px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card-vehiculo:hover .config-vehiculo-media img {
+    transform: scale(1.03);
+}
+
+.card-vehiculo .card-body {
+    padding: 1.5rem;
+}
+
+.card-vehiculo-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.65rem;
+    border: 1px solid var(--config-line);
+    border-radius: var(--config-radius-pill);
+    background-color: #faf9f6;
+    color: var(--config-ink);
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.card-vehiculo h3 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(1.55rem, 2vw, 2.05rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+}
+
+.card-vehiculo .form-check-input {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-top: 0.15rem;
+    border-color: var(--config-line-strong);
+    cursor: pointer;
+}
+
+/* ---------------------------------------------------------
+   Formularios
+   --------------------------------------------------------- */
+.campo {
+    margin-bottom: 1.25rem;
+}
+
+.campo-label {
+    display: block;
+    margin-bottom: 0.45rem;
+    color: var(--config-ink);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.campo-input,
+.campo-select,
+.campo-textarea,
+.config-form .form-control,
+.config-form .form-select {
+    width: 100%;
+    min-height: 52px;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--config-line);
+    border-radius: var(--config-radius-sm);
+    background-color: var(--config-surface);
+    color: var(--config-ink);
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.4;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.campo-textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.campo-input::placeholder,
+.campo-textarea::placeholder,
+.config-form .form-control::placeholder {
+    color: #9a968d;
+}
+
+.campo-input:hover,
+.campo-select:hover,
+.campo-textarea:hover,
+.config-form .form-control:hover,
+.config-form .form-select:hover {
+    border-color: var(--config-line-strong);
+}
+
+.campo-input:focus,
+.campo-select:focus,
+.campo-textarea:focus,
+.config-form .form-control:focus,
+.config-form .form-select:focus {
+    outline: none;
+    border-color: var(--config-ink);
+    box-shadow: 0 0 0 3px rgba(11, 11, 11, 0.12);
+}
+
+.campo-input:disabled,
+.campo-select:disabled,
+.campo-textarea:disabled {
+    background-color: #f1eee8;
+    color: var(--config-muted);
+    cursor: not-allowed;
+}
+
+.campo-select,
+.config-form .form-select {
+    padding-right: 2.6rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%230b0b0b' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' d='m2.5 5.5 5.5 5 5.5-5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 14px;
+    appearance: none;
+}
+
+.campo-help {
+    margin-top: 0.35rem;
+    margin-bottom: 0;
+    color: var(--config-muted);
+    font-size: 0.8rem;
+    line-height: 1.45;
+}
+
+.campo-error {
+    min-height: 1rem;
+    margin-top: 0.35rem;
+    margin-bottom: 0;
+    color: var(--config-error);
+    font-size: 0.8rem;
+    font-weight: 500;
+    line-height: 1.45;
+}
+
+.campo.is-error .campo-input,
+.campo.is-error .campo-select,
+.campo.is-error .campo-textarea,
+.campo-input.is-invalid,
+.campo-select.is-invalid,
+.campo-textarea.is-invalid {
+    border-color: var(--config-error);
+    box-shadow: 0 0 0 3px rgba(180, 35, 24, 0.1);
+}
+
+.campo.is-error .campo-label {
+    color: var(--config-error);
+}
+
+/* Radios, checkboxes y switches */
+.form-check-input {
+    border-color: var(--config-line-strong);
+}
+
+.form-check-input:checked {
     background-color: var(--config-ink);
     border-color: var(--config-ink);
 }
 
-/* El foco programático del título no debe quedar bajo la barra sticky. */
-.config-step h2[tabindex="-1"] {
-    scroll-margin-top: 90px;
+.form-check-input:focus {
+    border-color: var(--config-ink);
+    box-shadow: 0 0 0 3px rgba(11, 11, 11, 0.14);
+}
+
+.form-check-label {
+    cursor: pointer;
 }
 
 /* ---------------------------------------------------------
-   Pasos y tarjetas
+   Tarjetas de extras
    --------------------------------------------------------- */
-.config-lead {
-    max-width: 42rem;
-}
-
-.config-vehiculo-media {
-    min-height: 190px;
-}
-
-.config-vehiculo-media img {
-    min-height: 190px;
-}
-
-.config-vehiculo-precio {
-    font-size: 1.35rem;
-    font-variant-numeric: tabular-nums;
-}
-
-.card-vehiculo {
+.card-extra {
+    position: relative;
+    display: flex;
+    gap: 1rem;
+    padding: 1.25rem;
+    border: 1px solid var(--config-line);
+    border-radius: 1rem;
     background-color: var(--config-surface);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
 }
 
-.card-vehiculo:hover {
-    border-color: var(--config-line-strong) !important;
+.card-extra:hover {
+    border-color: var(--config-line-strong);
     box-shadow: var(--config-shadow-sm);
 }
 
-.card-vehiculo:has(input:checked) {
-    border-color: var(--config-ink) !important;
+.card-extra:has(input:checked),
+.card-extra.is-seleccionado {
+    border-color: var(--config-ink);
     box-shadow: inset 0 0 0 1px var(--config-ink);
 }
 
-.config-placeholder {
+.card-extra:has(input:disabled),
+.card-extra.is-disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.card-extra:focus-within {
+    outline: 2px solid var(--config-ink);
+    outline-offset: 2px;
+}
+
+.card-extra-icono {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: var(--config-surface-alt);
+    color: var(--config-ink);
+}
+
+.card-extra-icono svg {
+    width: 20px;
+    height: 20px;
+}
+
+.card-extra-cuerpo {
+    min-width: 0;
+    flex: 1;
+}
+
+.card-extra-titulo {
+    margin-bottom: 0.2rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.card-extra-desc {
+    margin-bottom: 0.5rem;
+    color: var(--config-muted);
+    font-size: 0.84rem;
+    line-height: 1.45;
+}
+
+.card-extra-precio {
+    font-size: 0.95rem;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+}
+
+.card-extra-tipo {
+    color: var(--config-muted);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+/* ---------------------------------------------------------
+   Pago
+   --------------------------------------------------------- */
+.pago-opcion {
+    position: relative;
+    display: flex;
+    gap: 1rem;
+    height: 100%;
+    padding: 1.25rem;
+    border: 1px solid var(--config-line);
+    border-radius: 1rem;
     background-color: var(--config-surface);
-    border-color: var(--config-line) !important;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pago-opcion:hover {
+    border-color: var(--config-line-strong);
+    box-shadow: var(--config-shadow-sm);
+}
+
+.pago-opcion:has(input:checked),
+.pago-opcion.is-seleccionado {
+    border-color: var(--config-ink);
+    box-shadow: inset 0 0 0 1px var(--config-ink);
+}
+
+.pago-opcion:focus-within {
+    outline: 2px solid var(--config-ink);
+    outline-offset: 2px;
+}
+
+.pago-opcion-icono {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    background-color: var(--config-surface-alt);
+}
+
+.pago-panel {
+    padding: 1.5rem;
+    border: 1px solid var(--config-line);
+    border-radius: var(--config-radius);
+    background-color: var(--config-surface);
+}
+
+.tarjeta-simulada {
+    width: 100%;
+    max-width: 420px;
+    aspect-ratio: 1.586 / 1;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background:
+        radial-gradient(120% 140% at 100% 0%, rgba(255, 255, 255, 0.14) 0%, transparent 45%),
+        #0b0b0b;
+    color: #fff;
+    box-shadow: var(--config-shadow);
+}
+
+.tarjeta-simulada-chip {
+    display: inline-block;
+    width: 2.4rem;
+    height: 1.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 0.35rem;
+    background: linear-gradient(135deg, #d8c9a8, #8f7b58);
+}
+
+.tarjeta-simulada-numero {
+    margin-top: 2.5rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.14em;
+    font-variant-numeric: tabular-nums;
+}
+
+.tarjeta-simulada-pie {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+/* ---------------------------------------------------------
+   Resumen y checkout
+   --------------------------------------------------------- */
+.resumen-bloque {
+    margin-bottom: 1rem;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--config-line);
+    border-radius: 1rem;
+    background-color: var(--config-surface);
+}
+
+.resumen-bloque-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.resumen-bloque-titulo {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.resumen-editar {
+    border: 0;
+    padding: 0.2rem 0;
+    background: transparent;
+    color: var(--config-ink);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+.resumen-fila {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--config-line);
+    font-size: 0.9rem;
+}
+
+.resumen-fila:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.resumen-fila dt,
+.resumen-fila dd {
+    margin: 0;
+}
+
+.resumen-fila dt {
+    color: var(--config-muted);
+    font-weight: 400;
+}
+
+.resumen-fila dd {
+    max-width: 60%;
+    text-align: right;
+    font-weight: 500;
+}
+
+.desglose {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--config-line);
+}
+
+.desglose-label {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: var(--config-muted);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.desglose-cifra {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(1.6rem, 2vw, 2.1rem);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+}
+
+.desglose-nota {
+    grid-column: 1 / -1;
+    margin: 0;
+    color: var(--config-muted);
+    font-size: 0.75rem;
+}
+
+/* ---------------------------------------------------------
+   Casillas legales
+   --------------------------------------------------------- */
+.legal-check {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--config-line);
+}
+
+.legal-check:last-of-type {
+    border-bottom: 0;
+}
+
+.legal-check .form-check-input {
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+}
+
+.legal-check label {
+    color: var(--config-ink);
+    font-size: 0.88rem;
+    line-height: 1.55;
+}
+
+.legal-check a {
+    color: var(--config-ink);
+    text-decoration: underline;
+}
+
+.legal-check.is-error label {
+    color: var(--config-error);
+}
+
+/* ---------------------------------------------------------
+   Resumen de errores
+   --------------------------------------------------------- */
+#resumenErrores {
+    margin-bottom: 1.5rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid #f1c3bd;
+    border-left: 4px solid var(--config-error);
+    border-radius: 0.75rem;
+    background-color: var(--config-error-soft);
+    color: #7a1c14;
+    font-size: 0.9rem;
+}
+
+#resumenErrores h2,
+#resumenErrores .h5 {
+    margin-bottom: 0.5rem;
+    color: #7a1c14;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+#resumenErrores ul {
+    margin-bottom: 0;
+    padding-left: 1.2rem;
+}
+
+#resumenErrores a {
+    color: #7a1c14;
+    font-weight: 500;
 }
 
 /* ---------------------------------------------------------
    Showroom
    --------------------------------------------------------- */
 .config-showroom {
+    display: flex;
+    flex-direction: column;
     background-color: #0b0b0b !important;
+    scrollbar-width: thin;
+    scrollbar-color: #3a3a3a #0b0b0b;
+}
+
+.config-showroom-stage {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 360px;
+    padding: 2rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.5rem;
+    background:
+        radial-gradient(90% 90% at 50% 10%, #ffffff 0%, #f3f0ea 55%, #e7e2d8 100%);
 }
 
 .config-showroom-stage img {
@@ -196,11 +911,93 @@ body.config-page {
     object-fit: contain;
 }
 
+.config-showroom h2 {
+    margin-bottom: 0.35rem;
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(2rem, 2.5vw, 2.9rem);
+    font-weight: 300;
+    line-height: 1.02;
+}
+
+.config-showroom .config-eyebrow {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.config-showroom dl {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.config-showroom dt {
+    color: rgba(255, 255, 255, 0.55);
+    font-weight: 400;
+}
+
+.config-showroom dd {
+    color: #fff;
+    font-variant-numeric: tabular-nums;
+}
+
+.config-showroom > p:last-child {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* ---------------------------------------------------------
+   Placeholder de fases pendientes
+   --------------------------------------------------------- */
+.config-placeholder {
+    padding: 2rem;
+    border: 1px dashed var(--config-line-strong);
+    border-radius: var(--config-radius);
+    background-color: var(--config-surface);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* ---------------------------------------------------------
+   Modales
+   --------------------------------------------------------- */
+.modal-content {
+    border: 0;
+    border-radius: 1rem;
+    box-shadow: var(--config-shadow);
+}
+
+.modal-header {
+    padding: 1.5rem 1.5rem 1rem;
+    border-bottom: 1px solid var(--config-line);
+}
+
+.modal-title {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 1.9rem;
+    font-weight: 300;
+}
+
+.modal-body {
+    padding: 1.5rem;
+    line-height: 1.7;
+}
+
+.modal-footer {
+    padding: 1rem 1.5rem 1.5rem;
+    border-top: 1px solid var(--config-line);
+}
+
 /* ---------------------------------------------------------
    Pie legal
    --------------------------------------------------------- */
 .config-footer {
-    font-size: 0.78rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.74rem;
+    letter-spacing: 0.01em;
+}
+
+.config-footer p {
+    line-height: 1.5;
 }
 
 /* ---------------------------------------------------------
@@ -213,9 +1010,9 @@ body.config-page {
 
     .config-showroom {
         position: sticky;
-        top: 67px;
+        top: var(--config-header-h);
         align-self: flex-start;
-        height: calc(100vh - 67px);
+        height: calc(100vh - var(--config-header-h));
         overflow-y: auto;
     }
 }
@@ -225,28 +1022,141 @@ body.config-page {
         border-top: 1px solid #2a2a2a;
     }
 
+    .config-showroom-stage {
+        min-height: 0;
+        padding: 1.5rem;
+    }
+
     .config-showroom-stage img {
-        max-height: 240px;
+        max-height: 260px;
+    }
+
+    .config-showroom > p:last-child {
+        margin-top: 0;
+        padding-top: 1rem;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .config-actions {
+        position: sticky;
+        bottom: 0;
+        z-index: 5;
+        margin-top: 2rem;
+        padding: 0.75rem 0;
+        background-color: rgba(247, 245, 240, 0.96);
+        backdrop-filter: blur(8px);
+    }
+
+    .config-step h2 {
+        max-width: 14ch;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .config-header-inner {
+        min-height: 64px;
+    }
+
+    .config-brand-logo {
+        height: 32px;
+    }
+
+    .config-step h2 {
+        max-width: none;
+        font-size: clamp(2.35rem, 7vw, 3rem);
+    }
+
+    .config-lead {
+        font-size: 0.98rem;
+    }
+
+    .config-vehiculo-media,
+    .config-vehiculo-media img {
+        min-height: 200px;
+    }
+
+    .card-vehiculo .card-body {
+        padding: 1.25rem;
+    }
+
+    .config-showroom-stage img {
+        max-height: 220px;
+    }
+
+    .config-actions {
+        gap: 0.75rem;
+    }
+
+    .config-actions .btn-config {
+        flex: 1 1 0;
+        padding-inline: 1rem;
     }
 }
 
 @media (max-width: 575.98px) {
-    .config-vehiculo-media,
-    .config-vehiculo-media img {
-        min-height: 180px;
+    .config-header-inner {
+        min-height: 60px;
+    }
+
+    .config-brand-logo {
+        height: 30px;
+    }
+
+    .config-step-label {
+        font-size: 0.68rem;
     }
 
     .config-stepper-item {
-        font-size: 0.7rem;
+        font-size: 0.64rem;
+    }
+
+    .config-stepper-num {
+        width: 1.5rem;
+        height: 1.5rem;
+        font-size: 0.64rem;
+    }
+
+    .config-placeholder {
+        padding: 1.25rem;
+    }
+
+    .config-showroom-stage {
+        padding: 1rem;
+    }
+
+    .config-showroom-stage img {
+        max-height: 190px;
+    }
+
+    .desglose {
+        grid-template-columns: 1fr;
+    }
+
+    .config-footer {
+        font-size: 0.68rem;
     }
 }
 
+/* ---------------------------------------------------------
+   Accesibilidad y movimiento reducido
+   --------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
 
     *,
     *::before,
     *::after {
-        transition-duration: 0.01ms !important;
         animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .config-step:not([hidden]) {
+        animation: none;
+    }
+
+    .card-vehiculo:hover .config-vehiculo-media img {
+        transform: none;
     }
 }
