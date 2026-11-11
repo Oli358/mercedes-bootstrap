@@ -96,7 +96,7 @@ Reglas de navegación:
 ### 4.2. Tablet (992-1199 px)
 
 - Una sola columna.
-- El showroom se convierte en una **tarjeta de resumen** encima del formulario: imagen 21:9, modelo, precio y filas de resumen en horizontal.
+- El showroom se convierte en una **tarjeta de resumen** al final del formulario: imagen 21:9, modelo, precio y filas de resumen en horizontal.
 - No es sticky.
 - La barra superior se mantiene.
 
@@ -132,8 +132,9 @@ Reglas de navegación:
 └──────────────────────────────────────┘
 ```
 
-- Showroom compacto encima del paso: imagen pequeña, modelo y precio.
-- Barra inferior sticky con el precio y “Siguiente”. `padding-bottom` extra para que no tape contenido.
+- El showroom aparece al final del formulario, no sticky: imagen pequeña, modelo y precio.
+- Barra inferior sticky con Anterior y Siguiente. El precio se añadirá a la barra en T11 si da tiempo; mientras tanto se consulta en el showroom.
+- `padding-bottom` extra para que la barra no tape el último contenido.
 - Stepper horizontal con scroll si no cabe, o solo números. Siempre visible “Paso X de 6”.
 - Objetivo: cero scroll horizontal a 320 px. Targets táctiles de al menos 44 × 44 px.
 
@@ -335,7 +336,7 @@ Contraste mínimo: 4,5:1 para texto normal y 3:1 para texto grande. El color nun
 - Filas de resumen: Vehículo, Extras, Pago único, Cuota.
 - Nota de simulación.
 - En escritorio: sticky a la derecha, `top: 72px`, altura `calc(100vh - 72px)`.
-- En tablet/móvil: tarjeta compacta encima del paso, sin sticky.
+- En tablet/móvil: tarjeta compacta al final del formulario, sin sticky.
 - La imagen del coche tiene alt descriptivo; los iconos decorativos llevan `aria-hidden="true"`.
 
 ### 6.12. Pie legal
@@ -462,6 +463,7 @@ Contraste mínimo: 4,5:1 para texto normal y 3:1 para texto grande. El color nun
 - El texto no debe quedar por debajo de 16 px en móvil.
 - Los botones y campos deben ser cómodos con el pulgar.
 - La barra inferior sticky no debe tapar el último campo: `padding-bottom: 96px` en el formulario móvil.
+- En tablet y móvil el showroom va después del formulario, en una sola columna.
 - Las imágenes de coche no deben deformarse: `object-fit: cover` en tarjetas, `contain` en el showroom.
 
 ---
@@ -525,6 +527,7 @@ Contraste mínimo: 4,5:1 para texto normal y 3:1 para texto grande. El color nun
   - `images/logo-amg.svg`
   - `images/logo-maybach.svg`
 - Capturas del armazón T1: `docs/t1-desktop.png` y `docs/t1-mobile.png`.
+- Capturas del sistema visual T3: `docs/t3-desktop-paso-1.png`, `docs/t3-desktop-paso-2.png` y `docs/t3-mobile-paso-1.png`.
 - Las imágenes de coche tienen fondo blanco: en el showroom se colocan sobre un stage claro (`--config-surface-alt`) para que se integren. En las tarjetas se pueden recortar con `object-fit: cover`.
 - No aplicar filtros de color, duotonos ni sombras artificiales a los coches.
 - `alt` descriptivo: “Mercedes-Benz Clase A 250e”, “Mercedes-AMG G 63”, “Mercedes-Maybach S 680”.
