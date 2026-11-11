@@ -1,0 +1,233 @@
+/* =========================================================
+   CONFIGURADOR DE CONTRATACIÓN
+   Estilos base de layout. La tarea T3 completa el sistema
+   visual (tipografía, componentes, estados y responsive).
+   ========================================================= */
+
+:root {
+    --config-ink: #0b0b0b;
+    --config-bg: #f7f5f0;
+    --config-surface: #ffffff;
+    --config-surface-alt: #efece5;
+    --config-muted: #6f6f6f;
+    --config-line: #e3dfd7;
+    --config-line-strong: #c9c4ba;
+    --config-amg: #c8102e;
+    --config-maybach: #b49b6b;
+    --config-error: #b42318;
+    --config-focus: #0b0b0b;
+    --config-radius: 1.25rem;
+    --config-radius-sm: 0.75rem;
+    --config-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
+    --config-shadow-sm: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+body.config-page {
+    font-family: 'Roboto', system-ui, -apple-system, "Segoe UI", sans-serif;
+    background-color: var(--config-bg);
+    color: var(--config-ink);
+}
+
+/* ---------------------------------------------------------
+   Barra superior
+   --------------------------------------------------------- */
+.config-header {
+    z-index: 1030;
+}
+
+.config-header-inner {
+    min-height: 64px;
+}
+
+.config-brand-logo {
+    display: block;
+    width: auto;
+    height: 32px;
+}
+
+.config-brand-text {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.config-header-title {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.config-step-label {
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 0.12em;
+}
+
+.config-exit {
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+.config-exit:hover {
+    border-color: currentColor;
+}
+
+.config-progress {
+    height: 3px;
+    background-color: #2a2a2a;
+    border-radius: 0;
+}
+
+.config-progress-bar {
+    transition: width 0.3s ease;
+}
+
+/* ---------------------------------------------------------
+   Layout principal
+   --------------------------------------------------------- */
+.config-layout {
+    background-color: var(--config-bg);
+}
+
+.config-main {
+    width: 100%;
+    max-width: 820px;
+    margin-inline: auto;
+}
+
+/* ---------------------------------------------------------
+   Stepper
+   --------------------------------------------------------- */
+.config-stepper-item {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.config-stepper-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.65rem;
+    height: 1.65rem;
+    margin-right: 0.35rem;
+    border: 1px solid var(--config-line-strong);
+    border-radius: 50%;
+    font-size: 0.72rem;
+    line-height: 1;
+}
+
+.config-stepper-item.is-active .config-stepper-num {
+    color: var(--config-surface);
+    background-color: var(--config-ink);
+    border-color: var(--config-ink);
+}
+
+/* ---------------------------------------------------------
+   Pasos y tarjetas
+   --------------------------------------------------------- */
+.config-lead {
+    max-width: 42rem;
+}
+
+.config-vehiculo-media {
+    min-height: 190px;
+}
+
+.config-vehiculo-media img {
+    min-height: 190px;
+}
+
+.config-vehiculo-precio {
+    font-size: 1.35rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.card-vehiculo {
+    background-color: var(--config-surface);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-vehiculo:hover {
+    border-color: var(--config-line-strong) !important;
+    box-shadow: var(--config-shadow-sm);
+}
+
+.card-vehiculo:has(input:checked) {
+    border-color: var(--config-ink) !important;
+    box-shadow: inset 0 0 0 1px var(--config-ink);
+}
+
+.config-placeholder {
+    background-color: var(--config-surface);
+    border-color: var(--config-line) !important;
+}
+
+/* ---------------------------------------------------------
+   Showroom
+   --------------------------------------------------------- */
+.config-showroom {
+    background-color: #0b0b0b !important;
+}
+
+.config-showroom-stage img {
+    width: 100%;
+    max-height: 340px;
+    object-fit: contain;
+}
+
+/* ---------------------------------------------------------
+   Pie legal
+   --------------------------------------------------------- */
+.config-footer {
+    font-size: 0.78rem;
+}
+
+/* ---------------------------------------------------------
+   Responsive
+   --------------------------------------------------------- */
+@media (min-width: 1200px) {
+    .config-main {
+        max-width: 760px;
+    }
+
+    .config-showroom {
+        position: sticky;
+        top: 67px;
+        align-self: flex-start;
+        height: calc(100vh - 67px);
+        overflow-y: auto;
+    }
+}
+
+@media (max-width: 1199.98px) {
+    .config-showroom {
+        border-top: 1px solid #2a2a2a;
+    }
+
+    .config-showroom-stage img {
+        max-height: 240px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .config-vehiculo-media,
+    .config-vehiculo-media img {
+        min-height: 180px;
+    }
+
+    .config-stepper-item {
+        font-size: 0.7rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
