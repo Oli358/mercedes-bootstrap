@@ -178,7 +178,7 @@ Contraste mínimo: 4,5:1 para texto normal y 3:1 para texto grande. El color nun
 
 ### 5.3. Tipografía
 
-- **Display:** `"Cormorant Garamond", Georgia, serif` (ya está cargada en la home).
+- **Display:** `"Instrument Serif", Georgia, serif` (la misma que usa la home para sus titulares).
   - Titulares de paso: `clamp(2.5rem, 4vw, 4.5rem)`, peso 400-500, `line-height: 0.98`.
   - Nombre del coche en el showroom: `clamp(1.75rem, 2.5vw, 2.75rem)`.
 - **UI:** `"Roboto", system-ui, sans-serif` (ya está cargada en la home).
@@ -521,9 +521,10 @@ Contraste mínimo: 4,5:1 para texto normal y 3:1 para texto grande. El color nun
 - Imagen de showroom por defecto: `images/welcomehome.jpg`.
 - Imagen editorial opcional: `images/hero.jpg`.
 - Logos:
-  - `images/logo-mercedes-benz.avif`
+  - `images/logo-140years.gif` (barra superior, el mismo que usa la home)
   - `images/logo-amg.svg`
   - `images/logo-maybach.svg`
+- Capturas del armazón T1: `docs/t1-desktop.png` y `docs/t1-mobile.png`.
 - Las imágenes de coche tienen fondo blanco: en el showroom se colocan sobre un stage claro (`--config-surface-alt`) para que se integren. En las tarjetas se pueden recortar con `object-fit: cover`.
 - No aplicar filtros de color, duotonos ni sombras artificiales a los coches.
 - `alt` descriptivo: “Mercedes-Benz Clase A 250e”, “Mercedes-AMG G 63”, “Mercedes-Maybach S 680”.
