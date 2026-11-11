@@ -708,8 +708,8 @@ Antes de marcar una tarea como Hecha:
 ### Ramas
 
 - `feat/contratacion-base` → T1 + T2 + T3.
-- `feat/contratacion-fases-1-3` → T4 + T5 + T6.
-- `feat/contratacion-fases-4-6` → T7 + T8 + T9.
+- `feat/contratacion-fases-1-3` → T4 + T5.
+- `feat/contratacion-fases-3-6` → T6 + T7 + T8 + T9.
 - `feat/validaciones-precios-envio` → T10 + T11 + T12.
 - `feat/pruebas` → T13.
 - `feat/integracion` → T14.
