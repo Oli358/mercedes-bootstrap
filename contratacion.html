@@ -137,7 +137,10 @@
                                                                 value="clase-a-250e" data-linea="mercedes-benz"
                                                                 data-modelo="Clase A 250e" data-precio-mensual="295"
                                                                 data-precio-unico="12467"
-                                                                data-imagen="images/ClaseA250eSpecialEdition.jpg">
+                                                                data-imagen="images/ClaseA250eSpecialEdition.jpg"
+                                                                data-tagline="La puerta de entrada a la estrella."
+                                                                data-specs="Híbrido enchufable · 218 CV · 0-100 6,8 s"
+                                                                data-alt="Mercedes-Benz Clase A 250e">
                                                             <label class="form-check-label stretched-link"
                                                                 for="producto-clase-a">
                                                                 <span class="visually-hidden">Seleccionar Clase A
@@ -156,6 +159,7 @@
                                                     <p class="small text-secondary mb-0">
                                                         Aportación inicial 12.467 €
                                                     </p>
+                                                    <span class="card-vehiculo-estado" aria-hidden="true">Seleccionado</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -180,7 +184,10 @@
                                                                 name="producto" id="producto-amg" value="amg-g-63"
                                                                 data-linea="amg" data-modelo="Mercedes-AMG G 63"
                                                                 data-precio-mensual="1490" data-precio-unico="45000"
-                                                                data-imagen="images/coches/SUV&amp;Todoterreno2.jpg">
+                                                                data-imagen="images/coches/SUV&amp;Todoterreno2.jpg"
+                                                                data-tagline="Potencia sin filtros."
+                                                                data-specs="V8 biturbo · 585 CV · 0-100 4,5 s"
+                                                                data-alt="Mercedes-AMG G 63">
                                                             <label class="form-check-label stretched-link"
                                                                 for="producto-amg">
                                                                 <span class="visually-hidden">Seleccionar
@@ -198,6 +205,7 @@
                                                     <p class="small text-secondary mb-0">
                                                         Aportación inicial 45.000 €
                                                     </p>
+                                                    <span class="card-vehiculo-estado" aria-hidden="true">Seleccionado</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -225,7 +233,10 @@
                                                                 value="maybach-s-680" data-linea="maybach"
                                                                 data-modelo="Mercedes-Maybach S 680"
                                                                 data-precio-mensual="1890" data-precio-unico="60000"
-                                                                data-imagen="images/coches/Berlina1.jpg">
+                                                                data-imagen="images/coches/Berlina1.jpg"
+                                                                data-tagline="El lujo que no necesita presentación."
+                                                                data-specs="V12 · 612 CV · 0-100 4,5 s"
+                                                                data-alt="Mercedes-Maybach S 680">
                                                             <label class="form-check-label stretched-link"
                                                                 for="producto-maybach">
                                                                 <span class="visually-hidden">Seleccionar
@@ -244,6 +255,7 @@
                                                     <p class="small text-secondary mb-0">
                                                         Aportación inicial 60.000 €
                                                     </p>
+                                                    <span class="card-vehiculo-estado" aria-hidden="true">Seleccionado</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -270,10 +282,181 @@
                                     Añade solo lo que necesitas. Puedes cambiar de idea cuando quieras.
                                 </p>
                             </header>
-                            <div class="config-placeholder text-secondary">
-                                <p class="mb-0">
-                                    Contenido de la fase 2 (T5): extras, dependencias e incompatibilidad.
-                                </p>
+                            <div id="extrasAviso" class="extras-aviso" role="status" hidden></div>
+
+                            <section class="extras-grupo" aria-labelledby="extras-servicios">
+                                <h3 id="extras-servicios" class="extras-grupo-titulo">Servicios</h3>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="card-extra" for="extra-mantenimiento">
+                                            <span class="card-extra-icono" aria-hidden="true">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <path
+                                                        d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.8 2.8-2.5-.7-.7-2.5 2.8-2.8Z" />
+                                                </svg>
+                                            </span>
+                                            <span class="card-extra-cuerpo">
+                                                <span class="card-extra-titulo">Mantenimiento y neumáticos</span>
+                                                <span class="card-extra-desc">Revisiones, mantenimiento y neumáticos
+                                                    incluidos.</span>
+                                                <span class="card-extra-precio">35 €/mes</span>
+                                                <span class="card-extra-tipo">Recurrente</span>
+                                            </span>
+                                            <span class="card-extra-control">
+                                                <input class="form-check-input" type="checkbox"
+                                                    id="extra-mantenimiento" name="extras" value="mantenimiento"
+                                                    data-nombre="Mantenimiento y neumáticos" data-precio-mensual="35"
+                                                    data-precio-unico="0" data-tipo="mensual" disabled>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="card-extra" for="extra-seguro">
+                                            <span class="card-extra-icono" aria-hidden="true">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M12 3l7 3v5c0 4.4-2.9 7.4-7 9-4.1-1.6-7-4.6-7-9V6l7-3Z" />
+                                                    <path d="m9 12 2 2 4-4" />
+                                                </svg>
+                                            </span>
+                                            <span class="card-extra-cuerpo">
+                                                <span class="card-extra-titulo">Seguro a todo riesgo</span>
+                                                <span class="card-extra-desc">Cobertura completa con franquicia
+                                                    reducida.</span>
+                                                <span class="card-extra-precio">45 €/mes</span>
+                                                <span class="card-extra-tipo">Recurrente</span>
+                                            </span>
+                                            <span class="card-extra-control">
+                                                <input class="form-check-input" type="checkbox" id="extra-seguro"
+                                                    name="extras" value="seguro" data-nombre="Seguro a todo riesgo"
+                                                    data-precio-mensual="45" data-precio-unico="0" data-tipo="mensual"
+                                                    disabled>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section class="extras-grupo" aria-labelledby="extras-tecnologia-confort">
+                                <h3 id="extras-tecnologia-confort" class="extras-grupo-titulo">Tecnología y confort</h3>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="card-extra" for="extra-wallbox">
+                                            <span class="card-extra-icono" aria-hidden="true">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" />
+                                                </svg>
+                                            </span>
+                                            <span class="card-extra-cuerpo">
+                                                <span class="card-extra-titulo">Wallbox y instalación</span>
+                                                <span class="card-extra-desc">Cargador doméstico instalado en tu
+                                                    plaza.</span>
+                                                <span class="card-extra-precio">1.200 €</span>
+                                                <span class="card-extra-tipo">Pago único</span>
+                                                <span class="card-extra-nota">Solo disponible para Clase A 250e.</span>
+                                            </span>
+                                            <span class="card-extra-control">
+                                                <input class="form-check-input" type="checkbox" id="extra-wallbox"
+                                                    name="extras" value="wallbox" data-nombre="Wallbox y instalación"
+                                                    data-precio-mensual="0" data-precio-unico="1200" data-tipo="unico"
+                                                    data-requiere="clase-a-250e"
+                                                    data-requiere-texto="Clase A 250e" disabled>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="card-extra" for="extra-amg-night">
+                                            <span class="card-extra-icono" aria-hidden="true">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <path
+                                                        d="m12 3 2.6 5.3 5.9.9-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.2l5.9-.9L12 3Z" />
+                                                </svg>
+                                            </span>
+                                            <span class="card-extra-cuerpo">
+                                                <span class="card-extra-titulo">Pack AMG Night</span>
+                                                <span class="card-extra-desc">Detalles exteriores e interiores de
+                                                    inspiración AMG.</span>
+                                                <span class="card-extra-precio">1.500 €</span>
+                                                <span class="card-extra-tipo">Pago único</span>
+                                                <span class="card-extra-nota">Solo disponible para AMG G 63 · No
+                                                    compatible con Pack Confort.</span>
+                                            </span>
+                                            <span class="card-extra-control">
+                                                <input class="form-check-input" type="checkbox" id="extra-amg-night"
+                                                    name="extras" value="pack-amg-night" data-nombre="Pack AMG Night"
+                                                    data-precio-mensual="0" data-precio-unico="1500" data-tipo="unico"
+                                                    data-requiere="amg-g-63" data-requiere-texto="Mercedes-AMG G 63"
+                                                    data-incompatible="extra-confort" disabled>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="card-extra" for="extra-chofer">
+                                            <span class="card-extra-icono" aria-hidden="true">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <circle cx="12" cy="8" r="3" />
+                                                    <path d="M5 21a7 7 0 0 1 14 0" />
+                                                </svg>
+                                            </span>
+                                            <span class="card-extra-cuerpo">
+                                                <span class="card-extra-titulo">Pack Chófer</span>
+                                                <span class="card-extra-desc">Asientos executive y experiencia
+                                                    trasera premium.</span>
+                                                <span class="card-extra-precio">2.500 €</span>
+                                                <span class="card-extra-tipo">Pago único</span>
+                                                <span class="card-extra-nota">Solo disponible para Maybach S 680.</span>
+                                            </span>
+                                            <span class="card-extra-control">
+                                                <input class="form-check-input" type="checkbox" id="extra-chofer"
+                                                    name="extras" value="pack-chofer" data-nombre="Pack Chófer"
+                                                    data-precio-mensual="0" data-precio-unico="2500" data-tipo="unico"
+                                                    data-requiere="maybach-s-680"
+                                                    data-requiere-texto="Mercedes-Maybach S 680" disabled>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="card-extra" for="extra-confort">
+                                            <span class="card-extra-icono" aria-hidden="true">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M5 11V8a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v3" />
+                                                    <path d="M5 11h14v6a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3v-6Z" />
+                                                    <path d="M7 17h10" />
+                                                </svg>
+                                            </span>
+                                            <span class="card-extra-cuerpo">
+                                                <span class="card-extra-titulo">Pack Confort</span>
+                                                <span class="card-extra-desc">Asientos ventilados, masaje y confort
+                                                    adicional.</span>
+                                                <span class="card-extra-precio">900 €</span>
+                                                <span class="card-extra-tipo">Pago único</span>
+                                                <span class="card-extra-nota">No compatible con Pack AMG Night.</span>
+                                            </span>
+                                            <span class="card-extra-control">
+                                                <input class="form-check-input" type="checkbox" id="extra-confort"
+                                                    name="extras" value="pack-confort" data-nombre="Pack Confort"
+                                                    data-precio-mensual="0" data-precio-unico="900" data-tipo="unico"
+                                                    data-incompatible="extra-amg-night" disabled>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <div class="extras-resumen" aria-live="polite">
+                                <p class="extras-resumen-titulo mb-1">Tu selección</p>
+                                <p id="extrasResumenTexto" class="mb-0">Sin extras seleccionados.</p>
                             </div>
                         </section>
 
@@ -391,8 +574,10 @@
                 </div>
 
                 <p class="config-eyebrow text-uppercase small text-white-50 mb-2">Tu configuración</p>
-                <h2 id="showroomModelo" class="h3 mb-2">Selecciona tu Mercedes</h2>
-                <p id="showroomTagline" class="text-white-50 mb-4">Elige un vehículo para empezar.</p>
+                <p id="showroomLinea" class="config-showroom-linea mb-1">Mercedes-Benz</p>
+                <h2 id="showroomModelo" class="h3 mb-2" aria-live="polite">Selecciona tu Mercedes</h2>
+                <p id="showroomTagline" class="text-white-50 mb-2">Elige un vehículo para empezar.</p>
+                <p id="showroomSpecs" class="config-showroom-specs text-white-50 mb-4" hidden></p>
 
                 <dl class="row small mb-4">
                     <dt class="col-6 fw-normal text-white-50">Vehículo</dt>
@@ -425,6 +610,8 @@
 
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/contratacion.js"></script>
+    <script src="js/vehiculo.js"></script>
+    <script src="js/extras.js"></script>
 </body>
 
 </html>
