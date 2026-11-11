@@ -528,7 +528,8 @@ Contraste mínimo: 4,5:1 para texto normal y 3:1 para texto grande. El color nun
   - `images/logo-maybach.svg`
 - Capturas del armazón T1: `docs/t1-desktop.png` y `docs/t1-mobile.png`.
 - Capturas del sistema visual T3: `docs/t3-desktop-paso-1.png`, `docs/t3-desktop-paso-2.png` y `docs/t3-mobile-paso-1.png`.
-- Las imágenes de coche tienen fondo blanco: en el showroom se colocan sobre un stage claro (`--config-surface-alt`) para que se integren. En las tarjetas se pueden recortar con `object-fit: cover`.
+- Capturas de la selección T4: `docs/t4-desktop-amg.png`, `docs/t4-desktop-maybach.png` y `docs/t4-mobile-amg.png`.
+- Las imágenes de coche tienen fondo blanco: en el showroom se colocan sobre un stage blanco para que se integren. En las tarjetas se pueden recortar con `object-fit: cover`.
 - No aplicar filtros de color, duotonos ni sombras artificiales a los coches.
 - `alt` descriptivo: “Mercedes-Benz Clase A 250e”, “Mercedes-AMG G 63”, “Mercedes-Maybach S 680”.
 - Iconos: SVG inline de 24 × 24, trazo 1,5, `currentColor`. Sin Font Awesome, Bootstrap Icons ni emojis.
@@ -544,7 +545,8 @@ Contraste mínimo: 4,5:1 para texto normal y 3:1 para texto grande. El color nun
 |---|---|
 | `contratacion.html` | Estructura del configurador y los seis pasos |
 | `css/contratacion.css` | Todos los estilos del configurador |
-| `js/contratacion.js` | Navegación, estado, progreso y showroom (T2) |
+| `js/contratacion.js` | Navegación, estado, progreso y API compartida (T2) |
+| `js/vehiculo.js` | Selección de vehículo y sincronización del showroom (T4) |
 | `js/validaciones.js` | Funciones de validación reutilizables (T10) |
 | `js/precios.js` | Cálculo de totales (T11) |
 | `js/confirmacion.js` | Modal de éxito en la home (T12) |
@@ -559,6 +561,7 @@ Orden de scripts en `contratacion.html`:
 <script src="js/validaciones.js"></script>
 <script src="js/precios.js"></script>
 <script src="js/contratacion.js"></script>
+<script src="js/vehiculo.js"></script>
 ```
 
 `js/confirmacion.js` se carga solo en `index.html`.
@@ -571,7 +574,7 @@ Orden de scripts en `contratacion.html`:
 - Botones: `#btnAnterior`, `#btnSiguiente`, `#btnConfirmar`.
 - Progreso: `#indicadorPasoTop`, `#barraProgreso`, `#indicadorPaso`.
 - Errores: `#resumenErrores`.
-- Showroom: `#showroomLinea`, `#showroomImagen`, `#showroomModelo`, `#showroomTagline`, `#showroomVehiculo`, `#showroomExtras`, `#showroomPagoUnico`, `#showroomCuota`.
+- Showroom: `#showroomLinea`, `#showroomImagen`, `#showroomModelo`, `#showroomTagline`, `#showroomSpecs`, `#showroomVehiculo`, `#showroomExtras`, `#showroomPagoUnico`, `#showroomCuota`.
 - Campos: `nombre`, `apellidos`, `dni`, `email`, `emailConfirmacion`, `telefono`, `fechaNacimiento`, `tipoVia`, `nombreVia`, `numero`, `piso`, `codigoPostal`, `localidad`, `provincia`, `metodoPago`, `titularCuenta`, `iban`, `titularTarjeta`, `numeroTarjeta`, `caducidad`, `cvv`, `aceptoCondiciones`, `aceptoPrivacidad`, `aceptoComercial`.
 - Resumen: `#resumenProducto`, `#resumenExtras`, `#resumenDatos`, `#resumenDireccion`, `#resumenPago`, `#desglosePrecios`.
 

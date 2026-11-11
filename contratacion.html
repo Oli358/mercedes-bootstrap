@@ -137,7 +137,10 @@
                                                                 value="clase-a-250e" data-linea="mercedes-benz"
                                                                 data-modelo="Clase A 250e" data-precio-mensual="295"
                                                                 data-precio-unico="12467"
-                                                                data-imagen="images/ClaseA250eSpecialEdition.jpg">
+                                                                data-imagen="images/ClaseA250eSpecialEdition.jpg"
+                                                                data-tagline="La puerta de entrada a la estrella."
+                                                                data-specs="Híbrido enchufable · 218 CV · 0-100 6,8 s"
+                                                                data-alt="Mercedes-Benz Clase A 250e">
                                                             <label class="form-check-label stretched-link"
                                                                 for="producto-clase-a">
                                                                 <span class="visually-hidden">Seleccionar Clase A
@@ -156,6 +159,7 @@
                                                     <p class="small text-secondary mb-0">
                                                         Aportación inicial 12.467 €
                                                     </p>
+                                                    <span class="card-vehiculo-estado" aria-hidden="true">Seleccionado</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -180,7 +184,10 @@
                                                                 name="producto" id="producto-amg" value="amg-g-63"
                                                                 data-linea="amg" data-modelo="Mercedes-AMG G 63"
                                                                 data-precio-mensual="1490" data-precio-unico="45000"
-                                                                data-imagen="images/coches/SUV&amp;Todoterreno2.jpg">
+                                                                data-imagen="images/coches/SUV&amp;Todoterreno2.jpg"
+                                                                data-tagline="Potencia sin filtros."
+                                                                data-specs="V8 biturbo · 585 CV · 0-100 4,5 s"
+                                                                data-alt="Mercedes-AMG G 63">
                                                             <label class="form-check-label stretched-link"
                                                                 for="producto-amg">
                                                                 <span class="visually-hidden">Seleccionar
@@ -198,6 +205,7 @@
                                                     <p class="small text-secondary mb-0">
                                                         Aportación inicial 45.000 €
                                                     </p>
+                                                    <span class="card-vehiculo-estado" aria-hidden="true">Seleccionado</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -225,7 +233,10 @@
                                                                 value="maybach-s-680" data-linea="maybach"
                                                                 data-modelo="Mercedes-Maybach S 680"
                                                                 data-precio-mensual="1890" data-precio-unico="60000"
-                                                                data-imagen="images/coches/Berlina1.jpg">
+                                                                data-imagen="images/coches/Berlina1.jpg"
+                                                                data-tagline="El lujo que no necesita presentación."
+                                                                data-specs="V12 · 612 CV · 0-100 4,5 s"
+                                                                data-alt="Mercedes-Maybach S 680">
                                                             <label class="form-check-label stretched-link"
                                                                 for="producto-maybach">
                                                                 <span class="visually-hidden">Seleccionar
@@ -244,6 +255,7 @@
                                                     <p class="small text-secondary mb-0">
                                                         Aportación inicial 60.000 €
                                                     </p>
+                                                    <span class="card-vehiculo-estado" aria-hidden="true">Seleccionado</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -391,8 +403,10 @@
                 </div>
 
                 <p class="config-eyebrow text-uppercase small text-white-50 mb-2">Tu configuración</p>
-                <h2 id="showroomModelo" class="h3 mb-2">Selecciona tu Mercedes</h2>
-                <p id="showroomTagline" class="text-white-50 mb-4">Elige un vehículo para empezar.</p>
+                <p id="showroomLinea" class="config-showroom-linea mb-1">Mercedes-Benz</p>
+                <h2 id="showroomModelo" class="h3 mb-2" aria-live="polite">Selecciona tu Mercedes</h2>
+                <p id="showroomTagline" class="text-white-50 mb-2">Elige un vehículo para empezar.</p>
+                <p id="showroomSpecs" class="config-showroom-specs text-white-50 mb-4" hidden></p>
 
                 <dl class="row small mb-4">
                     <dt class="col-6 fw-normal text-white-50">Vehículo</dt>
@@ -425,6 +439,7 @@
 
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/contratacion.js"></script>
+    <script src="js/vehiculo.js"></script>
 </body>
 
 </html>
