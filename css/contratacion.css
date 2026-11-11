@@ -569,7 +569,9 @@ body.config-page {
 .card-extra {
     position: relative;
     display: flex;
+    align-items: flex-start;
     gap: 1rem;
+    height: 100%;
     padding: 1.25rem;
     border: 1px solid var(--config-line);
     border-radius: 1rem;
@@ -618,8 +620,18 @@ body.config-page {
 }
 
 .card-extra-cuerpo {
+    display: flex;
+    flex-direction: column;
     min-width: 0;
     flex: 1;
+}
+
+.card-extra-titulo,
+.card-extra-desc,
+.card-extra-precio,
+.card-extra-tipo,
+.card-extra-nota {
+    display: block;
 }
 
 .card-extra-titulo {
@@ -636,6 +648,7 @@ body.config-page {
 }
 
 .card-extra-precio {
+    margin-top: 0.15rem;
     font-size: 0.95rem;
     font-weight: 500;
     font-variant-numeric: tabular-nums;
@@ -646,6 +659,81 @@ body.config-page {
     font-size: 0.7rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+}
+
+.card-extra-control {
+    flex-shrink: 0;
+    margin-left: auto;
+    padding-top: 0.15rem;
+}
+
+.card-extra-control .form-check-input {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin: 0;
+}
+
+.card-extra-nota {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--config-line);
+    color: var(--config-muted);
+    font-size: 0.72rem;
+    line-height: 1.45;
+}
+
+.card-extra.is-disabled .card-extra-nota {
+    color: #8a5a00;
+}
+
+/* ---------------------------------------------------------
+   Extras: grupos, aviso y resumen
+   --------------------------------------------------------- */
+.extras-grupo {
+    margin-bottom: 2rem;
+}
+
+.extras-grupo-titulo {
+    margin-bottom: 0.75rem;
+    color: var(--config-muted);
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.extras-aviso {
+    margin-bottom: 1.25rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid #e7d7b8;
+    border-radius: 0.75rem;
+    background-color: #fbf6ea;
+    color: #6b4b00;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.extras-resumen {
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+    border: 1px solid var(--config-line);
+    border-radius: 1rem;
+    background-color: var(--config-surface);
+}
+
+.extras-resumen-titulo {
+    color: var(--config-muted);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+#extrasResumenTexto {
+    color: var(--config-ink);
+    font-size: 0.92rem;
+    font-weight: 500;
 }
 
 /* ---------------------------------------------------------
