@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurador de contratación | Mercedes-Benz</title>
+    <meta name="description"
+        content="Configura y simula la contratación de tu Mercedes-Benz en seis pasos. Precios de simulación, sin cobros reales.">
+    <link rel="icon" href="images/logo-140years.gif" type="image/gif">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom-css.css">
+    <link rel="stylesheet" href="css/contratacion.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="config-page">
+
+    <a class="visually-hidden-focusable" href="#contenidoConfigurador">Saltar al contenido</a>
+
+    <noscript>
+        <div class="alert alert-warning rounded-0 m-0 text-center">
+            Este configurador necesita JavaScript para funcionar.
+        </div>
+    </noscript>
+
+    <!-- =========================================================
+         BARRA SUPERIOR DEL CONFIGURADOR
+         ========================================================= -->
+    <header class="config-header bg-black text-white sticky-top">
+        <div class="config-header-inner d-flex align-items-center justify-content-between gap-3 px-3 px-lg-4">
+            <a href="index.html"
+                class="config-brand d-flex align-items-center gap-2 text-white text-decoration-none flex-shrink-0"
+                aria-label="Volver a la home de Mercedes-Benz">
+                <img src="images/logo-140years.gif" alt="Mercedes-Benz" class="config-brand-logo">
+                <span class="config-brand-text d-none d-sm-inline">Mercedes-Benz</span>
+            </a>
+
+            <p class="config-header-title mb-0 d-none d-md-block">Configurador de contratación</p>
+
+            <div class="config-header-meta d-flex align-items-center gap-3 flex-shrink-0">
+                <span id="indicadorPasoTop" class="config-step-label text-uppercase small">Paso 1 de 6</span>
+                <a href="index.html" class="config-exit text-white text-decoration-none small">
+                    Salir <span aria-hidden="true">×</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="config-progress progress" role="progressbar" aria-label="Progreso del formulario"
+            aria-valuemin="1" aria-valuemax="6" aria-valuenow="1">
+            <div id="barraProgreso" class="config-progress-bar progress-bar bg-white" style="width: 16.6667%"></div>
+        </div>
+    </header>
+
+    <!-- =========================================================
+         LAYOUT: CONTENIDO + SHOWROOM
+         ========================================================= -->
+    <main id="contenidoConfigurador" class="config-layout">
+        <h1 class="visually-hidden">Configurador de contratación Mercedes-Benz</h1>
+
+        <div class="row g-0">
+            <!-- Columna izquierda: pasos y formulario -->
+            <div class="col-12 col-xl-7 config-content">
+                <div class="config-main px-3 px-md-4 px-xl-5 py-4 py-xl-5">
+
+                    <!-- Stepper -->
+                    <nav aria-label="Pasos del formulario" class="config-stepper mb-4">
+                        <ol class="list-unstyled d-flex flex-wrap gap-2 gap-md-3 mb-2">
+                            <li class="config-stepper-item is-active fw-semibold" data-paso-indicador="1"
+                                aria-current="step">
+                                <span class="config-stepper-num">1</span> Vehículo
+                            </li>
+                            <li class="config-stepper-item text-secondary" data-paso-indicador="2">
+                                <span class="config-stepper-num">2</span> Extras
+                            </li>
+                            <li class="config-stepper-item text-secondary" data-paso-indicador="3">
+                                <span class="config-stepper-num">3</span> Datos
+                            </li>
+                            <li class="config-stepper-item text-secondary" data-paso-indicador="4">
+                                <span class="config-stepper-num">4</span> Dirección
+                            </li>
+                            <li class="config-stepper-item text-secondary" data-paso-indicador="5">
+                                <span class="config-stepper-num">5</span> Pago
+                            </li>
+                            <li class="config-stepper-item text-secondary" data-paso-indicador="6">
+                                <span class="config-stepper-num">6</span> Resumen
+                            </li>
+                        </ol>
+                        <p id="indicadorPaso" class="small text-secondary mb-0" aria-live="polite">
+                            Paso 1 de 6 · Vehículo
+                        </p>
+                    </nav>
+
+                    <form id="formContratacion" class="config-form" novalidate>
+                        <!-- Resumen de errores: lo rellena T10 -->
+                        <div id="resumenErrores" class="alert alert-danger" role="alert" hidden></div>
+
+                        <!-- =================================================
+                             PASO 1: VEHÍCULO
+                             ================================================= -->
+                        <section class="config-step" id="paso-1" data-paso="1" aria-labelledby="titulo-paso-1">
+                            <header class="config-step-header mb-4">
+                                <p class="config-eyebrow text-uppercase small text-secondary mb-2">
+                                    Paso 1 · Vehículo
+                                </p>
+                                <h2 id="titulo-paso-1" class="display-4 mb-2" tabindex="-1">Elige tu Mercedes.</h2>
+                                <p class="config-lead text-secondary mb-0">
+                                    Tres formas de entender la excelencia. Selecciona la tuya.
+                                </p>
+                            </header>
+
+                            <fieldset class="config-fieldset mb-4">
+                                <legend class="visually-hidden">Selecciona un vehículo</legend>
+
+                                <div class="config-vehicle-list d-flex flex-column gap-3">
+
+                                    <!-- Clase A 250e -->
+                                    <div class="card-vehiculo card overflow-hidden position-relative">
+                                        <div class="row g-0">
+                                            <div class="col-sm-5 config-vehiculo-media">
+                                                <img src="images/ClaseA250eSpecialEdition.jpg"
+                                                    alt="Mercedes-Benz Clase A 250e"
+                                                    class="w-100 h-100 object-fit-cover">
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <div class="card-body">
+                                                    <div
+                                                        class="d-flex justify-content-between align-items-start gap-3 mb-2">
+                                                        <span class="badge card-vehiculo-badge">Mercedes-Benz</span>
+                                                        <div class="form-check m-0">
+                                                            <input class="form-check-input" type="radio"
+                                                                name="producto" id="producto-clase-a"
+                                                                value="clase-a-250e" data-linea="mercedes-benz"
+                                                                data-modelo="Clase A 250e" data-precio-mensual="295"
+                                                                data-precio-unico="12467"
+                                                                data-imagen="images/ClaseA250eSpecialEdition.jpg">
+                                                            <label class="form-check-label stretched-link"
+                                                                for="producto-clase-a">
+                                                                <span class="visually-hidden">Seleccionar Clase A
+                                                                    250e</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <h3 class="h4 mb-1">Clase A 250e</h3>
+                                                    <p class="text-secondary mb-2">La puerta de entrada a la
+                                                        estrella.</p>
+                                                    <p class="small text-secondary mb-3">
+                                                        Híbrido enchufable · 218 CV · 0-100 6,8 s
+                                                    </p>
+                                                    <p class="config-vehiculo-precio mb-0"><strong>295 €/mes</strong>
+                                                    </p>
+                                                    <p class="small text-secondary mb-0">
+                                                        Aportación inicial 12.467 €
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- AMG G 63 -->
+                                    <div class="card-vehiculo card overflow-hidden position-relative">
+                                        <div class="row g-0">
+                                            <div class="col-sm-5 config-vehiculo-media">
+                                                <img src="images/coches/SUV&amp;Todoterreno2.jpg"
+                                                    alt="Mercedes-AMG G 63" class="w-100 h-100 object-fit-cover">
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <div class="card-body">
+                                                    <div
+                                                        class="d-flex justify-content-between align-items-start gap-3 mb-2">
+                                                        <span class="badge card-vehiculo-badge">
+                                                            <img src="images/logo-amg.svg" alt="AMG" height="12">
+                                                        </span>
+                                                        <div class="form-check m-0">
+                                                            <input class="form-check-input" type="radio"
+                                                                name="producto" id="producto-amg" value="amg-g-63"
+                                                                data-linea="amg" data-modelo="Mercedes-AMG G 63"
+                                                                data-precio-mensual="1490" data-precio-unico="45000"
+                                                                data-imagen="images/coches/SUV&amp;Todoterreno2.jpg">
+                                                            <label class="form-check-label stretched-link"
+                                                                for="producto-amg">
+                                                                <span class="visually-hidden">Seleccionar
+                                                                    Mercedes-AMG G 63</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <h3 class="h4 mb-1">Mercedes-AMG G 63</h3>
+                                                    <p class="text-secondary mb-2">Potencia sin filtros.</p>
+                                                    <p class="small text-secondary mb-3">
+                                                        V8 biturbo · 585 CV · 0-100 4,5 s
+                                                    </p>
+                                                    <p class="config-vehiculo-precio mb-0"><strong>1.490
+                                                            €/mes</strong></p>
+                                                    <p class="small text-secondary mb-0">
+                                                        Aportación inicial 45.000 €
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Maybach S 680 -->
+                                    <div class="card-vehiculo card overflow-hidden position-relative">
+                                        <div class="row g-0">
+                                            <div class="col-sm-5 config-vehiculo-media">
+                                                <img src="images/coches/Berlina1.jpg"
+                                                    alt="Mercedes-Maybach S 680"
+                                                    class="w-100 h-100 object-fit-cover">
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <div class="card-body">
+                                                    <div
+                                                        class="d-flex justify-content-between align-items-start gap-3 mb-2">
+                                                        <span class="badge card-vehiculo-badge">
+                                                            <img src="images/logo-maybach.svg" alt="Maybach"
+                                                                height="12">
+                                                        </span>
+                                                        <div class="form-check m-0">
+                                                            <input class="form-check-input" type="radio"
+                                                                name="producto" id="producto-maybach"
+                                                                value="maybach-s-680" data-linea="maybach"
+                                                                data-modelo="Mercedes-Maybach S 680"
+                                                                data-precio-mensual="1890" data-precio-unico="60000"
+                                                                data-imagen="images/coches/Berlina1.jpg">
+                                                            <label class="form-check-label stretched-link"
+                                                                for="producto-maybach">
+                                                                <span class="visually-hidden">Seleccionar
+                                                                    Mercedes-Maybach S 680</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <h3 class="h4 mb-1">Mercedes-Maybach S 680</h3>
+                                                    <p class="text-secondary mb-2">El lujo que no necesita
+                                                        presentación.</p>
+                                                    <p class="small text-secondary mb-3">
+                                                        V12 · 612 CV · 0-100 4,5 s
+                                                    </p>
+                                                    <p class="config-vehiculo-precio mb-0"><strong>1.890
+                                                            €/mes</strong></p>
+                                                    <p class="small text-secondary mb-0">
+                                                        Aportación inicial 60.000 €
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </fieldset>
+
+                            <p class="small text-secondary mb-0">
+                                Precios de simulación. No se realizará ningún cobro.
+                            </p>
+                        </section>
+
+                        <!-- =================================================
+                             PASO 2: EXTRAS (T5)
+                             ================================================= -->
+                        <section class="config-step" id="paso-2" data-paso="2" aria-labelledby="titulo-paso-2" hidden>
+                            <header class="config-step-header mb-4">
+                                <p class="config-eyebrow text-uppercase small text-secondary mb-2">
+                                    Paso 2 · Extras
+                                </p>
+                                <h2 id="titulo-paso-2" class="display-4 mb-2" tabindex="-1">Hazlo tuyo.</h2>
+                                <p class="config-lead text-secondary mb-0">
+                                    Añade solo lo que necesitas. Puedes cambiar de idea cuando quieras.
+                                </p>
+                            </header>
+                            <div class="config-placeholder text-secondary">
+                                <p class="mb-0">
+                                    Contenido de la fase 2 (T5): extras, dependencias e incompatibilidad.
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- =================================================
+                             PASO 3: DATOS PERSONALES (T6)
+                             ================================================= -->
+                        <section class="config-step" id="paso-3" data-paso="3" aria-labelledby="titulo-paso-3" hidden>
+                            <header class="config-step-header mb-4">
+                                <p class="config-eyebrow text-uppercase small text-secondary mb-2">
+                                    Paso 3 · Datos
+                                </p>
+                                <h2 id="titulo-paso-3" class="display-4 mb-2" tabindex="-1">Cuéntanos quién eres.</h2>
+                                <p class="config-lead text-secondary mb-0">
+                                    Necesitamos tus datos para preparar la solicitud. Debes ser mayor de 18 años.
+                                </p>
+                            </header>
+                            <div class="config-placeholder text-secondary">
+                                <p class="mb-0">
+                                    Contenido de la fase 3 (T6): nombre, apellidos, DNI, correo, confirmación,
+                                    teléfono y fecha de nacimiento.
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- =================================================
+                             PASO 4: DIRECCIÓN (T7)
+                             ================================================= -->
+                        <section class="config-step" id="paso-4" data-paso="4" aria-labelledby="titulo-paso-4" hidden>
+                            <header class="config-step-header mb-4">
+                                <p class="config-eyebrow text-uppercase small text-secondary mb-2">
+                                    Paso 4 · Dirección
+                                </p>
+                                <h2 id="titulo-paso-4" class="display-4 mb-2" tabindex="-1">
+                                    ¿Dónde te llevamos tu Mercedes?
+                                </h2>
+                                <p class="config-lead text-secondary mb-0">
+                                    Solo admitimos direcciones de España.
+                                </p>
+                            </header>
+                            <div class="config-placeholder text-secondary">
+                                <p class="mb-0">
+                                    Contenido de la fase 4 (T7): tipo y nombre de vía, número, piso, código postal,
+                                    localidad y provincia.
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- =================================================
+                             PASO 5: PAGO (T8)
+                             ================================================= -->
+                        <section class="config-step" id="paso-5" data-paso="5" aria-labelledby="titulo-paso-5" hidden>
+                            <header class="config-step-header mb-4">
+                                <p class="config-eyebrow text-uppercase small text-secondary mb-2">
+                                    Paso 5 · Pago
+                                </p>
+                                <h2 id="titulo-paso-5" class="display-4 mb-2" tabindex="-1">Elige cómo pagar.</h2>
+                                <p class="config-lead text-secondary mb-0">
+                                    Domiciliación bancaria o tarjeta simulada. No se realizará ningún cargo.
+                                </p>
+                            </header>
+                            <div class="config-placeholder text-secondary">
+                                <p class="mb-0">
+                                    Contenido de la fase 5 (T8): método de pago, titular, IBAN o tarjeta simulada.
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- =================================================
+                             PASO 6: RESUMEN Y CONFIRMACIÓN (T9)
+                             ================================================= -->
+                        <section class="config-step" id="paso-6" data-paso="6" aria-labelledby="titulo-paso-6" hidden>
+                            <header class="config-step-header mb-4">
+                                <p class="config-eyebrow text-uppercase small text-secondary mb-2">
+                                    Paso 6 · Resumen
+                                </p>
+                                <h2 id="titulo-paso-6" class="display-4 mb-2" tabindex="-1">Revisa y confirma.</h2>
+                                <p class="config-lead text-secondary mb-0">
+                                    Comprueba tu configuración antes de enviar la solicitud.
+                                </p>
+                            </header>
+                            <div class="config-placeholder text-secondary">
+                                <p class="mb-0">
+                                    Contenido de la fase 6 (T9): resumen editable, desglose de precios, casillas
+                                    legales y confirmación.
+                                </p>
+                            </div>
+                        </section>
+
+                        <!-- Navegación -->
+                        <div
+                            class="config-actions d-flex justify-content-between align-items-center gap-3 mt-4 pt-4 border-top">
+                            <button type="button" id="btnAnterior"
+                                class="btn btn-outline-dark rounded-pill px-4 btn-config btn-config-outline" disabled>
+                                Anterior
+                            </button>
+                            <button type="button" id="btnSiguiente"
+                                class="btn btn-dark rounded-pill px-4 btn-config">
+                                Siguiente
+                            </button>
+                            <button type="button" id="btnConfirmar"
+                                class="btn btn-dark rounded-pill px-4 btn-config" hidden>
+                                Confirmar solicitud
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Columna derecha: showroom -->
+            <aside class="col-12 col-xl-5 config-showroom bg-dark text-white p-3 p-xl-4"
+                aria-label="Resumen de tu configuración">
+                <div class="config-showroom-stage d-flex align-items-center justify-content-center mb-4">
+                    <img id="showroomImagen" src="images/welcomehome.jpg"
+                        alt="Mercedes-Benz de perfil en estudio" class="img-fluid">
+                </div>
+
+                <p class="config-eyebrow text-uppercase small text-white-50 mb-2">Tu configuración</p>
+                <h2 id="showroomModelo" class="h3 mb-2">Selecciona tu Mercedes</h2>
+                <p id="showroomTagline" class="text-white-50 mb-4">Elige un vehículo para empezar.</p>
+
+                <dl class="row small mb-4">
+                    <dt class="col-6 fw-normal text-white-50">Vehículo</dt>
+                    <dd id="showroomVehiculo" class="col-6 text-end mb-2">—</dd>
+                    <dt class="col-6 fw-normal text-white-50">Extras</dt>
+                    <dd id="showroomExtras" class="col-6 text-end mb-2">—</dd>
+                    <dt class="col-6 fw-normal text-white-50">Pago único</dt>
+                    <dd id="showroomPagoUnico" class="col-6 text-end mb-2">—</dd>
+                    <dt class="col-6 fw-normal text-white-50">Cuota</dt>
+                    <dd id="showroomCuota" class="col-6 text-end mb-0">—</dd>
+                </dl>
+
+                <p class="small text-white-50 mb-0">
+                    Precios de simulación. No se realizará ningún cobro.
+                </p>
+            </aside>
+        </div>
+    </main>
+
+    <!-- =========================================================
+         PIE LEGAL MÍNIMO
+         ========================================================= -->
+    <footer class="config-footer bg-black text-white py-3">
+        <div
+            class="container-fluid px-3 px-lg-4 d-flex flex-column flex-md-row justify-content-between gap-2 small">
+            <p class="mb-0">© 2026 Mercedes-Benz. Simulación de contratación sin validez contractual.</p>
+            <p class="mb-0 text-white-50">Configurador de demostración · Sin cobros reales</p>
+        </div>
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/contratacion.js"></script>
+</body>
+
+</html>
