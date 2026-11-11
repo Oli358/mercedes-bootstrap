@@ -99,6 +99,10 @@ body.config-page {
 /* ---------------------------------------------------------
    Stepper
    --------------------------------------------------------- */
+.config-stepper {
+    scroll-margin-top: 80px;
+}
+
 .config-stepper-item {
     font-size: 0.78rem;
     letter-spacing: 0.08em;
@@ -122,6 +126,21 @@ body.config-page {
     color: var(--config-surface);
     background-color: var(--config-ink);
     border-color: var(--config-ink);
+}
+
+.config-stepper-item.is-complete {
+    color: var(--config-ink);
+}
+
+.config-stepper-item.is-complete .config-stepper-num {
+    color: var(--config-surface);
+    background-color: var(--config-ink);
+    border-color: var(--config-ink);
+}
+
+/* El foco programático del título no debe quedar bajo la barra sticky. */
+.config-step h2[tabindex="-1"] {
+    scroll-margin-top: 90px;
 }
 
 /* ---------------------------------------------------------
