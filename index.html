@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mercedes-Benz | España - Sitio web oficial</title>
+    <link rel="icon" href="images/logo-140years.gif" type="image/gif">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/custom-css.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -880,6 +881,25 @@
 
     </footer>
 
+    <!-- Modal de confirmación: solo se abre al volver del formulario con una solicitud registrada -->
+    <div class="modal fade" id="modalSolicitud" tabindex="-1" aria-labelledby="modalSolicitudLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0 pb-0">
+                    <h2 class="modal-title h3" id="modalSolicitudLabel">Solicitud registrada correctamente</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="mb-0">Hemos registrado tu solicitud de simulación. No se ha realizado ningún cobro.</p>
+                </div>
+                <div class="modal-footer border-0 pt-0">
+                    <button type="button" class="btn btn-dark rounded-pill px-4" data-bs-dismiss="modal">Seguir
+                        navegando</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Giro de los coches de la gama -->
     <script src="js/gama.js"></script>
 
@@ -908,6 +928,7 @@
 
     <!-- Script de Bootstrap -->
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/confirmacion.js"></script>
 </body>
 
 </html>

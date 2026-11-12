@@ -536,6 +536,7 @@ Contraste mínimo: 4,5:1 para texto normal y 3:1 para texto grande. El color nun
 - Capturas de resumen T9: `docs/t9-desktop.png`, `docs/t9-legal.png` y `docs/t9-mobile.png`.
 - Capturas de validaciones T10: `docs/t10-errores.png` y `docs/t10-legal.png`.
 - Capturas de precios T11: `docs/t11-precios.png` y `docs/t11-resumen.png`.
+- Captura del modal de confirmación T12: `docs/t12-modal.png`.
 - Las imágenes de coche tienen fondo blanco: en el showroom se colocan sobre un stage blanco para que se integren. En las tarjetas se pueden recortar con `object-fit: cover`.
 - No aplicar filtros de color, duotonos ni sombras artificiales a los coches.
 - `alt` descriptivo: “Mercedes-Benz Clase A 250e”, “Mercedes-AMG G 63”, “Mercedes-Maybach S 680”.
@@ -561,6 +562,7 @@ Contraste mínimo: 4,5:1 para texto normal y 3:1 para texto grande. El color nun
 | `js/resumen.js` | Resumen editable, totales y casillas legales (T9) |
 | `js/validaciones.js` | Funciones de validación reutilizables (T10) |
 | `js/precios.js` | Cálculo de totales (T11) |
+| `js/envio.js` | Envío simulado y retorno a la home (T12) |
 | `js/confirmacion.js` | Modal de éxito en la home (T12) |
 | `docs/guia-visual-configurador.md` | Esta guía |
 | `docs/pruebas.md` | Tabla de las 12 pruebas (T13) |
@@ -579,9 +581,10 @@ Orden de scripts en `contratacion.html`:
 <script src="js/pago.js"></script>
 <script src="js/resumen.js"></script>
 <script src="js/validaciones.js"></script>
+<script src="js/envio.js"></script>
 ```
 
-`js/confirmacion.js` se carga solo en `index.html`.
+`js/envio.js` se carga solo en `contratacion.html` y `js/confirmacion.js` solo en `index.html`.
 
 ### 13.2. IDs principales
 
@@ -597,6 +600,7 @@ Orden de scripts en `contratacion.html`:
 - Campos: `nombre`, `apellidos`, `dni`, `email`, `emailConfirmacion`, `telefono`, `fechaNacimiento`, `tipoVia`, `nombreVia`, `numero`, `piso`, `codigoPostal`, `localidad`, `provincia`, `metodoPago`, `titularCuenta`, `iban`, `titularTarjeta`, `numeroTarjeta`, `caducidad`, `cvv`, `aceptoCondiciones`, `aceptoPrivacidad`, `aceptoComercial`.
 - Resumen: `#resumenProducto`, `#resumenExtras`, `#resumenDatos`, `#resumenDireccion`, `#resumenPago`, `#desglosePrecios`, `#totalHoy`, `#totalMensual`, `#lineaAportacion`, `#lineaExtrasUnicos`, `#lineaCuota`, `#lineaExtrasMensuales`.
 - Legal: `#aceptoCondiciones`, `#aceptoPrivacidad`, `#aceptoComercial`, `#modalCondiciones`, `#modalPrivacidad`.
+- Confirmación en la home: `#modalSolicitud`.
 
 ### 13.3. Clases
 
