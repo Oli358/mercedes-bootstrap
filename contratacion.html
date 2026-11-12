@@ -749,10 +749,155 @@
                                     Domiciliación bancaria o tarjeta simulada. No se realizará ningún cargo.
                                 </p>
                             </header>
-                            <div class="config-placeholder text-secondary">
-                                <p class="mb-0">
-                                    Contenido de la fase 5 (T8): método de pago, titular, IBAN o tarjeta simulada.
-                                </p>
+                            <fieldset class="pago-metodos">
+                                <legend class="visually-hidden">Método de pago</legend>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="pago-opcion" for="metodoDomiciliacion">
+                                            <span class="pago-opcion-icono" aria-hidden="true">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22"
+                                                    height="22" fill="none" stroke="currentColor" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M3 10h18"></path>
+                                                    <path d="M5 10V7l7-4 7 4v3"></path>
+                                                    <path d="M5 10v9h14v-9"></path>
+                                                    <path d="M9 19v-5h6v5"></path>
+                                                </svg>
+                                            </span>
+                                            <span class="pago-opcion-cuerpo">
+                                                <span class="pago-opcion-titulo">Domiciliación bancaria</span>
+                                                <span class="pago-opcion-desc">Cargo mensual en tu cuenta.</span>
+                                            </span>
+                                            <span class="pago-opcion-control">
+                                                <input class="form-check-input" type="radio" name="metodoPago"
+                                                    id="metodoDomiciliacion" value="domiciliacion" checked>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="pago-opcion" for="metodoTarjeta">
+                                            <span class="pago-opcion-icono" aria-hidden="true">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22"
+                                                    height="22" fill="none" stroke="currentColor" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                                                    <path d="M3 10h18"></path>
+                                                    <path d="M7 15h3"></path>
+                                                </svg>
+                                            </span>
+                                            <span class="pago-opcion-cuerpo">
+                                                <span class="pago-opcion-titulo">Tarjeta</span>
+                                                <span class="pago-opcion-desc">Tarjeta simulada, sin cobros
+                                                    reales.</span>
+                                            </span>
+                                            <span class="pago-opcion-control">
+                                                <input class="form-check-input" type="radio" name="metodoPago"
+                                                    id="metodoTarjeta" value="tarjeta">
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <div id="pagoDomiciliacion" class="pago-panel mt-4" role="group"
+                                aria-labelledby="tituloPagoDomiciliacion">
+                                <h3 id="tituloPagoDomiciliacion" class="pago-panel-titulo">Datos de la domiciliación</h3>
+                                <div class="row g-3 g-md-4">
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="titularCuenta">Titular de la cuenta</label>
+                                            <input class="campo-input" id="titularCuenta" name="titularCuenta"
+                                                type="text" autocomplete="name" placeholder="Ana García López"
+                                                aria-describedby="ayuda-titularCuenta error-titularCuenta" required>
+                                            <p class="campo-help" id="ayuda-titularCuenta">Tal como aparece en la cuenta.
+                                            </p>
+                                            <p class="campo-error" id="error-titularCuenta" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="iban">IBAN</label>
+                                            <input class="campo-input" id="iban" name="iban" type="text"
+                                                autocomplete="off" inputmode="text" maxlength="34"
+                                                placeholder="ES91 2100 0418 4502 0005 1332"
+                                                aria-describedby="ayuda-iban error-iban" required>
+                                            <p class="campo-help" id="ayuda-iban">IBAN español: ES + 22 cifras. Puedes
+                                                usar espacios.</p>
+                                            <p class="campo-error" id="error-iban" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="pago-nota">No se realizará ningún cargo. Esta es una simulación.</p>
+                            </div>
+
+                            <div id="pagoTarjeta" class="pago-panel mt-4" role="group"
+                                aria-labelledby="tituloPagoTarjeta" hidden>
+                                <h3 id="tituloPagoTarjeta" class="pago-panel-titulo">Datos de la tarjeta</h3>
+
+                                <div class="tarjeta-simulada mb-4" aria-hidden="true">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <img src="images/logo-140years.gif" alt=""
+                                            class="tarjeta-simulada-logo">
+                                        <span class="tarjeta-simulada-chip"></span>
+                                    </div>
+                                    <p class="tarjeta-simulada-numero" id="tarjetaVisualNumero">•••• •••• •••• ••••</p>
+                                    <div class="tarjeta-simulada-pie">
+                                        <span id="tarjetaVisualTitular">TITULAR</span>
+                                        <span id="tarjetaVisualCaducidad">MM/AA</span>
+                                    </div>
+                                </div>
+
+                                <div class="row g-3 g-md-4">
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="titularTarjeta">Titular de la tarjeta</label>
+                                            <input class="campo-input" id="titularTarjeta" name="titularTarjeta"
+                                                type="text" autocomplete="cc-name" placeholder="Ana García López"
+                                                aria-describedby="ayuda-titularTarjeta error-titularTarjeta" required
+                                                disabled>
+                                            <p class="campo-help" id="ayuda-titularTarjeta">Tal como aparece en la
+                                                tarjeta.</p>
+                                            <p class="campo-error" id="error-titularTarjeta" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="numeroTarjeta">Número de tarjeta</label>
+                                            <input class="campo-input" id="numeroTarjeta" name="numeroTarjeta"
+                                                type="text" autocomplete="cc-number" inputmode="numeric"
+                                                maxlength="19" placeholder="4242 4242 4242 4242"
+                                                aria-describedby="ayuda-numeroTarjeta error-numeroTarjeta" required
+                                                disabled>
+                                            <p class="campo-help" id="ayuda-numeroTarjeta">16 cifras. Tarjeta simulada.
+                                            </p>
+                                            <p class="campo-error" id="error-numeroTarjeta" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="caducidad">Caducidad</label>
+                                            <input class="campo-input" id="caducidad" name="caducidad" type="text"
+                                                autocomplete="cc-exp" inputmode="numeric" maxlength="5"
+                                                placeholder="MM/AA" aria-describedby="ayuda-caducidad error-caducidad"
+                                                required disabled>
+                                            <p class="campo-help" id="ayuda-caducidad">Formato MM/AA, no anterior al mes
+                                                actual.</p>
+                                            <p class="campo-error" id="error-caducidad" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="cvv">CVV</label>
+                                            <input class="campo-input" id="cvv" name="cvv" type="text"
+                                                autocomplete="cc-csc" inputmode="numeric" maxlength="3"
+                                                placeholder="123" aria-describedby="ayuda-cvv error-cvv" required
+                                                disabled>
+                                            <p class="campo-help" id="ayuda-cvv">3 cifras del reverso de la tarjeta.</p>
+                                            <p class="campo-error" id="error-cvv" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="pago-nota">Simulación: no se realizará ningún cargo.</p>
                             </div>
                         </section>
 
@@ -769,11 +914,124 @@
                                     Comprueba tu configuración antes de enviar la solicitud.
                                 </p>
                             </header>
-                            <div class="config-placeholder text-secondary">
-                                <p class="mb-0">
-                                    Contenido de la fase 6 (T9): resumen editable, desglose de precios, casillas
-                                    legales y confirmación.
-                                </p>
+                            <div class="resumen-bloque">
+                                <div class="resumen-bloque-header">
+                                    <h3 class="resumen-bloque-titulo">Vehículo</h3>
+                                    <button type="button" class="resumen-editar" data-ir-a="1">Editar</button>
+                                </div>
+                                <div id="resumenProducto"></div>
+                            </div>
+
+                            <div class="resumen-bloque">
+                                <div class="resumen-bloque-header">
+                                    <h3 class="resumen-bloque-titulo">Extras</h3>
+                                    <button type="button" class="resumen-editar" data-ir-a="2">Editar</button>
+                                </div>
+                                <div id="resumenExtras"></div>
+                            </div>
+
+                            <div class="resumen-bloque">
+                                <div class="resumen-bloque-header">
+                                    <h3 class="resumen-bloque-titulo">Datos personales</h3>
+                                    <button type="button" class="resumen-editar" data-ir-a="3">Editar</button>
+                                </div>
+                                <div id="resumenDatos"></div>
+                            </div>
+
+                            <div class="resumen-bloque">
+                                <div class="resumen-bloque-header">
+                                    <h3 class="resumen-bloque-titulo">Dirección</h3>
+                                    <button type="button" class="resumen-editar" data-ir-a="4">Editar</button>
+                                </div>
+                                <div id="resumenDireccion"></div>
+                            </div>
+
+                            <div class="resumen-bloque">
+                                <div class="resumen-bloque-header">
+                                    <h3 class="resumen-bloque-titulo">Pago</h3>
+                                    <button type="button" class="resumen-editar" data-ir-a="5">Editar</button>
+                                </div>
+                                <div id="resumenPago"></div>
+                            </div>
+
+                            <div class="resumen-bloque">
+                                <div class="resumen-bloque-header">
+                                    <h3 class="resumen-bloque-titulo">Total de la simulación</h3>
+                                </div>
+                                <div id="desglosePrecios">
+                                    <div class="desglose">
+                                        <div>
+                                            <span class="desglose-label">Hoy pagas</span>
+                                            <span class="desglose-cifra" id="totalHoy">—</span>
+                                        </div>
+                                        <div>
+                                            <span class="desglose-label">Cada mes</span>
+                                            <span class="desglose-cifra" id="totalMensual">—</span>
+                                        </div>
+                                    </div>
+                                    <dl class="mb-0">
+                                        <div class="resumen-fila">
+                                            <dt>Aportación inicial</dt>
+                                            <dd id="lineaAportacion">—</dd>
+                                        </div>
+                                        <div class="resumen-fila">
+                                            <dt>Extras de pago único</dt>
+                                            <dd id="lineaExtrasUnicos">—</dd>
+                                        </div>
+                                        <div class="resumen-fila">
+                                            <dt>Cuota mensual</dt>
+                                            <dd id="lineaCuota">—</dd>
+                                        </div>
+                                        <div class="resumen-fila">
+                                            <dt>Extras mensuales</dt>
+                                            <dd id="lineaExtrasMensuales">—</dd>
+                                        </div>
+                                    </dl>
+                                    <p class="desglose-nota">Los pagos únicos y las cuotas se muestran por separado.
+                                        Precios de simulación.</p>
+                                </div>
+                            </div>
+
+                            <div class="resumen-bloque">
+                                <div class="resumen-bloque-header">
+                                    <h3 class="resumen-bloque-titulo">Antes de confirmar</h3>
+                                </div>
+                                <p class="resumen-legal-intro">Debes aceptar las dos primeras casillas para enviar la
+                                    solicitud.</p>
+
+                                <div class="legal-check">
+                                    <input class="form-check-input" type="checkbox" id="aceptoCondiciones"
+                                        name="aceptoCondiciones" required
+                                        aria-describedby="error-aceptoCondiciones">
+                                    <div class="legal-check-texto">
+                                        <label class="form-check-label" for="aceptoCondiciones">Acepto las condiciones de
+                                            contratación.</label>
+                                        <a href="#" class="legal-check-enlace" data-bs-toggle="modal"
+                                            data-bs-target="#modalCondiciones">Leer condiciones</a>
+                                        <p class="campo-error" id="error-aceptoCondiciones" aria-live="polite"></p>
+                                    </div>
+                                </div>
+
+                                <div class="legal-check">
+                                    <input class="form-check-input" type="checkbox" id="aceptoPrivacidad"
+                                        name="aceptoPrivacidad" required aria-describedby="error-aceptoPrivacidad">
+                                    <div class="legal-check-texto">
+                                        <label class="form-check-label" for="aceptoPrivacidad">Acepto la política de
+                                            privacidad.</label>
+                                        <a href="#" class="legal-check-enlace" data-bs-toggle="modal"
+                                            data-bs-target="#modalPrivacidad">Leer privacidad</a>
+                                        <p class="campo-error" id="error-aceptoPrivacidad" aria-live="polite"></p>
+                                    </div>
+                                </div>
+
+                                <div class="legal-check">
+                                    <input class="form-check-input" type="checkbox" id="aceptoComercial"
+                                        name="aceptoComercial">
+                                    <div class="legal-check-texto">
+                                        <label class="form-check-label" for="aceptoComercial">Acepto recibir
+                                            comunicaciones comerciales (opcional).</label>
+                                    </div>
+                                </div>
                             </div>
                         </section>
 
@@ -840,12 +1098,60 @@
         </div>
     </footer>
 
+    <!-- Modales legales de demostración -->
+    <div class="modal fade" id="modalCondiciones" tabindex="-1" aria-labelledby="modalCondicionesLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="modalCondicionesLabel">Condiciones de contratación</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Este texto es una demostración para la Práctica 2 de Desarrollo de Interfaces. La solicitud
+                        no tiene validez contractual y no se realizará ningún cobro.</p>
+                    <p>La simulación utiliza datos y precios ficticios. La confirmación representa una solicitud
+                        registrada en la demostración, no una contratación real.</p>
+                    <p>El vehículo, los extras, la forma de pago y los importes mostrados son orientativos y pueden
+                        cambiar antes de la confirmación.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-config btn-config-outline" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalPrivacidad" tabindex="-1" aria-labelledby="modalPrivacidadLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="modalPrivacidadLabel">Política de privacidad</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Los datos introducidos se utilizan únicamente en esta simulación local y no se envían a
+                        ningún servidor.</p>
+                    <p>No se comparten con terceros ni se utilizan para comunicaciones reales. La casilla de
+                        comunicaciones comerciales es opcional.</p>
+                    <p>Esta política es un texto de demostración y no sustituye a una política de privacidad real.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-config btn-config-outline" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/contratacion.js"></script>
     <script src="js/vehiculo.js"></script>
     <script src="js/extras.js"></script>
     <script src="js/datos.js"></script>
     <script src="js/direccion.js"></script>
+    <script src="js/pago.js"></script>
+    <script src="js/resumen.js"></script>
 </body>
 
 </html>
