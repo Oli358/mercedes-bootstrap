@@ -53,6 +53,9 @@
     };
 
     function formatearEuro(valor) {
+        if (window.Precios && typeof window.Precios.formatearEuro === 'function') {
+            return window.Precios.formatearEuro(valor);
+        }
         return formatoEuro.format(Number(valor) || 0);
     }
 
@@ -74,6 +77,10 @@
 
     function calcularResumen(producto) {
         const extras = Array.isArray(window.Config.estado.extras) ? window.Config.estado.extras : [];
+
+        if (window.Precios && typeof window.Precios.calcular === 'function') {
+            return window.Precios.calcular(producto, extras);
+        }
 
         const totalUnico = (producto ? producto.precioUnico : 0) + extras.reduce((total, extra) => {
             return total + (Number(extra.precioUnico) || 0);

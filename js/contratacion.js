@@ -170,6 +170,14 @@
      */
     if (botones.confirmar) {
         botones.confirmar.addEventListener('click', () => {
+            const valido = typeof Config.validarTodo === 'function'
+                ? Config.validarTodo()
+                : true;
+
+            if (valido === false) {
+                return;
+            }
+
             document.dispatchEvent(new CustomEvent('config:confirmar', {
                 detail: { estado }
             }));
@@ -203,6 +211,8 @@
     Config.irAPaso = irAPaso;
     Config.validarPaso = Config.validarPaso || validarPaso;
     Config.actualizarShowroom = Config.actualizarShowroom || function () {};
+    Config.actualizarResumen = Config.actualizarResumen || function () {};
+    Config.validarTodo = Config.validarTodo || function () { return true; };
     Config.mostrarError = Config.mostrarError || function () {};
     Config.limpiarError = Config.limpiarError || function () {};
 
