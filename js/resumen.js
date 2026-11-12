@@ -45,6 +45,9 @@
     });
 
     function formatearEuro(valor) {
+        if (window.Precios && typeof window.Precios.formatearEuro === 'function') {
+            return window.Precios.formatearEuro(valor);
+        }
         return formatoEuro.format(Number(valor) || 0);
     }
 
@@ -243,30 +246,43 @@
             return;
         }
 
-        const aportacion = Number(producto.precioUnico) || 0;
-        const extrasUnicos = extras.reduce((total, extra) => total + (Number(extra.precioUnico) || 0), 0);
-        const cuota = Number(producto.precioMensual) || 0;
-        const extrasMensuales = extras.reduce((total, extra) => total + (Number(extra.precioMensual) || 0), 0);
-        const totalHoy = aportacion + extrasUnicos;
-        const totalMensual = cuota + extrasMensuales;
+        let precios;
+
+        if (window.Precios && typeof window.Precios.calcular === 'function') {
+            precios = window.Precios.calcular(producto, extras);
+        } else {
+            const aportacion = Number(producto.precioUnico) || 0;
+            const extrasUnicos = extras.reduce((total, extra) => total + (Number(extra.precioUnico) || 0), 0);
+            const cuota = Number(producto.precioMensual) || 0;
+            const extrasMensuales = extras.reduce((total, extra) => total + (Number(extra.precioMensual) || 0), 0);
+
+            precios = {
+                aportacion,
+                extrasUnicos,
+                cuota,
+                extrasMensuales,
+                totalHoy: aportacion + extrasUnicos,
+                totalMensual: cuota + extrasMensuales
+            };
+        }
 
         if (totales.hoy) {
-            totales.hoy.textContent = formatearEuro(totalHoy);
+            totales.hoy.textContent = formatearEuro(precios.totalHoy);
         }
         if (totales.mensual) {
-            totales.mensual.textContent = `${formatearEuro(totalMensual)}/mes`;
+            totales.mensual.textContent = `${formatearEuro(precios.totalMensual)}/mes`;
         }
         if (totales.aportacion) {
-            totales.aportacion.textContent = formatearEuro(aportacion);
+            totales.aportacion.textContent = formatearEuro(precios.aportacion);
         }
         if (totales.extrasUnicos) {
-            totales.extrasUnicos.textContent = formatearEuro(extrasUnicos);
+            totales.extrasUnicos.textContent = formatearEuro(precios.extrasUnicos);
         }
         if (totales.cuota) {
-            totales.cuota.textContent = `${formatearEuro(cuota)}/mes`;
+            totales.cuota.textContent = `${formatearEuro(precios.cuota)}/mes`;
         }
         if (totales.extrasMensuales) {
-            totales.extrasMensuales.textContent = `${formatearEuro(extrasMensuales)}/mes`;
+            totales.extrasMensuales.textContent = `${formatearEuro(precios.extrasMensuales)}/mes`;
         }
     }
 
