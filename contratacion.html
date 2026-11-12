@@ -473,11 +473,102 @@
                                     Necesitamos tus datos para preparar la solicitud. Debes ser mayor de 18 años.
                                 </p>
                             </header>
-                            <div class="config-placeholder text-secondary">
-                                <p class="mb-0">
-                                    Contenido de la fase 3 (T6): nombre, apellidos, DNI, correo, confirmación,
-                                    teléfono y fecha de nacimiento.
-                                </p>
+                            <div class="datos-panel">
+                                <p class="config-eyebrow mb-3">Persona contratante</p>
+
+                                <div class="row g-3 g-md-4">
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="nombre">Nombre</label>
+                                            <input class="campo-input" id="nombre" name="nombre" type="text"
+                                                autocomplete="given-name" placeholder="Ana"
+                                                aria-describedby="ayuda-nombre error-nombre" required>
+                                            <p class="campo-help" id="ayuda-nombre">Tal como aparece en tu DNI.</p>
+                                            <p class="campo-error" id="error-nombre" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="apellidos">Apellidos</label>
+                                            <input class="campo-input" id="apellidos" name="apellidos" type="text"
+                                                autocomplete="family-name" placeholder="García López"
+                                                aria-describedby="ayuda-apellidos error-apellidos" required>
+                                            <p class="campo-help" id="ayuda-apellidos">Incluye los dos apellidos si los
+                                                tienes.</p>
+                                            <p class="campo-error" id="error-apellidos" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="dni">DNI</label>
+                                            <input class="campo-input" id="dni" name="dni" type="text"
+                                                autocomplete="off" inputmode="text" maxlength="9"
+                                                placeholder="12345678Z" aria-describedby="ayuda-dni error-dni" required>
+                                            <p class="campo-help" id="ayuda-dni">8 cifras y letra de control.</p>
+                                            <p class="campo-error" id="error-dni" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="fechaNacimiento">Fecha de nacimiento</label>
+                                            <input class="campo-input" id="fechaNacimiento" name="fechaNacimiento"
+                                                type="date" autocomplete="bday"
+                                                aria-describedby="ayuda-fechaNacimiento error-fechaNacimiento" required>
+                                            <p class="campo-help" id="ayuda-fechaNacimiento">Debes tener al menos 18 años.
+                                            </p>
+                                            <p class="campo-error" id="error-fechaNacimiento" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="email">Correo electrónico</label>
+                                            <input class="campo-input" id="email" name="email" type="email"
+                                                autocomplete="email" inputmode="email"
+                                                placeholder="ana.garcia@example.com"
+                                                aria-describedby="ayuda-email error-email" required>
+                                            <p class="campo-help" id="ayuda-email">Te enviaremos la confirmación de la
+                                                solicitud.</p>
+                                            <p class="campo-error" id="error-email" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="emailConfirmacion">Confirma tu correo</label>
+                                            <input class="campo-input" id="emailConfirmacion" name="emailConfirmacion"
+                                                type="email" autocomplete="email" inputmode="email"
+                                                placeholder="ana.garcia@example.com"
+                                                aria-describedby="ayuda-emailConfirmacion error-emailConfirmacion"
+                                                required>
+                                            <p class="campo-help" id="ayuda-emailConfirmacion">Debe coincidir con el correo
+                                                anterior.</p>
+                                            <p class="campo-error" id="error-emailConfirmacion" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="telefono">Teléfono</label>
+                                            <input class="campo-input" id="telefono" name="telefono" type="tel"
+                                                autocomplete="tel" inputmode="tel" maxlength="15"
+                                                placeholder="612 345 678"
+                                                aria-describedby="ayuda-telefono error-telefono" required>
+                                            <p class="campo-help" id="ayuda-telefono">9 cifras. Puedes usar espacios o el
+                                                prefijo +34.</p>
+                                            <p class="campo-error" id="error-telefono" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 d-flex">
+                                        <div class="datos-nota">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20"
+                                                height="20" fill="none" stroke="currentColor" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                <rect x="4" y="10" width="16" height="11" rx="2"></rect>
+                                                <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+                                            </svg>
+                                            <p class="mb-0">Tus datos se usan solo para esta simulación. No se envían a
+                                                ningún servidor.</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </section>
 
@@ -496,11 +587,152 @@
                                     Solo admitimos direcciones de España.
                                 </p>
                             </header>
-                            <div class="config-placeholder text-secondary">
-                                <p class="mb-0">
-                                    Contenido de la fase 4 (T7): tipo y nombre de vía, número, piso, código postal,
-                                    localidad y provincia.
-                                </p>
+                            <div class="direccion-panel">
+                                <div class="d-flex justify-content-between align-items-center gap-3 mb-3">
+                                    <p class="config-eyebrow mb-0">Dirección de entrega</p>
+                                    <span class="direccion-pais">Solo España</span>
+                                </div>
+
+                                <div class="row g-3 g-md-4">
+                                    <div class="col-md-4">
+                                        <div class="campo">
+                                            <label class="campo-label" for="tipoVia">Tipo de vía</label>
+                                            <select class="campo-select" id="tipoVia" name="tipoVia"
+                                                autocomplete="off" aria-describedby="ayuda-tipoVia error-tipoVia"
+                                                required>
+                                                <option value="" selected disabled>Selecciona</option>
+                                                <option value="Calle">Calle</option>
+                                                <option value="Avenida">Avenida</option>
+                                                <option value="Plaza">Plaza</option>
+                                                <option value="Paseo">Paseo</option>
+                                                <option value="Camino">Camino</option>
+                                                <option value="Ronda">Ronda</option>
+                                                <option value="Carretera">Carretera</option>
+                                                <option value="Travesía">Travesía</option>
+                                            </select>
+                                            <p class="campo-help" id="ayuda-tipoVia">Calle, avenida, plaza...</p>
+                                            <p class="campo-error" id="error-tipoVia" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="campo">
+                                            <label class="campo-label" for="nombreVia">Nombre de la vía</label>
+                                            <input class="campo-input" id="nombreVia" name="nombreVia" type="text"
+                                                autocomplete="address-line1" placeholder="Alcalá"
+                                                aria-describedby="ayuda-nombreVia error-nombreVia" required>
+                                            <p class="campo-help" id="ayuda-nombreVia">Sin incluir el número.</p>
+                                            <p class="campo-error" id="error-nombreVia" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="campo">
+                                            <label class="campo-label" for="numero">Número</label>
+                                            <input class="campo-input" id="numero" name="numero" type="text"
+                                                autocomplete="off" inputmode="text" placeholder="50"
+                                                aria-describedby="ayuda-numero error-numero" required>
+                                            <p class="campo-help" id="ayuda-numero">Número o “s/n”.</p>
+                                            <p class="campo-error" id="error-numero" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="campo">
+                                            <label class="campo-label" for="piso">Piso / puerta <span
+                                                    class="campo-opcional">(opcional)</span></label>
+                                            <input class="campo-input" id="piso" name="piso" type="text"
+                                                autocomplete="address-line2" placeholder="3º B"
+                                                aria-describedby="ayuda-piso error-piso">
+                                            <p class="campo-help" id="ayuda-piso">Piso, puerta o escalera.</p>
+                                            <p class="campo-error" id="error-piso" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="campo">
+                                            <label class="campo-label" for="codigoPostal">Código postal</label>
+                                            <input class="campo-input" id="codigoPostal" name="codigoPostal"
+                                                type="text" autocomplete="postal-code" inputmode="numeric"
+                                                maxlength="5" placeholder="28014"
+                                                aria-describedby="ayuda-codigoPostal error-codigoPostal" required>
+                                            <p class="campo-help" id="ayuda-codigoPostal">5 cifras. El prefijo debe
+                                                coincidir con la provincia.</p>
+                                            <p class="campo-error" id="error-codigoPostal" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="localidad">Localidad</label>
+                                            <input class="campo-input" id="localidad" name="localidad" type="text"
+                                                autocomplete="address-level2" placeholder="Madrid"
+                                                aria-describedby="ayuda-localidad error-localidad" required>
+                                            <p class="campo-help" id="ayuda-localidad">Municipio de la dirección.</p>
+                                            <p class="campo-error" id="error-localidad" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="provincia">Provincia</label>
+                                            <select class="campo-select" id="provincia" name="provincia"
+                                                autocomplete="address-level1"
+                                                aria-describedby="ayuda-provincia error-provincia" required>
+                                                <option value="" selected disabled>Selecciona una provincia</option>
+                                                <option value="01">Álava</option>
+                                                <option value="02">Albacete</option>
+                                                <option value="03">Alicante</option>
+                                                <option value="04">Almería</option>
+                                                <option value="05">Ávila</option>
+                                                <option value="06">Badajoz</option>
+                                                <option value="07">Illes Balears</option>
+                                                <option value="08">Barcelona</option>
+                                                <option value="09">Burgos</option>
+                                                <option value="10">Cáceres</option>
+                                                <option value="11">Cádiz</option>
+                                                <option value="12">Castellón</option>
+                                                <option value="13">Ciudad Real</option>
+                                                <option value="14">Córdoba</option>
+                                                <option value="15">A Coruña</option>
+                                                <option value="16">Cuenca</option>
+                                                <option value="17">Girona</option>
+                                                <option value="18">Granada</option>
+                                                <option value="19">Guadalajara</option>
+                                                <option value="20">Gipuzkoa</option>
+                                                <option value="21">Huelva</option>
+                                                <option value="22">Huesca</option>
+                                                <option value="23">Jaén</option>
+                                                <option value="24">León</option>
+                                                <option value="25">Lleida</option>
+                                                <option value="26">La Rioja</option>
+                                                <option value="27">Lugo</option>
+                                                <option value="28">Madrid</option>
+                                                <option value="29">Málaga</option>
+                                                <option value="30">Murcia</option>
+                                                <option value="31">Navarra</option>
+                                                <option value="32">Ourense</option>
+                                                <option value="33">Asturias</option>
+                                                <option value="34">Palencia</option>
+                                                <option value="35">Las Palmas</option>
+                                                <option value="36">Pontevedra</option>
+                                                <option value="37">Salamanca</option>
+                                                <option value="38">Santa Cruz de Tenerife</option>
+                                                <option value="39">Cantabria</option>
+                                                <option value="40">Segovia</option>
+                                                <option value="41">Sevilla</option>
+                                                <option value="42">Soria</option>
+                                                <option value="43">Tarragona</option>
+                                                <option value="44">Teruel</option>
+                                                <option value="45">Toledo</option>
+                                                <option value="46">Valencia</option>
+                                                <option value="47">Valladolid</option>
+                                                <option value="48">Bizkaia</option>
+                                                <option value="49">Zamora</option>
+                                                <option value="50">Zaragoza</option>
+                                                <option value="51">Ceuta</option>
+                                                <option value="52">Melilla</option>
+                                            </select>
+                                            <p class="campo-help" id="ayuda-provincia">Debe coincidir con el prefijo del
+                                                código postal.</p>
+                                            <p class="campo-error" id="error-provincia" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </section>
 
@@ -612,6 +844,8 @@
     <script src="js/contratacion.js"></script>
     <script src="js/vehiculo.js"></script>
     <script src="js/extras.js"></script>
+    <script src="js/datos.js"></script>
+    <script src="js/direccion.js"></script>
 </body>
 
 </html>

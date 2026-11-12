@@ -530,6 +530,8 @@ Contraste mínimo: 4,5:1 para texto normal y 3:1 para texto grande. El color nun
 - Capturas del sistema visual T3: `docs/t3-desktop-paso-1.png`, `docs/t3-desktop-paso-2.png` y `docs/t3-mobile-paso-1.png`.
 - Capturas de la selección T4: `docs/t4-desktop-amg.png`, `docs/t4-desktop-maybach.png` y `docs/t4-mobile-amg.png`.
 - Capturas de extras T5: `docs/t5-desktop-amg.png`, `docs/t5-aviso-cambio.png` y `docs/t5-mobile-extras.png`.
+- Capturas de datos personales T6: `docs/t6-desktop.png` y `docs/t6-mobile.png`.
+- Capturas de dirección T7: `docs/t7-desktop.png` y `docs/t7-mobile.png`.
 - Las imágenes de coche tienen fondo blanco: en el showroom se colocan sobre un stage blanco para que se integren. En las tarjetas se pueden recortar con `object-fit: cover`.
 - No aplicar filtros de color, duotonos ni sombras artificiales a los coches.
 - `alt` descriptivo: “Mercedes-Benz Clase A 250e”, “Mercedes-AMG G 63”, “Mercedes-Maybach S 680”.
@@ -549,6 +551,8 @@ Contraste mínimo: 4,5:1 para texto normal y 3:1 para texto grande. El color nun
 | `js/contratacion.js` | Navegación, estado, progreso y API compartida (T2) |
 | `js/vehiculo.js` | Selección de vehículo y sincronización del showroom (T4) |
 | `js/extras.js` | Extras, dependencias, incompatibilidad y resumen de extras (T5) |
+| `js/datos.js` | Datos personales y estado del paso 3 (T6) |
+| `js/direccion.js` | Dirección y estado del paso 4 (T7) |
 | `js/validaciones.js` | Funciones de validación reutilizables (T10) |
 | `js/precios.js` | Cálculo de totales (T11) |
 | `js/confirmacion.js` | Modal de éxito en la home (T12) |
@@ -565,6 +569,8 @@ Orden de scripts en `contratacion.html`:
 <script src="js/contratacion.js"></script>
 <script src="js/vehiculo.js"></script>
 <script src="js/extras.js"></script>
+<script src="js/datos.js"></script>
+<script src="js/direccion.js"></script>
 ```
 
 `js/confirmacion.js` se carga solo en `index.html`.
@@ -709,7 +715,8 @@ Antes de marcar una tarea como Hecha:
 
 - `feat/contratacion-base` → T1 + T2 + T3.
 - `feat/contratacion-fases-1-3` → T4 + T5.
-- `feat/contratacion-fases-3-6` → T6 + T7 + T8 + T9.
+- `feat/contratacion-fases-3-4` → T6 + T7.
+- `feat/contratacion-fases-5-6` → T8 + T9.
 - `feat/validaciones-precios-envio` → T10 + T11 + T12.
 - `feat/pruebas` → T13.
 - `feat/integracion` → T14.
