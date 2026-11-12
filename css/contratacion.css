@@ -779,11 +779,75 @@ body.config-page {
     background-color: var(--config-surface-alt);
 }
 
+.pago-opcion-cuerpo {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+.pago-opcion-titulo {
+    display: block;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.pago-opcion-desc {
+    display: block;
+    margin-top: 0.15rem;
+    color: var(--config-muted);
+    font-size: 0.84rem;
+    line-height: 1.45;
+}
+
+.pago-opcion-control {
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.pago-opcion-control .form-check-input {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin: 0;
+}
+
 .pago-panel {
     padding: 1.5rem;
     border: 1px solid var(--config-line);
     border-radius: var(--config-radius);
     background-color: var(--config-surface);
+}
+
+.pago-panel .campo {
+    margin-bottom: 0;
+}
+
+.pago-panel-titulo {
+    margin-bottom: 1rem;
+    color: var(--config-muted);
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.pago-nota {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    color: var(--config-muted);
+    font-size: 0.78rem;
+    line-height: 1.5;
+}
+
+.tarjeta-simulada {
+    margin-inline: auto;
+}
+
+.tarjeta-simulada-logo {
+    width: auto;
+    height: 24px;
+    opacity: 0.9;
 }
 
 .tarjeta-simulada {
