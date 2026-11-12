@@ -473,11 +473,102 @@
                                     Necesitamos tus datos para preparar la solicitud. Debes ser mayor de 18 años.
                                 </p>
                             </header>
-                            <div class="config-placeholder text-secondary">
-                                <p class="mb-0">
-                                    Contenido de la fase 3 (T6): nombre, apellidos, DNI, correo, confirmación,
-                                    teléfono y fecha de nacimiento.
-                                </p>
+                            <div class="datos-panel">
+                                <p class="config-eyebrow mb-3">Persona contratante</p>
+
+                                <div class="row g-3 g-md-4">
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="nombre">Nombre</label>
+                                            <input class="campo-input" id="nombre" name="nombre" type="text"
+                                                autocomplete="given-name" placeholder="Ana"
+                                                aria-describedby="ayuda-nombre error-nombre" required>
+                                            <p class="campo-help" id="ayuda-nombre">Tal como aparece en tu DNI.</p>
+                                            <p class="campo-error" id="error-nombre" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="apellidos">Apellidos</label>
+                                            <input class="campo-input" id="apellidos" name="apellidos" type="text"
+                                                autocomplete="family-name" placeholder="García López"
+                                                aria-describedby="ayuda-apellidos error-apellidos" required>
+                                            <p class="campo-help" id="ayuda-apellidos">Incluye los dos apellidos si los
+                                                tienes.</p>
+                                            <p class="campo-error" id="error-apellidos" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="dni">DNI</label>
+                                            <input class="campo-input" id="dni" name="dni" type="text"
+                                                autocomplete="off" inputmode="text" maxlength="9"
+                                                placeholder="12345678Z" aria-describedby="ayuda-dni error-dni" required>
+                                            <p class="campo-help" id="ayuda-dni">8 cifras y letra de control.</p>
+                                            <p class="campo-error" id="error-dni" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="fechaNacimiento">Fecha de nacimiento</label>
+                                            <input class="campo-input" id="fechaNacimiento" name="fechaNacimiento"
+                                                type="date" autocomplete="bday"
+                                                aria-describedby="ayuda-fechaNacimiento error-fechaNacimiento" required>
+                                            <p class="campo-help" id="ayuda-fechaNacimiento">Debes tener al menos 18 años.
+                                            </p>
+                                            <p class="campo-error" id="error-fechaNacimiento" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="email">Correo electrónico</label>
+                                            <input class="campo-input" id="email" name="email" type="email"
+                                                autocomplete="email" inputmode="email"
+                                                placeholder="ana.garcia@example.com"
+                                                aria-describedby="ayuda-email error-email" required>
+                                            <p class="campo-help" id="ayuda-email">Te enviaremos la confirmación de la
+                                                solicitud.</p>
+                                            <p class="campo-error" id="error-email" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="emailConfirmacion">Confirma tu correo</label>
+                                            <input class="campo-input" id="emailConfirmacion" name="emailConfirmacion"
+                                                type="email" autocomplete="email" inputmode="email"
+                                                placeholder="ana.garcia@example.com"
+                                                aria-describedby="ayuda-emailConfirmacion error-emailConfirmacion"
+                                                required>
+                                            <p class="campo-help" id="ayuda-emailConfirmacion">Debe coincidir con el correo
+                                                anterior.</p>
+                                            <p class="campo-error" id="error-emailConfirmacion" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="telefono">Teléfono</label>
+                                            <input class="campo-input" id="telefono" name="telefono" type="tel"
+                                                autocomplete="tel" inputmode="tel" maxlength="15"
+                                                placeholder="612 345 678"
+                                                aria-describedby="ayuda-telefono error-telefono" required>
+                                            <p class="campo-help" id="ayuda-telefono">9 cifras. Puedes usar espacios o el
+                                                prefijo +34.</p>
+                                            <p class="campo-error" id="error-telefono" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 d-flex">
+                                        <div class="datos-nota">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20"
+                                                height="20" fill="none" stroke="currentColor" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                <rect x="4" y="10" width="16" height="11" rx="2"></rect>
+                                                <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+                                            </svg>
+                                            <p class="mb-0">Tus datos se usan solo para esta simulación. No se envían a
+                                                ningún servidor.</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </section>
 
@@ -612,6 +703,7 @@
     <script src="js/contratacion.js"></script>
     <script src="js/vehiculo.js"></script>
     <script src="js/extras.js"></script>
+    <script src="js/datos.js"></script>
 </body>
 
 </html>
