@@ -1050,6 +1050,27 @@ body.config-page {
     font-size: 0.75rem;
 }
 
+.resumen-destacado {
+    margin: 0 0 0.2rem;
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 1.65rem;
+    font-weight: 300;
+    line-height: 1.05;
+}
+
+.resumen-sub {
+    margin: 0;
+    color: var(--config-muted);
+    font-size: 0.84rem;
+    line-height: 1.5;
+}
+
+.resumen-vacio {
+    margin: 0;
+    color: var(--config-muted);
+    font-size: 0.9rem;
+}
+
 /* ---------------------------------------------------------
    Casillas legales
    --------------------------------------------------------- */
@@ -1082,6 +1103,31 @@ body.config-page {
 
 .legal-check.is-error label {
     color: var(--config-error);
+}
+
+.legal-check-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.legal-check-enlace {
+    width: max-content;
+    color: var(--config-ink);
+    font-size: 0.8rem;
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+}
+
+.legal-check .campo-error {
+    margin-top: 0.2rem;
+}
+
+.resumen-legal-intro {
+    margin-bottom: 0.5rem;
+    color: var(--config-muted);
+    font-size: 0.86rem;
+    line-height: 1.5;
 }
 
 /* ---------------------------------------------------------
