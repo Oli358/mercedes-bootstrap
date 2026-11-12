@@ -140,7 +140,8 @@
                                                                 data-imagen="images/ClaseA250eSpecialEdition.jpg"
                                                                 data-tagline="La puerta de entrada a la estrella."
                                                                 data-specs="Híbrido enchufable · 218 CV · 0-100 6,8 s"
-                                                                data-alt="Mercedes-Benz Clase A 250e">
+                                                                data-alt="Mercedes-Benz Clase A 250e"
+                                                                aria-describedby="error-producto">
                                                             <label class="form-check-label stretched-link"
                                                                 for="producto-clase-a">
                                                                 <span class="visually-hidden">Seleccionar Clase A
@@ -187,7 +188,8 @@
                                                                 data-imagen="images/coches/SUV&amp;Todoterreno2.jpg"
                                                                 data-tagline="Potencia sin filtros."
                                                                 data-specs="V8 biturbo · 585 CV · 0-100 4,5 s"
-                                                                data-alt="Mercedes-AMG G 63">
+                                                                data-alt="Mercedes-AMG G 63"
+                                                                aria-describedby="error-producto">
                                                             <label class="form-check-label stretched-link"
                                                                 for="producto-amg">
                                                                 <span class="visually-hidden">Seleccionar
@@ -236,7 +238,8 @@
                                                                 data-imagen="images/coches/Berlina1.jpg"
                                                                 data-tagline="El lujo que no necesita presentación."
                                                                 data-specs="V12 · 612 CV · 0-100 4,5 s"
-                                                                data-alt="Mercedes-Maybach S 680">
+                                                                data-alt="Mercedes-Maybach S 680"
+                                                                aria-describedby="error-producto">
                                                             <label class="form-check-label stretched-link"
                                                                 for="producto-maybach">
                                                                 <span class="visually-hidden">Seleccionar
@@ -262,6 +265,7 @@
                                     </div>
 
                                 </div>
+                                <p class="campo-error" id="error-producto" aria-live="polite"></p>
                             </fieldset>
 
                             <p class="small text-secondary mb-0">
@@ -453,6 +457,8 @@
                                     </div>
                                 </div>
                             </section>
+
+                            <p class="campo-error" id="error-extras" aria-live="polite"></p>
 
                             <div class="extras-resumen" aria-live="polite">
                                 <p class="extras-resumen-titulo mb-1">Tu selección</p>
@@ -798,6 +804,8 @@
                                     </div>
                                 </div>
                             </fieldset>
+
+                            <p class="campo-error" id="error-metodoPago" aria-live="polite"></p>
 
                             <div id="pagoDomiciliacion" class="pago-panel mt-4" role="group"
                                 aria-labelledby="tituloPagoDomiciliacion">
@@ -1152,6 +1160,7 @@
     <script src="js/direccion.js"></script>
     <script src="js/pago.js"></script>
     <script src="js/resumen.js"></script>
+    <script src="js/validaciones.js"></script>
 </body>
 
 </html>

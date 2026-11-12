@@ -534,6 +534,7 @@ Contraste mínimo: 4,5:1 para texto normal y 3:1 para texto grande. El color nun
 - Capturas de dirección T7: `docs/t7-desktop.png` y `docs/t7-mobile.png`.
 - Capturas de pago T8: `docs/t8-desktop.png` y `docs/t8-mobile.png`.
 - Capturas de resumen T9: `docs/t9-desktop.png`, `docs/t9-legal.png` y `docs/t9-mobile.png`.
+- Capturas de validaciones T10: `docs/t10-errores.png` y `docs/t10-legal.png`.
 - Las imágenes de coche tienen fondo blanco: en el showroom se colocan sobre un stage blanco para que se integren. En las tarjetas se pueden recortar con `object-fit: cover`.
 - No aplicar filtros de color, duotonos ni sombras artificiales a los coches.
 - `alt` descriptivo: “Mercedes-Benz Clase A 250e”, “Mercedes-AMG G 63”, “Mercedes-Maybach S 680”.
@@ -568,8 +569,6 @@ Orden de scripts en `contratacion.html`:
 
 ```html
 <script src="js/bootstrap.bundle.min.js"></script>
-<script src="js/validaciones.js"></script>
-<script src="js/precios.js"></script>
 <script src="js/contratacion.js"></script>
 <script src="js/vehiculo.js"></script>
 <script src="js/extras.js"></script>
@@ -577,6 +576,8 @@ Orden de scripts en `contratacion.html`:
 <script src="js/direccion.js"></script>
 <script src="js/pago.js"></script>
 <script src="js/resumen.js"></script>
+<script src="js/validaciones.js"></script>
+<script src="js/precios.js"></script>
 ```
 
 `js/confirmacion.js` se carga solo en `index.html`.
