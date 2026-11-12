@@ -531,6 +531,7 @@ Contraste mínimo: 4,5:1 para texto normal y 3:1 para texto grande. El color nun
 - Capturas de la selección T4: `docs/t4-desktop-amg.png`, `docs/t4-desktop-maybach.png` y `docs/t4-mobile-amg.png`.
 - Capturas de extras T5: `docs/t5-desktop-amg.png`, `docs/t5-aviso-cambio.png` y `docs/t5-mobile-extras.png`.
 - Capturas de datos personales T6: `docs/t6-desktop.png` y `docs/t6-mobile.png`.
+- Capturas de dirección T7: `docs/t7-desktop.png` y `docs/t7-mobile.png`.
 - Las imágenes de coche tienen fondo blanco: en el showroom se colocan sobre un stage blanco para que se integren. En las tarjetas se pueden recortar con `object-fit: cover`.
 - No aplicar filtros de color, duotonos ni sombras artificiales a los coches.
 - `alt` descriptivo: “Mercedes-Benz Clase A 250e”, “Mercedes-AMG G 63”, “Mercedes-Maybach S 680”.
@@ -551,6 +552,7 @@ Contraste mínimo: 4,5:1 para texto normal y 3:1 para texto grande. El color nun
 | `js/vehiculo.js` | Selección de vehículo y sincronización del showroom (T4) |
 | `js/extras.js` | Extras, dependencias, incompatibilidad y resumen de extras (T5) |
 | `js/datos.js` | Datos personales y estado del paso 3 (T6) |
+| `js/direccion.js` | Dirección y estado del paso 4 (T7) |
 | `js/validaciones.js` | Funciones de validación reutilizables (T10) |
 | `js/precios.js` | Cálculo de totales (T11) |
 | `js/confirmacion.js` | Modal de éxito en la home (T12) |
@@ -568,6 +570,7 @@ Orden de scripts en `contratacion.html`:
 <script src="js/vehiculo.js"></script>
 <script src="js/extras.js"></script>
 <script src="js/datos.js"></script>
+<script src="js/direccion.js"></script>
 ```
 
 `js/confirmacion.js` se carga solo en `index.html`.

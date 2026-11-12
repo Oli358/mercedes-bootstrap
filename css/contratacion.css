@@ -828,15 +828,41 @@ body.config-page {
 /* ---------------------------------------------------------
    Datos personales
    --------------------------------------------------------- */
-.datos-panel {
+.datos-panel,
+.direccion-panel {
     padding: 1.5rem;
     border: 1px solid var(--config-line);
     border-radius: var(--config-radius);
     background-color: var(--config-surface);
 }
 
-.datos-panel .campo {
+.datos-panel .campo,
+.direccion-panel .campo {
     margin-bottom: 0;
+}
+
+.campo-opcional {
+    color: var(--config-muted);
+    font-size: 0.9em;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+.direccion-pais {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.65rem;
+    border: 1px solid var(--config-line);
+    border-radius: var(--config-radius-pill);
+    background-color: #faf9f6;
+    color: var(--config-ink);
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    line-height: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
 }
 
 .datos-nota {
@@ -1247,7 +1273,8 @@ body.config-page {
         bottom: 1.25rem;
     }
 
-    .datos-panel {
+    .datos-panel,
+    .direccion-panel {
         padding: 1.25rem;
     }
 
