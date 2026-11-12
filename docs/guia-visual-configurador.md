@@ -549,6 +549,7 @@ Contraste mínimo: 4,5:1 para texto normal y 3:1 para texto grande. El color nun
 | `js/contratacion.js` | Navegación, estado, progreso y API compartida (T2) |
 | `js/vehiculo.js` | Selección de vehículo y sincronización del showroom (T4) |
 | `js/extras.js` | Extras, dependencias, incompatibilidad y resumen de extras (T5) |
+| `js/datos.js` | Datos personales y estado del paso 3 (T6) |
 | `js/validaciones.js` | Funciones de validación reutilizables (T10) |
 | `js/precios.js` | Cálculo de totales (T11) |
 | `js/confirmacion.js` | Modal de éxito en la home (T12) |
@@ -565,6 +566,7 @@ Orden de scripts en `contratacion.html`:
 <script src="js/contratacion.js"></script>
 <script src="js/vehiculo.js"></script>
 <script src="js/extras.js"></script>
+<script src="js/datos.js"></script>
 ```
 
 `js/confirmacion.js` se carga solo en `index.html`.
@@ -709,7 +711,8 @@ Antes de marcar una tarea como Hecha:
 
 - `feat/contratacion-base` → T1 + T2 + T3.
 - `feat/contratacion-fases-1-3` → T4 + T5.
-- `feat/contratacion-fases-3-6` → T6 + T7 + T8 + T9.
+- `feat/contratacion-fases-3-4` → T6 + T7.
+- `feat/contratacion-fases-5-6` → T8 + T9.
 - `feat/validaciones-precios-envio` → T10 + T11 + T12.
 - `feat/pruebas` → T13.
 - `feat/integracion` → T14.
