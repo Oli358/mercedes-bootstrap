@@ -52,6 +52,78 @@ Tarjeta: 4242 4242 4242 4242, 12/30, CVV 123
 | 11 | KO y corrección | Nombre `"   "`, apellidos `García López`, DNI `12345678A`, fecha `2010-01-01`, correo válido, confirmación `otra@example.com`, teléfono `51234567` | Muestra varios errores, abre el primer paso afectado, enfoca el primer campo, conserva los datos y actualiza los errores al corregir | 5 errores y 5 enlaces; foco en `#nombre`; `García López` se conserva. Al corregir, el resumen baja a 0 y avanza al paso 4. Prueba entre pasos: desde el paso 6, `Config.validarTodo()` con el nombre vacío abre el paso 3, enfoca `#nombre` y muestra 3 enlaces | OK | [t13-11-correccion.png](t13-11-correccion.png) |
 | 12 | Recorrido OK | Todos los datos válidos, incluida la aceptación de las dos casillas obligatorias | Vuelve a la home, muestra el modal una vez y no lo repite al recargar | URL final `/index.html` sin query; modal `Solicitud registrada correctamente`; `sessionStorage` limpio. Se cierra correctamente. Al recargar y al entrar directamente en la home no vuelve a aparecer. 0 errores de consola | OK | [t13-12-modal.png](t13-12-modal.png) |
 
+## 2.1. Galería de evidencias
+
+Las capturas están incrustadas aquí para que se puedan ver directamente desde el documento. También siguen disponibles como archivos independientes en `docs/`.
+
+### Prueba 1 · Vacíos y espacios
+
+![Resumen de errores y campos vacíos en el paso 3](t13-01-vacios.png)
+
+### Prueba 2 · Correo y teléfono
+
+![Errores de correo, confirmación y teléfono](t13-02-contacto.png)
+
+### Prueba 3 · DNI
+
+![Error de letra de control del DNI](t13-03-dni.png)
+
+### Prueba 4 · Edad
+
+![Error de edad con la fecha un día antes de los 18](t13-04-edad.png)
+
+### Prueba 5 · Dirección
+
+![Error de código postal incompatible con la provincia](t13-05-direccion.png)
+
+### Prueba 6 · Productos
+
+![Pack AMG Night seleccionado y Pack Confort deshabilitado](t13-06-extras.png)
+
+### Prueba 7 · IBAN
+
+![Error de dígitos de control del IBAN](t13-07-iban.png)
+
+### Prueba 8 · Tarjeta
+
+![Error de Luhn en el número de tarjeta](t13-08-tarjeta.png)
+
+### Prueba 9 · Cambio de pago
+
+![Error de CVV con el método de tarjeta activo](t13-09-pago.png)
+
+### Prueba 10 · Casillas
+
+![Errores de las casillas legales](t13-10-casillas.png)
+
+### Prueba 11 · KO y corrección
+
+![Resumen con varios errores y datos conservados](t13-11-correccion.png)
+
+### Prueba 12 · Recorrido OK
+
+![Modal de solicitud registrada en la home](t13-12-modal.png)
+
+### Copia sin validación HTML
+
+![Copia sin atributos HTML con las validaciones JavaScript](t13-13-sin-html.png)
+
+### Teclado
+
+![Foco en el primer campo con error tras validar con teclado](t13-14-teclado.png)
+
+### Móvil 390 px
+
+![Paso 1 en móvil](t13-15-movil-paso1.png)
+
+![Paso 6 en móvil](t13-15-movil-paso6.png)
+
+![Modal de confirmación en móvil](t13-15-movil-modal.png)
+
+### Escritorio 1440 px
+
+![Resumen final en escritorio](t13-16-escritorio.png)
+
 ## 3. Copia sin validación HTML
 
 Se generó una copia temporal de `contratacion.html` con estos cambios:
