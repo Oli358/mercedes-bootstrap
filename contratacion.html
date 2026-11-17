@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurador de contratación | Mercedes-Benz</title>
+    <meta name="description"
+        content="Configura y simula la contratación de tu Mercedes-Benz en seis pasos. Precios de simulación, sin cobros reales.">
+    <link rel="icon" href="images/logo-140years.gif" type="image/gif">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom-css.css">
+    <link rel="stylesheet" href="css/contratacion.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="config-page">
+
+    <a class="visually-hidden-focusable" href="#contenidoConfigurador">Saltar al contenido</a>
+
+    <noscript>
+        <div class="alert alert-warning rounded-0 m-0 text-center">
+            Este configurador necesita JavaScript para funcionar.
+        </div>
+    </noscript>
+
+    <!-- =========================================================
+         BARRA SUPERIOR DEL CONFIGURADOR
+         ========================================================= -->
+    <header class="config-header bg-black text-white sticky-top">
+        <div class="config-header-inner d-flex align-items-center justify-content-between gap-3 px-3 px-lg-4">
+            <a href="index.html"
+                class="config-brand d-flex align-items-center gap-2 text-white text-decoration-none flex-shrink-0"
+                aria-label="Volver a la home de Mercedes-Benz">
+                <img src="images/logo-140years.gif" alt="Mercedes-Benz" class="config-brand-logo">
+                <span class="config-brand-text d-none d-sm-inline">Mercedes-Benz</span>
+            </a>
+
+            <p class="config-header-title mb-0 d-none d-md-block">Configurador de contratación</p>
+
+            <div class="config-header-meta d-flex align-items-center gap-3 flex-shrink-0">
+                <span id="indicadorPasoTop" class="config-step-label text-uppercase small">Paso 1 de 6</span>
+                <a href="index.html" class="config-exit text-white text-decoration-none small">
+                    Salir <span aria-hidden="true">×</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="config-progress progress" role="progressbar" aria-label="Progreso del formulario"
+            aria-valuemin="1" aria-valuemax="6" aria-valuenow="1">
+            <div id="barraProgreso" class="config-progress-bar progress-bar bg-white" style="width: 16.6667%"></div>
+        </div>
+    </header>
+
+    <!-- =========================================================
+         LAYOUT: CONTENIDO + SHOWROOM
+         ========================================================= -->
+    <main id="contenidoConfigurador" class="config-layout">
+        <h1 class="visually-hidden">Configurador de contratación Mercedes-Benz</h1>
+
+        <div class="row g-0">
+            <!-- Columna izquierda: pasos y formulario -->
+            <div class="col-12 col-xl-7 config-content">
+                <div class="config-main px-3 px-md-4 px-xl-5 py-4 py-xl-5">
+
+                    <!-- Stepper -->
+                    <nav aria-label="Pasos del formulario" class="config-stepper mb-4">
+                        <ol class="list-unstyled d-flex flex-wrap gap-2 gap-md-3 mb-2">
+                            <li class="config-stepper-item is-active fw-semibold" data-paso-indicador="1"
+                                aria-current="step">
+                                <span class="config-stepper-num">1</span> Vehículo
+                            </li>
+                            <li class="config-stepper-item text-secondary" data-paso-indicador="2">
+                                <span class="config-stepper-num">2</span> Extras
+                            </li>
+                            <li class="config-stepper-item text-secondary" data-paso-indicador="3">
+                                <span class="config-stepper-num">3</span> Datos
+                            </li>
+                            <li class="config-stepper-item text-secondary" data-paso-indicador="4">
+                                <span class="config-stepper-num">4</span> Dirección
+                            </li>
+                            <li class="config-stepper-item text-secondary" data-paso-indicador="5">
+                                <span class="config-stepper-num">5</span> Pago
+                            </li>
+                            <li class="config-stepper-item text-secondary" data-paso-indicador="6">
+                                <span class="config-stepper-num">6</span> Resumen
+                            </li>
+                        </ol>
+                        <p id="indicadorPaso" class="small text-secondary mb-0" aria-live="polite">
+                            Paso 1 de 6 · Vehículo
+                        </p>
+                    </nav>
+
+                    <form id="formContratacion" class="config-form" novalidate>
+                        <!-- Resumen de errores: lo rellena T10 -->
+                        <div id="resumenErrores" class="alert alert-danger" role="alert" hidden></div>
+
+                        <!-- =================================================
+                             PASO 1: VEHÍCULO
+                             ================================================= -->
+                        <section class="config-step" id="paso-1" data-paso="1" aria-labelledby="titulo-paso-1">
+                            <header class="config-step-header mb-4">
+                                <p class="config-eyebrow text-uppercase small text-secondary mb-2">
+                                    Paso 1 · Vehículo
+                                </p>
+                                <h2 id="titulo-paso-1" class="display-4 mb-2" tabindex="-1">Elige tu Mercedes.</h2>
+                                <p class="config-lead text-secondary mb-0">
+                                    Tres formas de entender la excelencia. Selecciona la tuya.
+                                </p>
+                            </header>
+
+                            <fieldset class="config-fieldset mb-4">
+                                <legend class="visually-hidden">Selecciona un vehículo</legend>
+
+                                <div class="config-vehicle-list d-flex flex-column gap-3">
+
+                                    <!-- Clase A 250e -->
+                                    <div class="card-vehiculo card overflow-hidden position-relative">
+                                        <div class="row g-0">
+                                            <div class="col-sm-5 config-vehiculo-media">
+                                                <img src="images/ClaseA250eSpecialEdition.jpg"
+                                                    alt="Mercedes-Benz Clase A 250e"
+                                                    class="w-100 h-100 object-fit-cover">
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <div class="card-body">
+                                                    <div
+                                                        class="d-flex justify-content-between align-items-start gap-3 mb-2">
+                                                        <span class="badge card-vehiculo-badge">Mercedes-Benz</span>
+                                                        <div class="form-check m-0">
+                                                            <input class="form-check-input" type="radio"
+                                                                name="producto" id="producto-clase-a"
+                                                                value="clase-a-250e" data-linea="mercedes-benz"
+                                                                data-modelo="Clase A 250e" data-precio-mensual="295"
+                                                                data-precio-unico="12467"
+                                                                data-imagen="images/ClaseA250eSpecialEdition.jpg"
+                                                                data-tagline="La puerta de entrada a la estrella."
+                                                                data-specs="Híbrido enchufable · 218 CV · 0-100 6,8 s"
+                                                                data-alt="Mercedes-Benz Clase A 250e"
+                                                                aria-describedby="error-producto">
+                                                            <label class="form-check-label stretched-link"
+                                                                for="producto-clase-a">
+                                                                <span class="visually-hidden">Seleccionar Clase A
+                                                                    250e</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <h3 class="h4 mb-1">Clase A 250e</h3>
+                                                    <p class="text-secondary mb-2">La puerta de entrada a la
+                                                        estrella.</p>
+                                                    <p class="small text-secondary mb-3">
+                                                        Híbrido enchufable · 218 CV · 0-100 6,8 s
+                                                    </p>
+                                                    <p class="config-vehiculo-precio mb-0"><strong>295 €/mes</strong>
+                                                    </p>
+                                                    <p class="small text-secondary mb-0">
+                                                        Aportación inicial 12.467 €
+                                                    </p>
+                                                    <span class="card-vehiculo-estado" aria-hidden="true">Seleccionado</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- AMG G 63 -->
+                                    <div class="card-vehiculo card overflow-hidden position-relative">
+                                        <div class="row g-0">
+                                            <div class="col-sm-5 config-vehiculo-media">
+                                                <img src="images/coches/SUV&amp;Todoterreno2.jpg"
+                                                    alt="Mercedes-AMG G 63" class="w-100 h-100 object-fit-cover">
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <div class="card-body">
+                                                    <div
+                                                        class="d-flex justify-content-between align-items-start gap-3 mb-2">
+                                                        <span class="badge card-vehiculo-badge">
+                                                            <img src="images/logo-amg.svg" alt="AMG" height="12">
+                                                        </span>
+                                                        <div class="form-check m-0">
+                                                            <input class="form-check-input" type="radio"
+                                                                name="producto" id="producto-amg" value="amg-g-63"
+                                                                data-linea="amg" data-modelo="Mercedes-AMG G 63"
+                                                                data-precio-mensual="1490" data-precio-unico="45000"
+                                                                data-imagen="images/coches/SUV&amp;Todoterreno2.jpg"
+                                                                data-tagline="Potencia sin filtros."
+                                                                data-specs="V8 biturbo · 585 CV · 0-100 4,5 s"
+                                                                data-alt="Mercedes-AMG G 63"
+                                                                aria-describedby="error-producto">
+                                                            <label class="form-check-label stretched-link"
+                                                                for="producto-amg">
+                                                                <span class="visually-hidden">Seleccionar
+                                                                    Mercedes-AMG G 63</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <h3 class="h4 mb-1">Mercedes-AMG G 63</h3>
+                                                    <p class="text-secondary mb-2">Potencia sin filtros.</p>
+                                                    <p class="small text-secondary mb-3">
+                                                        V8 biturbo · 585 CV · 0-100 4,5 s
+                                                    </p>
+                                                    <p class="config-vehiculo-precio mb-0"><strong>1.490
+                                                            €/mes</strong></p>
+                                                    <p class="small text-secondary mb-0">
+                                                        Aportación inicial 45.000 €
+                                                    </p>
+                                                    <span class="card-vehiculo-estado" aria-hidden="true">Seleccionado</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Maybach S 680 -->
+                                    <div class="card-vehiculo card overflow-hidden position-relative">
+                                        <div class="row g-0">
+                                            <div class="col-sm-5 config-vehiculo-media">
+                                                <img src="images/coches/Berlina1.jpg"
+                                                    alt="Mercedes-Maybach S 680"
+                                                    class="w-100 h-100 object-fit-cover">
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <div class="card-body">
+                                                    <div
+                                                        class="d-flex justify-content-between align-items-start gap-3 mb-2">
+                                                        <span class="badge card-vehiculo-badge">
+                                                            <img src="images/logo-maybach.svg" alt="Maybach"
+                                                                height="12">
+                                                        </span>
+                                                        <div class="form-check m-0">
+                                                            <input class="form-check-input" type="radio"
+                                                                name="producto" id="producto-maybach"
+                                                                value="maybach-s-680" data-linea="maybach"
+                                                                data-modelo="Mercedes-Maybach S 680"
+                                                                data-precio-mensual="1890" data-precio-unico="60000"
+                                                                data-imagen="images/coches/Berlina1.jpg"
+                                                                data-tagline="El lujo que no necesita presentación."
+                                                                data-specs="V12 · 612 CV · 0-100 4,5 s"
+                                                                data-alt="Mercedes-Maybach S 680"
+                                                                aria-describedby="error-producto">
+                                                            <label class="form-check-label stretched-link"
+                                                                for="producto-maybach">
+                                                                <span class="visually-hidden">Seleccionar
+                                                                    Mercedes-Maybach S 680</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <h3 class="h4 mb-1">Mercedes-Maybach S 680</h3>
+                                                    <p class="text-secondary mb-2">El lujo que no necesita
+                                                        presentación.</p>
+                                                    <p class="small text-secondary mb-3">
+                                                        V12 · 612 CV · 0-100 4,5 s
+                                                    </p>
+                                                    <p class="config-vehiculo-precio mb-0"><strong>1.890
+                                                            €/mes</strong></p>
+                                                    <p class="small text-secondary mb-0">
+                                                        Aportación inicial 60.000 €
+                                                    </p>
+                                                    <span class="card-vehiculo-estado" aria-hidden="true">Seleccionado</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <p class="campo-error" id="error-producto" aria-live="polite"></p>
+                            </fieldset>
+
+                            <p class="small text-secondary mb-0">
+                                Precios de simulación. No se realizará ningún cobro.
+                            </p>
+                        </section>
+
+                        <!-- =================================================
+                             PASO 2: EXTRAS (T5)
+                             ================================================= -->
+                        <section class="config-step" id="paso-2" data-paso="2" aria-labelledby="titulo-paso-2" hidden>
+                            <header class="config-step-header mb-4">
+                                <p class="config-eyebrow text-uppercase small text-secondary mb-2">
+                                    Paso 2 · Extras
+                                </p>
+                                <h2 id="titulo-paso-2" class="display-4 mb-2" tabindex="-1">Hazlo tuyo.</h2>
+                                <p class="config-lead text-secondary mb-0">
+                                    Añade solo lo que necesitas. Puedes cambiar de idea cuando quieras.
+                                </p>
+                            </header>
+                            <div id="extrasAviso" class="extras-aviso" role="status" hidden></div>
+
+                            <section class="extras-grupo" aria-labelledby="extras-servicios">
+                                <h3 id="extras-servicios" class="extras-grupo-titulo">Servicios</h3>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="card-extra" for="extra-mantenimiento">
+                                            <span class="card-extra-icono" aria-hidden="true">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <path
+                                                        d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.8 2.8-2.5-.7-.7-2.5 2.8-2.8Z" />
+                                                </svg>
+                                            </span>
+                                            <span class="card-extra-cuerpo">
+                                                <span class="card-extra-titulo">Mantenimiento y neumáticos</span>
+                                                <span class="card-extra-desc">Revisiones, mantenimiento y neumáticos
+                                                    incluidos.</span>
+                                                <span class="card-extra-precio">35 €/mes</span>
+                                                <span class="card-extra-tipo">Recurrente</span>
+                                            </span>
+                                            <span class="card-extra-control">
+                                                <input class="form-check-input" type="checkbox"
+                                                    id="extra-mantenimiento" name="extras" value="mantenimiento"
+                                                    data-nombre="Mantenimiento y neumáticos" data-precio-mensual="35"
+                                                    data-precio-unico="0" data-tipo="mensual" disabled>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="card-extra" for="extra-seguro">
+                                            <span class="card-extra-icono" aria-hidden="true">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M12 3l7 3v5c0 4.4-2.9 7.4-7 9-4.1-1.6-7-4.6-7-9V6l7-3Z" />
+                                                    <path d="m9 12 2 2 4-4" />
+                                                </svg>
+                                            </span>
+                                            <span class="card-extra-cuerpo">
+                                                <span class="card-extra-titulo">Seguro a todo riesgo</span>
+                                                <span class="card-extra-desc">Cobertura completa con franquicia
+                                                    reducida.</span>
+                                                <span class="card-extra-precio">45 €/mes</span>
+                                                <span class="card-extra-tipo">Recurrente</span>
+                                            </span>
+                                            <span class="card-extra-control">
+                                                <input class="form-check-input" type="checkbox" id="extra-seguro"
+                                                    name="extras" value="seguro" data-nombre="Seguro a todo riesgo"
+                                                    data-precio-mensual="45" data-precio-unico="0" data-tipo="mensual"
+                                                    disabled>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section class="extras-grupo" aria-labelledby="extras-tecnologia-confort">
+                                <h3 id="extras-tecnologia-confort" class="extras-grupo-titulo">Tecnología y confort</h3>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="card-extra" for="extra-wallbox">
+                                            <span class="card-extra-icono" aria-hidden="true">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" />
+                                                </svg>
+                                            </span>
+                                            <span class="card-extra-cuerpo">
+                                                <span class="card-extra-titulo">Wallbox y instalación</span>
+                                                <span class="card-extra-desc">Cargador doméstico instalado en tu
+                                                    plaza.</span>
+                                                <span class="card-extra-precio">1.200 €</span>
+                                                <span class="card-extra-tipo">Pago único</span>
+                                                <span class="card-extra-nota">Solo disponible para Clase A 250e.</span>
+                                            </span>
+                                            <span class="card-extra-control">
+                                                <input class="form-check-input" type="checkbox" id="extra-wallbox"
+                                                    name="extras" value="wallbox" data-nombre="Wallbox y instalación"
+                                                    data-precio-mensual="0" data-precio-unico="1200" data-tipo="unico"
+                                                    data-requiere="clase-a-250e"
+                                                    data-requiere-texto="Clase A 250e" disabled>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="card-extra" for="extra-amg-night">
+                                            <span class="card-extra-icono" aria-hidden="true">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <path
+                                                        d="m12 3 2.6 5.3 5.9.9-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9L3.5 9.2l5.9-.9L12 3Z" />
+                                                </svg>
+                                            </span>
+                                            <span class="card-extra-cuerpo">
+                                                <span class="card-extra-titulo">Pack AMG Night</span>
+                                                <span class="card-extra-desc">Detalles exteriores e interiores de
+                                                    inspiración AMG.</span>
+                                                <span class="card-extra-precio">1.500 €</span>
+                                                <span class="card-extra-tipo">Pago único</span>
+                                                <span class="card-extra-nota">Solo disponible para AMG G 63 · No
+                                                    compatible con Pack Confort.</span>
+                                            </span>
+                                            <span class="card-extra-control">
+                                                <input class="form-check-input" type="checkbox" id="extra-amg-night"
+                                                    name="extras" value="pack-amg-night" data-nombre="Pack AMG Night"
+                                                    data-precio-mensual="0" data-precio-unico="1500" data-tipo="unico"
+                                                    data-requiere="amg-g-63" data-requiere-texto="Mercedes-AMG G 63"
+                                                    data-incompatible="extra-confort" disabled>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="card-extra" for="extra-chofer">
+                                            <span class="card-extra-icono" aria-hidden="true">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <circle cx="12" cy="8" r="3" />
+                                                    <path d="M5 21a7 7 0 0 1 14 0" />
+                                                </svg>
+                                            </span>
+                                            <span class="card-extra-cuerpo">
+                                                <span class="card-extra-titulo">Pack Chófer</span>
+                                                <span class="card-extra-desc">Asientos executive y experiencia
+                                                    trasera premium.</span>
+                                                <span class="card-extra-precio">2.500 €</span>
+                                                <span class="card-extra-tipo">Pago único</span>
+                                                <span class="card-extra-nota">Solo disponible para Maybach S 680.</span>
+                                            </span>
+                                            <span class="card-extra-control">
+                                                <input class="form-check-input" type="checkbox" id="extra-chofer"
+                                                    name="extras" value="pack-chofer" data-nombre="Pack Chófer"
+                                                    data-precio-mensual="0" data-precio-unico="2500" data-tipo="unico"
+                                                    data-requiere="maybach-s-680"
+                                                    data-requiere-texto="Mercedes-Maybach S 680" disabled>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="card-extra" for="extra-confort">
+                                            <span class="card-extra-icono" aria-hidden="true">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M5 11V8a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v3" />
+                                                    <path d="M5 11h14v6a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3v-6Z" />
+                                                    <path d="M7 17h10" />
+                                                </svg>
+                                            </span>
+                                            <span class="card-extra-cuerpo">
+                                                <span class="card-extra-titulo">Pack Confort</span>
+                                                <span class="card-extra-desc">Asientos ventilados, masaje y confort
+                                                    adicional.</span>
+                                                <span class="card-extra-precio">900 €</span>
+                                                <span class="card-extra-tipo">Pago único</span>
+                                                <span class="card-extra-nota">No compatible con Pack AMG Night.</span>
+                                            </span>
+                                            <span class="card-extra-control">
+                                                <input class="form-check-input" type="checkbox" id="extra-confort"
+                                                    name="extras" value="pack-confort" data-nombre="Pack Confort"
+                                                    data-precio-mensual="0" data-precio-unico="900" data-tipo="unico"
+                                                    data-incompatible="extra-amg-night" disabled>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <p class="campo-error" id="error-extras" aria-live="polite"></p>
+
+                            <div class="extras-resumen" aria-live="polite">
+                                <p class="extras-resumen-titulo mb-1">Tu selección</p>
+                                <p id="extrasResumenTexto" class="mb-0">Sin extras seleccionados.</p>
+                            </div>
+                        </section>
+
+                        <!-- =================================================
+                             PASO 3: DATOS PERSONALES (T6)
+                             ================================================= -->
+                        <section class="config-step" id="paso-3" data-paso="3" aria-labelledby="titulo-paso-3" hidden>
+                            <header class="config-step-header mb-4">
+                                <p class="config-eyebrow text-uppercase small text-secondary mb-2">
+                                    Paso 3 · Datos
+                                </p>
+                                <h2 id="titulo-paso-3" class="display-4 mb-2" tabindex="-1">Cuéntanos quién eres.</h2>
+                                <p class="config-lead text-secondary mb-0">
+                                    Necesitamos tus datos para preparar la solicitud. Debes ser mayor de 18 años.
+                                </p>
+                            </header>
+                            <div class="datos-panel">
+                                <p class="config-eyebrow mb-3">Persona contratante</p>
+
+                                <div class="row g-3 g-md-4">
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="nombre">Nombre</label>
+                                            <input class="campo-input" id="nombre" name="nombre" type="text"
+                                                autocomplete="given-name" placeholder="Ana"
+                                                aria-describedby="ayuda-nombre error-nombre" required>
+                                            <p class="campo-help" id="ayuda-nombre">Tal como aparece en tu DNI.</p>
+                                            <p class="campo-error" id="error-nombre" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="apellidos">Apellidos</label>
+                                            <input class="campo-input" id="apellidos" name="apellidos" type="text"
+                                                autocomplete="family-name" placeholder="García López"
+                                                aria-describedby="ayuda-apellidos error-apellidos" required>
+                                            <p class="campo-help" id="ayuda-apellidos">Incluye los dos apellidos si los
+                                                tienes.</p>
+                                            <p class="campo-error" id="error-apellidos" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="dni">DNI</label>
+                                            <input class="campo-input" id="dni" name="dni" type="text"
+                                                autocomplete="off" inputmode="text" maxlength="9"
+                                                placeholder="12345678Z" aria-describedby="ayuda-dni error-dni" required>
+                                            <p class="campo-help" id="ayuda-dni">8 cifras y letra de control.</p>
+                                            <p class="campo-error" id="error-dni" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="fechaNacimiento">Fecha de nacimiento</label>
+                                            <input class="campo-input" id="fechaNacimiento" name="fechaNacimiento"
+                                                type="date" autocomplete="bday"
+                                                aria-describedby="ayuda-fechaNacimiento error-fechaNacimiento" required>
+                                            <p class="campo-help" id="ayuda-fechaNacimiento">Debes tener al menos 18 años.
+                                            </p>
+                                            <p class="campo-error" id="error-fechaNacimiento" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="email">Correo electrónico</label>
+                                            <input class="campo-input" id="email" name="email" type="email"
+                                                autocomplete="email" inputmode="email"
+                                                placeholder="ana.garcia@example.com"
+                                                aria-describedby="ayuda-email error-email" required>
+                                            <p class="campo-help" id="ayuda-email">Te enviaremos la confirmación de la
+                                                solicitud.</p>
+                                            <p class="campo-error" id="error-email" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="emailConfirmacion">Confirma tu correo</label>
+                                            <input class="campo-input" id="emailConfirmacion" name="emailConfirmacion"
+                                                type="email" autocomplete="email" inputmode="email"
+                                                placeholder="ana.garcia@example.com"
+                                                aria-describedby="ayuda-emailConfirmacion error-emailConfirmacion"
+                                                required>
+                                            <p class="campo-help" id="ayuda-emailConfirmacion">Debe coincidir con el correo
+                                                anterior.</p>
+                                            <p class="campo-error" id="error-emailConfirmacion" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="telefono">Teléfono</label>
+                                            <input class="campo-input" id="telefono" name="telefono" type="tel"
+                                                autocomplete="tel" inputmode="tel" maxlength="15"
+                                                placeholder="612 345 678"
+                                                aria-describedby="ayuda-telefono error-telefono" required>
+                                            <p class="campo-help" id="ayuda-telefono">9 cifras. Puedes usar espacios o el
+                                                prefijo +34.</p>
+                                            <p class="campo-error" id="error-telefono" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 d-flex">
+                                        <div class="datos-nota">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20"
+                                                height="20" fill="none" stroke="currentColor" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                <rect x="4" y="10" width="16" height="11" rx="2"></rect>
+                                                <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+                                            </svg>
+                                            <p class="mb-0">Tus datos se usan solo para esta simulación. No se envían a
+                                                ningún servidor.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- =================================================
+                             PASO 4: DIRECCIÓN (T7)
+                             ================================================= -->
+                        <section class="config-step" id="paso-4" data-paso="4" aria-labelledby="titulo-paso-4" hidden>
+                            <header class="config-step-header mb-4">
+                                <p class="config-eyebrow text-uppercase small text-secondary mb-2">
+                                    Paso 4 · Dirección
+                                </p>
+                                <h2 id="titulo-paso-4" class="display-4 mb-2" tabindex="-1">
+                                    ¿Dónde te llevamos tu Mercedes?
+                                </h2>
+                                <p class="config-lead text-secondary mb-0">
+                                    Solo admitimos direcciones de España.
+                                </p>
+                            </header>
+                            <div class="direccion-panel">
+                                <div class="d-flex justify-content-between align-items-center gap-3 mb-3">
+                                    <p class="config-eyebrow mb-0">Dirección de entrega</p>
+                                    <span class="direccion-pais">Solo España</span>
+                                </div>
+
+                                <div class="row g-3 g-md-4">
+                                    <div class="col-md-4">
+                                        <div class="campo">
+                                            <label class="campo-label" for="tipoVia">Tipo de vía</label>
+                                            <select class="campo-select" id="tipoVia" name="tipoVia"
+                                                autocomplete="off" aria-describedby="ayuda-tipoVia error-tipoVia"
+                                                required>
+                                                <option value="" selected disabled>Selecciona</option>
+                                                <option value="Calle">Calle</option>
+                                                <option value="Avenida">Avenida</option>
+                                                <option value="Plaza">Plaza</option>
+                                                <option value="Paseo">Paseo</option>
+                                                <option value="Camino">Camino</option>
+                                                <option value="Ronda">Ronda</option>
+                                                <option value="Carretera">Carretera</option>
+                                                <option value="Travesía">Travesía</option>
+                                            </select>
+                                            <p class="campo-help" id="ayuda-tipoVia">Calle, avenida, plaza...</p>
+                                            <p class="campo-error" id="error-tipoVia" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="campo">
+                                            <label class="campo-label" for="nombreVia">Nombre de la vía</label>
+                                            <input class="campo-input" id="nombreVia" name="nombreVia" type="text"
+                                                autocomplete="address-line1" placeholder="Alcalá"
+                                                aria-describedby="ayuda-nombreVia error-nombreVia" required>
+                                            <p class="campo-help" id="ayuda-nombreVia">Sin incluir el número.</p>
+                                            <p class="campo-error" id="error-nombreVia" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="campo">
+                                            <label class="campo-label" for="numero">Número</label>
+                                            <input class="campo-input" id="numero" name="numero" type="text"
+                                                autocomplete="off" inputmode="text" placeholder="50"
+                                                aria-describedby="ayuda-numero error-numero" required>
+                                            <p class="campo-help" id="ayuda-numero">Número o “s/n”.</p>
+                                            <p class="campo-error" id="error-numero" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="campo">
+                                            <label class="campo-label" for="piso">Piso / puerta <span
+                                                    class="campo-opcional">(opcional)</span></label>
+                                            <input class="campo-input" id="piso" name="piso" type="text"
+                                                autocomplete="address-line2" placeholder="3º B"
+                                                aria-describedby="ayuda-piso error-piso">
+                                            <p class="campo-help" id="ayuda-piso">Piso, puerta o escalera.</p>
+                                            <p class="campo-error" id="error-piso" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="campo">
+                                            <label class="campo-label" for="codigoPostal">Código postal</label>
+                                            <input class="campo-input" id="codigoPostal" name="codigoPostal"
+                                                type="text" autocomplete="postal-code" inputmode="numeric"
+                                                maxlength="5" placeholder="28014"
+                                                aria-describedby="ayuda-codigoPostal error-codigoPostal" required>
+                                            <p class="campo-help" id="ayuda-codigoPostal">5 cifras. El prefijo debe
+                                                coincidir con la provincia.</p>
+                                            <p class="campo-error" id="error-codigoPostal" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="localidad">Localidad</label>
+                                            <input class="campo-input" id="localidad" name="localidad" type="text"
+                                                autocomplete="address-level2" placeholder="Madrid"
+                                                aria-describedby="ayuda-localidad error-localidad" required>
+                                            <p class="campo-help" id="ayuda-localidad">Municipio de la dirección.</p>
+                                            <p class="campo-error" id="error-localidad" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="provincia">Provincia</label>
+                                            <select class="campo-select" id="provincia" name="provincia"
+                                                autocomplete="address-level1"
+                                                aria-describedby="ayuda-provincia error-provincia" required>
+                                                <option value="" selected disabled>Selecciona una provincia</option>
+                                                <option value="01">Álava</option>
+                                                <option value="02">Albacete</option>
+                                                <option value="03">Alicante</option>
+                                                <option value="04">Almería</option>
+                                                <option value="05">Ávila</option>
+                                                <option value="06">Badajoz</option>
+                                                <option value="07">Illes Balears</option>
+                                                <option value="08">Barcelona</option>
+                                                <option value="09">Burgos</option>
+                                                <option value="10">Cáceres</option>
+                                                <option value="11">Cádiz</option>
+                                                <option value="12">Castellón</option>
+                                                <option value="13">Ciudad Real</option>
+                                                <option value="14">Córdoba</option>
+                                                <option value="15">A Coruña</option>
+                                                <option value="16">Cuenca</option>
+                                                <option value="17">Girona</option>
+                                                <option value="18">Granada</option>
+                                                <option value="19">Guadalajara</option>
+                                                <option value="20">Gipuzkoa</option>
+                                                <option value="21">Huelva</option>
+                                                <option value="22">Huesca</option>
+                                                <option value="23">Jaén</option>
+                                                <option value="24">León</option>
+                                                <option value="25">Lleida</option>
+                                                <option value="26">La Rioja</option>
+                                                <option value="27">Lugo</option>
+                                                <option value="28">Madrid</option>
+                                                <option value="29">Málaga</option>
+                                                <option value="30">Murcia</option>
+                                                <option value="31">Navarra</option>
+                                                <option value="32">Ourense</option>
+                                                <option value="33">Asturias</option>
+                                                <option value="34">Palencia</option>
+                                                <option value="35">Las Palmas</option>
+                                                <option value="36">Pontevedra</option>
+                                                <option value="37">Salamanca</option>
+                                                <option value="38">Santa Cruz de Tenerife</option>
+                                                <option value="39">Cantabria</option>
+                                                <option value="40">Segovia</option>
+                                                <option value="41">Sevilla</option>
+                                                <option value="42">Soria</option>
+                                                <option value="43">Tarragona</option>
+                                                <option value="44">Teruel</option>
+                                                <option value="45">Toledo</option>
+                                                <option value="46">Valencia</option>
+                                                <option value="47">Valladolid</option>
+                                                <option value="48">Bizkaia</option>
+                                                <option value="49">Zamora</option>
+                                                <option value="50">Zaragoza</option>
+                                                <option value="51">Ceuta</option>
+                                                <option value="52">Melilla</option>
+                                            </select>
+                                            <p class="campo-help" id="ayuda-provincia">Debe coincidir con el prefijo del
+                                                código postal.</p>
+                                            <p class="campo-error" id="error-provincia" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- =================================================
+                             PASO 5: PAGO (T8)
+                             ================================================= -->
+                        <section class="config-step" id="paso-5" data-paso="5" aria-labelledby="titulo-paso-5" hidden>
+                            <header class="config-step-header mb-4">
+                                <p class="config-eyebrow text-uppercase small text-secondary mb-2">
+                                    Paso 5 · Pago
+                                </p>
+                                <h2 id="titulo-paso-5" class="display-4 mb-2" tabindex="-1">Elige cómo pagar.</h2>
+                                <p class="config-lead text-secondary mb-0">
+                                    Domiciliación bancaria o tarjeta simulada. No se realizará ningún cargo.
+                                </p>
+                            </header>
+                            <fieldset class="pago-metodos">
+                                <legend class="visually-hidden">Método de pago</legend>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="pago-opcion" for="metodoDomiciliacion">
+                                            <span class="pago-opcion-icono" aria-hidden="true">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22"
+                                                    height="22" fill="none" stroke="currentColor" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M3 10h18"></path>
+                                                    <path d="M5 10V7l7-4 7 4v3"></path>
+                                                    <path d="M5 10v9h14v-9"></path>
+                                                    <path d="M9 19v-5h6v5"></path>
+                                                </svg>
+                                            </span>
+                                            <span class="pago-opcion-cuerpo">
+                                                <span class="pago-opcion-titulo">Domiciliación bancaria</span>
+                                                <span class="pago-opcion-desc">Cargo mensual en tu cuenta.</span>
+                                            </span>
+                                            <span class="pago-opcion-control">
+                                                <input class="form-check-input" type="radio" name="metodoPago"
+                                                    id="metodoDomiciliacion" value="domiciliacion" checked>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="pago-opcion" for="metodoTarjeta">
+                                            <span class="pago-opcion-icono" aria-hidden="true">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22"
+                                                    height="22" fill="none" stroke="currentColor" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                                                    <path d="M3 10h18"></path>
+                                                    <path d="M7 15h3"></path>
+                                                </svg>
+                                            </span>
+                                            <span class="pago-opcion-cuerpo">
+                                                <span class="pago-opcion-titulo">Tarjeta</span>
+                                                <span class="pago-opcion-desc">Tarjeta simulada, sin cobros
+                                                    reales.</span>
+                                            </span>
+                                            <span class="pago-opcion-control">
+                                                <input class="form-check-input" type="radio" name="metodoPago"
+                                                    id="metodoTarjeta" value="tarjeta">
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <p class="campo-error" id="error-metodoPago" aria-live="polite"></p>
+
+                            <div id="pagoDomiciliacion" class="pago-panel mt-4" role="group"
+                                aria-labelledby="tituloPagoDomiciliacion">
+                                <h3 id="tituloPagoDomiciliacion" class="pago-panel-titulo">Datos de la domiciliación</h3>
+                                <div class="row g-3 g-md-4">
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="titularCuenta">Titular de la cuenta</label>
+                                            <input class="campo-input" id="titularCuenta" name="titularCuenta"
+                                                type="text" autocomplete="name" placeholder="Ana García López"
+                                                aria-describedby="ayuda-titularCuenta error-titularCuenta" required>
+                                            <p class="campo-help" id="ayuda-titularCuenta">Tal como aparece en la cuenta.
+                                            </p>
+                                            <p class="campo-error" id="error-titularCuenta" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="iban">IBAN</label>
+                                            <input class="campo-input" id="iban" name="iban" type="text"
+                                                autocomplete="off" inputmode="text" maxlength="34"
+                                                placeholder="ES91 2100 0418 4502 0005 1332"
+                                                aria-describedby="ayuda-iban error-iban" required>
+                                            <p class="campo-help" id="ayuda-iban">IBAN español: ES + 22 cifras. Puedes
+                                                usar espacios.</p>
+                                            <p class="campo-error" id="error-iban" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="pago-nota">No se realizará ningún cargo. Esta es una simulación.</p>
+                            </div>
+
+                            <div id="pagoTarjeta" class="pago-panel mt-4" role="group"
+                                aria-labelledby="tituloPagoTarjeta" hidden>
+                                <h3 id="tituloPagoTarjeta" class="pago-panel-titulo">Datos de la tarjeta</h3>
+
+                                <div class="tarjeta-simulada mb-4" aria-hidden="true">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <img src="images/logo-140years.gif" alt=""
+                                            class="tarjeta-simulada-logo">
+                                        <span class="tarjeta-simulada-chip"></span>
+                                    </div>
+                                    <p class="tarjeta-simulada-numero" id="tarjetaVisualNumero">•••• •••• •••• ••••</p>
+                                    <div class="tarjeta-simulada-pie">
+                                        <span id="tarjetaVisualTitular">TITULAR</span>
+                                        <span id="tarjetaVisualCaducidad">MM/AA</span>
+                                    </div>
+                                </div>
+
+                                <div class="row g-3 g-md-4">
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="titularTarjeta">Titular de la tarjeta</label>
+                                            <input class="campo-input" id="titularTarjeta" name="titularTarjeta"
+                                                type="text" autocomplete="cc-name" placeholder="Ana García López"
+                                                aria-describedby="ayuda-titularTarjeta error-titularTarjeta" required
+                                                disabled>
+                                            <p class="campo-help" id="ayuda-titularTarjeta">Tal como aparece en la
+                                                tarjeta.</p>
+                                            <p class="campo-error" id="error-titularTarjeta" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="numeroTarjeta">Número de tarjeta</label>
+                                            <input class="campo-input" id="numeroTarjeta" name="numeroTarjeta"
+                                                type="text" autocomplete="cc-number" inputmode="numeric"
+                                                maxlength="19" placeholder="4242 4242 4242 4242"
+                                                aria-describedby="ayuda-numeroTarjeta error-numeroTarjeta" required
+                                                disabled>
+                                            <p class="campo-help" id="ayuda-numeroTarjeta">16 cifras. Tarjeta simulada.
+                                            </p>
+                                            <p class="campo-error" id="error-numeroTarjeta" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="caducidad">Caducidad</label>
+                                            <input class="campo-input" id="caducidad" name="caducidad" type="text"
+                                                autocomplete="cc-exp" inputmode="numeric" maxlength="5"
+                                                placeholder="MM/AA" aria-describedby="ayuda-caducidad error-caducidad"
+                                                required disabled>
+                                            <p class="campo-help" id="ayuda-caducidad">Formato MM/AA, no anterior al mes
+                                                actual.</p>
+                                            <p class="campo-error" id="error-caducidad" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="campo">
+                                            <label class="campo-label" for="cvv">CVV</label>
+                                            <input class="campo-input" id="cvv" name="cvv" type="text"
+                                                autocomplete="cc-csc" inputmode="numeric" maxlength="3"
+                                                placeholder="123" aria-describedby="ayuda-cvv error-cvv" required
+                                                disabled>
+                                            <p class="campo-help" id="ayuda-cvv">3 cifras del reverso de la tarjeta.</p>
+                                            <p class="campo-error" id="error-cvv" aria-live="polite"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="pago-nota">Simulación: no se realizará ningún cargo.</p>
+                            </div>
+                        </section>
+
+                        <!-- =================================================
+                             PASO 6: RESUMEN Y CONFIRMACIÓN (T9)
+                             ================================================= -->
+                        <section class="config-step" id="paso-6" data-paso="6" aria-labelledby="titulo-paso-6" hidden>
+                            <header class="config-step-header mb-4">
+                                <p class="config-eyebrow text-uppercase small text-secondary mb-2">
+                                    Paso 6 · Resumen
+                                </p>
+                                <h2 id="titulo-paso-6" class="display-4 mb-2" tabindex="-1">Revisa y confirma.</h2>
+                                <p class="config-lead text-secondary mb-0">
+                                    Comprueba tu configuración antes de enviar la solicitud.
+                                </p>
+                            </header>
+                            <div class="resumen-bloque">
+                                <div class="resumen-bloque-header">
+                                    <h3 class="resumen-bloque-titulo">Vehículo</h3>
+                                    <button type="button" class="resumen-editar" data-ir-a="1">Editar</button>
+                                </div>
+                                <div id="resumenProducto"></div>
+                            </div>
+
+                            <div class="resumen-bloque">
+                                <div class="resumen-bloque-header">
+                                    <h3 class="resumen-bloque-titulo">Extras</h3>
+                                    <button type="button" class="resumen-editar" data-ir-a="2">Editar</button>
+                                </div>
+                                <div id="resumenExtras"></div>
+                            </div>
+
+                            <div class="resumen-bloque">
+                                <div class="resumen-bloque-header">
+                                    <h3 class="resumen-bloque-titulo">Datos personales</h3>
+                                    <button type="button" class="resumen-editar" data-ir-a="3">Editar</button>
+                                </div>
+                                <div id="resumenDatos"></div>
+                            </div>
+
+                            <div class="resumen-bloque">
+                                <div class="resumen-bloque-header">
+                                    <h3 class="resumen-bloque-titulo">Dirección</h3>
+                                    <button type="button" class="resumen-editar" data-ir-a="4">Editar</button>
+                                </div>
+                                <div id="resumenDireccion"></div>
+                            </div>
+
+                            <div class="resumen-bloque">
+                                <div class="resumen-bloque-header">
+                                    <h3 class="resumen-bloque-titulo">Pago</h3>
+                                    <button type="button" class="resumen-editar" data-ir-a="5">Editar</button>
+                                </div>
+                                <div id="resumenPago"></div>
+                            </div>
+
+                            <div class="resumen-bloque">
+                                <div class="resumen-bloque-header">
+                                    <h3 class="resumen-bloque-titulo">Total de la simulación</h3>
+                                </div>
+                                <div id="desglosePrecios">
+                                    <div class="desglose">
+                                        <div>
+                                            <span class="desglose-label">Hoy pagas</span>
+                                            <span class="desglose-cifra" id="totalHoy">—</span>
+                                        </div>
+                                        <div>
+                                            <span class="desglose-label">Cada mes</span>
+                                            <span class="desglose-cifra" id="totalMensual">—</span>
+                                        </div>
+                                    </div>
+                                    <dl class="mb-0">
+                                        <div class="resumen-fila">
+                                            <dt>Aportación inicial</dt>
+                                            <dd id="lineaAportacion">—</dd>
+                                        </div>
+                                        <div class="resumen-fila">
+                                            <dt>Extras de pago único</dt>
+                                            <dd id="lineaExtrasUnicos">—</dd>
+                                        </div>
+                                        <div class="resumen-fila">
+                                            <dt>Cuota mensual</dt>
+                                            <dd id="lineaCuota">—</dd>
+                                        </div>
+                                        <div class="resumen-fila">
+                                            <dt>Extras mensuales</dt>
+                                            <dd id="lineaExtrasMensuales">—</dd>
+                                        </div>
+                                    </dl>
+                                    <p class="desglose-nota">Los pagos únicos y las cuotas se muestran por separado.
+                                        Precios de simulación.</p>
+                                </div>
+                            </div>
+
+                            <div class="resumen-bloque">
+                                <div class="resumen-bloque-header">
+                                    <h3 class="resumen-bloque-titulo">Antes de confirmar</h3>
+                                </div>
+                                <p class="resumen-legal-intro">Debes aceptar las dos primeras casillas para enviar la
+                                    solicitud.</p>
+
+                                <div class="legal-check">
+                                    <input class="form-check-input" type="checkbox" id="aceptoCondiciones"
+                                        name="aceptoCondiciones" required
+                                        aria-describedby="error-aceptoCondiciones">
+                                    <div class="legal-check-texto">
+                                        <label class="form-check-label" for="aceptoCondiciones">Acepto las condiciones de
+                                            contratación.</label>
+                                        <a href="#" class="legal-check-enlace" data-bs-toggle="modal"
+                                            data-bs-target="#modalCondiciones">Leer condiciones</a>
+                                        <p class="campo-error" id="error-aceptoCondiciones" aria-live="polite"></p>
+                                    </div>
+                                </div>
+
+                                <div class="legal-check">
+                                    <input class="form-check-input" type="checkbox" id="aceptoPrivacidad"
+                                        name="aceptoPrivacidad" required aria-describedby="error-aceptoPrivacidad">
+                                    <div class="legal-check-texto">
+                                        <label class="form-check-label" for="aceptoPrivacidad">Acepto la política de
+                                            privacidad.</label>
+                                        <a href="#" class="legal-check-enlace" data-bs-toggle="modal"
+                                            data-bs-target="#modalPrivacidad">Leer privacidad</a>
+                                        <p class="campo-error" id="error-aceptoPrivacidad" aria-live="polite"></p>
+                                    </div>
+                                </div>
+
+                                <div class="legal-check">
+                                    <input class="form-check-input" type="checkbox" id="aceptoComercial"
+                                        name="aceptoComercial">
+                                    <div class="legal-check-texto">
+                                        <label class="form-check-label" for="aceptoComercial">Acepto recibir
+                                            comunicaciones comerciales (opcional).</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Navegación -->
+                        <div
+                            class="config-actions d-flex justify-content-between align-items-center gap-3 mt-4 pt-4 border-top">
+                            <button type="button" id="btnAnterior"
+                                class="btn btn-outline-dark rounded-pill px-4 btn-config btn-config-outline" disabled>
+                                Anterior
+                            </button>
+                            <button type="button" id="btnSiguiente"
+                                class="btn btn-dark rounded-pill px-4 btn-config">
+                                Siguiente
+                            </button>
+                            <button type="button" id="btnConfirmar"
+                                class="btn btn-dark rounded-pill px-4 btn-config" hidden>
+                                Confirmar solicitud
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Columna derecha: showroom -->
+            <aside class="col-12 col-xl-5 config-showroom bg-dark text-white p-3 p-xl-4"
+                aria-label="Resumen de tu configuración">
+                <div class="config-showroom-stage d-flex align-items-center justify-content-center mb-4">
+                    <img id="showroomImagen" src="images/welcomehome.jpg"
+                        alt="Mercedes-Benz de perfil en estudio" class="img-fluid">
+                </div>
+
+                <p class="config-eyebrow text-uppercase small text-white-50 mb-2">Tu configuración</p>
+                <p id="showroomLinea" class="config-showroom-linea mb-1">Mercedes-Benz</p>
+                <h2 id="showroomModelo" class="h3 mb-2" aria-live="polite">Selecciona tu Mercedes</h2>
+                <p id="showroomTagline" class="text-white-50 mb-2">Elige un vehículo para empezar.</p>
+                <p id="showroomSpecs" class="config-showroom-specs text-white-50 mb-4" hidden></p>
+
+                <dl class="row small mb-4">
+                    <dt class="col-6 fw-normal text-white-50">Vehículo</dt>
+                    <dd id="showroomVehiculo" class="col-6 text-end mb-2">—</dd>
+                    <dt class="col-6 fw-normal text-white-50">Extras</dt>
+                    <dd id="showroomExtras" class="col-6 text-end mb-2">—</dd>
+                    <dt class="col-6 fw-normal text-white-50">Pago único</dt>
+                    <dd id="showroomPagoUnico" class="col-6 text-end mb-2">—</dd>
+                    <dt class="col-6 fw-normal text-white-50">Cuota</dt>
+                    <dd id="showroomCuota" class="col-6 text-end mb-0">—</dd>
+                </dl>
+
+                <p class="small text-white-50 mb-0">
+                    Precios de simulación. No se realizará ningún cobro.
+                </p>
+            </aside>
+        </div>
+    </main>
+
+    <!-- =========================================================
+         PIE LEGAL MÍNIMO
+         ========================================================= -->
+    <footer class="config-footer bg-black text-white py-3">
+        <div
+            class="container-fluid px-3 px-lg-4 d-flex flex-column flex-md-row justify-content-between gap-2 small">
+            <p class="mb-0">© 2026 Mercedes-Benz. Simulación de contratación sin validez contractual.</p>
+            <p class="mb-0 text-white-50">Configurador de demostración · Sin cobros reales</p>
+        </div>
+    </footer>
+
+    <!-- Modales legales de demostración -->
+    <div class="modal fade" id="modalCondiciones" tabindex="-1" aria-labelledby="modalCondicionesLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="modalCondicionesLabel">Condiciones de contratación</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Este texto es una demostración para la Práctica 2 de Desarrollo de Interfaces. La solicitud
+                        no tiene validez contractual y no se realizará ningún cobro.</p>
+                    <p>La simulación utiliza datos y precios ficticios. La confirmación representa una solicitud
+                        registrada en la demostración, no una contratación real.</p>
+                    <p>El vehículo, los extras, la forma de pago y los importes mostrados son orientativos y pueden
+                        cambiar antes de la confirmación.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-config btn-config-outline" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalPrivacidad" tabindex="-1" aria-labelledby="modalPrivacidadLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="modalPrivacidadLabel">Política de privacidad</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Los datos introducidos se utilizan únicamente en esta simulación local y no se envían a
+                        ningún servidor.</p>
+                    <p>No se comparten con terceros ni se utilizan para comunicaciones reales. La casilla de
+                        comunicaciones comerciales es opcional.</p>
+                    <p>Esta política es un texto de demostración y no sustituye a una política de privacidad real.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-config btn-config-outline" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/contratacion.js"></script>
+    <script src="js/precios.js"></script>
+    <script src="js/vehiculo.js"></script>
+    <script src="js/extras.js"></script>
+    <script src="js/datos.js"></script>
+    <script src="js/direccion.js"></script>
+    <script src="js/pago.js"></script>
+    <script src="js/resumen.js"></script>
+    <script src="js/validaciones.js"></script>
+    <script src="js/envio.js"></script>
+</body>
+
+</html>

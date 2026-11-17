@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mercedes-Benz | España - Sitio web oficial</title>
+    <link rel="icon" href="images/logo-140years.gif" type="image/gif">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/custom-css.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -293,7 +294,7 @@
                         <p class="mb-3 text-light">Híbrido o eléctrico.</p>
                         <div class="d-flex align-items-center gap-3">
                             <a href="#" class="btn btn-primary rounded-pill px-4">Descúbrelo</a>
-                            <a href="#" class="link-mercedes fw-semibold ps-1">Pruébalo</a>
+                            <a href="contratacion.html" class="link-mercedes fw-semibold ps-1">Pruébalo</a>
                         </div>
                     </div>
                 </div>
@@ -307,7 +308,7 @@
                         <h3 class="h4 fw-bold mb-1">Siente la emoción de poner a prueba un Mercedes-Benz.</h3>
                         <p class="mb-3 text-light">Prueba de vehículo.</p>
                         <div>
-                            <a href="#" class="btn btn-primary rounded-pill px-4">Solicita una prueba</a>
+                            <a href="contratacion.html" class="btn btn-primary rounded-pill px-4">Solicita una prueba</a>
                         </div>
                     </div>
                 </div>
@@ -476,7 +477,7 @@
                     <div class="card-oferta-body d-flex flex-column flex-grow-1">
                         <h3 class="card-oferta-titulo mb-3">Tenemos las ofertas más atractivas para ti.</h3>
                         <p class="card-oferta-parrafo mb-0">Encuentra la tuya en la amplia gama de Mercedes-Benz.</p>
-                        <a href="#" class="btn btn-promo mt-auto">Ver ofertas</a>
+                        <a href="contratacion.html" class="btn btn-promo mt-auto">Configura y contrata</a>
                     </div>
                 </div>
             </div>
@@ -485,7 +486,7 @@
     </section>
 
     <!-- SERVICIO POSVENTA Y ACCESORIOS -->
-    <section class="container-xl py-5">
+    <section class="container-xl py-5 overflow-hidden">
         <!-- Título principal -->
         <h2 class="title-recomendaciones fw-normal mb-5">Servicio posventa y accesorios.</h2>
 
@@ -622,7 +623,7 @@
 
             <!-- Tarjeta 3: prueba un Mercedes-Benz -->
             <div class="col">
-                <a href="#"
+                <a href="contratacion.html"
                     class="card-atajo h-100 d-flex flex-column align-items-center justify-content-center text-center text-decoration-none text-dark rounded-4 shadow-sm p-4">
                     <svg class="atajo-icono mb-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 73.2 73.1">
                         <path
@@ -778,7 +779,7 @@
                     <h3 class="footer-titulo">Guía de compra</h3>
                     <ul class="list-unstyled footer-enlaces mb-0">
                         <li><a href="#">Calculadora de leasing y financiación</a></li>
-                        <li><a href="#">Prueba un Mercedes-Benz</a></li>
+                        <li><a href="contratacion.html">Prueba un Mercedes-Benz</a></li>
                         <li><a href="#">Buscar concesionarios</a></li>
                         <li><a href="#">Extras Digitales</a></li>
                         <li><a href="#">Catálogos y precios</a></li>
@@ -880,6 +881,25 @@
 
     </footer>
 
+    <!-- Modal de confirmación: solo se abre al volver del formulario con una solicitud registrada -->
+    <div class="modal fade" id="modalSolicitud" tabindex="-1" aria-labelledby="modalSolicitudLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0 pb-0">
+                    <h2 class="modal-title h3" id="modalSolicitudLabel">Solicitud registrada correctamente</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="mb-0">Hemos registrado tu solicitud de simulación. No se ha realizado ningún cobro.</p>
+                </div>
+                <div class="modal-footer border-0 pt-0">
+                    <button type="button" class="btn btn-dark rounded-pill px-4" data-bs-dismiss="modal">Seguir
+                        navegando</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Giro de los coches de la gama -->
     <script src="js/gama.js"></script>
 
@@ -908,6 +928,7 @@
 
     <!-- Script de Bootstrap -->
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/confirmacion.js"></script>
 </body>
 
 </html>
